@@ -565,6 +565,36 @@
       }).format(value instanceof Date ? value : new Date(value));
     }
 
+    function getLocalMidnightTicks(points) {
+      if (!points.length) return [];
+
+      const dates = points.map(p => new Date(p.timestamp_utc));
+      const start = new Date(Math.min(...dates));
+      const end = new Date(Math.max(...dates));
+
+      // Plotly renders date axes in the viewer's local timezone.
+      // These ticks therefore align the vertical grid lines to local midnight.
+      const cursor = new Date(start.getFullYear(), start.getMonth(), start.getDate());
+      const final = new Date(end.getFullYear(), end.getMonth(), end.getDate() + 1);
+      const ticks = [];
+
+      while (cursor <= final) {
+        ticks.push(new Date(cursor));
+        cursor.setDate(cursor.getDate() + 1);
+      }
+
+      return ticks;
+    }
+
+    function getLocalMidnightTickLabels(ticks) {
+      return ticks.map(dt =>
+        new Intl.DateTimeFormat(undefined, {
+          month: "short",
+          day: "numeric"
+        }).format(dt)
+      );
+    }
+
     function dayKey(timestamp) {
       return new Date(timestamp).toISOString().slice(0, 10);
     }
@@ -699,7 +729,9 @@
         }
       ];
 
-      Plotly.react("priceChart", traces, baseLayout(`${unitLabel()}`, true), plotConfig());
+      const midnightTicks = getLocalMidnightTicks(points);
+      const layout = baseLayout(`${unitLabel()}`, true, midnightTicks);
+      Plotly.react("priceChart", traces, layout, plotConfig());
     }
 
     function plotRisk(points) {
@@ -730,7 +762,8 @@
         name: "Negative-price probability"
       }];
 
-      const layout = baseLayout("% probability", false);
+      const midnightTicks = getLocalMidnightTicks(points);
+      const layout = baseLayout("% probability", false, midnightTicks);
       layout.yaxis.range = [0, Math.max(20, Math.ceil(Math.max(...y, 1) / 10) * 10)];
       layout.shapes = [
         {
@@ -747,7 +780,7 @@
       Plotly.react("riskChart", traces, layout, plotConfig());
     }
 
-    function baseLayout(yTitle, showRangeslider) {
+    function baseLayout(yTitle, showRangeslider, midnightTicks = []) {
       return {
         paper_bgcolor: "rgba(0,0,0,0)",
         plot_bgcolor: "rgba(0,0,0,0)",
@@ -761,7 +794,13 @@
         },
         xaxis: {
           fixedrange: true,
-          gridcolor: "rgba(255,255,255,.08)",
+          tickmode: midnightTicks.length ? "array" : "auto",
+          tickvals: midnightTicks.length ? midnightTicks : undefined,
+          ticktext: midnightTicks.length ? getLocalMidnightTickLabels(midnightTicks) : undefined,
+          ticks: "outside",
+          ticklen: 8,
+          tickcolor: "rgba(255,255,255,.24)",
+          gridcolor: "rgba(255,255,255,.13)",
           zerolinecolor: "rgba(255,255,255,.12)",
           rangeslider: {
             visible: !!showRangeslider,
