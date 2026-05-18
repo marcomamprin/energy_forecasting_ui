@@ -15,12 +15,10 @@
       --muted: #aeb8d6;
       --muted-2: #7984a8;
       --blue: #7dd3fc;
-      --blue-2: #38bdf8;
       --green: #86efac;
       --yellow: #fde68a;
       --orange: #fdba74;
       --red: #fca5a5;
-      --purple: #c4b5fd;
       --shadow: 0 24px 80px rgba(0,0,0,.35);
       --radius: 24px;
     }
@@ -38,8 +36,6 @@
         radial-gradient(circle at 50% 100%, rgba(134, 239, 172, .10), transparent 32rem),
         var(--bg);
     }
-
-    a { color: inherit; }
 
     .page {
       width: min(1480px, calc(100% - 36px));
@@ -301,15 +297,15 @@
       gap: 18px;
     }
 
-    .risk-list {
+    .daily-window-list {
       display: grid;
       gap: 10px;
       padding: 8px;
     }
 
-    .risk-row {
+    .window-row {
       display: grid;
-      grid-template-columns: 180px 1fr 90px;
+      grid-template-columns: 170px 1fr 130px;
       gap: 12px;
       align-items: center;
       padding: 12px;
@@ -318,10 +314,11 @@
       background: rgba(255,255,255,.045);
     }
 
-    .risk-time {
+    .window-time {
       color: var(--text);
       font-weight: 800;
       font-size: 13px;
+      line-height: 1.4;
     }
 
     .bar {
@@ -339,10 +336,11 @@
       background: linear-gradient(90deg, var(--green), var(--yellow), var(--orange), var(--red));
     }
 
-    .risk-prob {
+    .window-price {
       text-align: right;
       font-weight: 900;
-      color: var(--red);
+      color: var(--text);
+      line-height: 1.35;
     }
 
     .notice {
@@ -363,17 +361,20 @@
       text-align: center;
     }
 
-    .loading, .error {
-      padding: 26px;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
     .error {
+      padding: 26px;
       color: var(--red);
       border: 1px solid rgba(252, 165, 165, .25);
       background: rgba(252, 165, 165, .08);
       border-radius: 18px;
+      line-height: 1.6;
+    }
+
+    code {
+      color: #e0f2fe;
+      background: rgba(255,255,255,.08);
+      padding: 2px 6px;
+      border-radius: 7px;
     }
 
     @media (max-width: 1000px) {
@@ -386,8 +387,8 @@
       .page { width: min(100% - 22px, 1480px); padding-top: 16px; }
       .hero-main, .hero-side, .panel, .toolbar { padding: 16px; }
       .cards { grid-template-columns: 1fr; }
-      .risk-row { grid-template-columns: 1fr; }
-      .risk-prob { text-align: left; }
+      .window-row { grid-template-columns: 1fr; }
+      .window-price { text-align: left; }
       .chart { height: 420px; }
     }
   </style>
@@ -470,7 +471,7 @@
       <div class="panel glass">
         <div class="panel-header">
           <div>
-            <h2>Forecast price with confidence band</h2>
+            <h2>Forecast price with uncertainty band</h2>
             <p>
               Main forecast line with p10–p90 uncertainty interval. In ct/kWh, divide €/MWh by 10.
             </p>
@@ -484,7 +485,7 @@
           <div class="panel-header">
             <div>
               <h2>Negative-price probability</h2>
-              <p>Hourly probability that the day-ahead price will be below zero.</p>
+              <p>Hourly probability that the wholesale day-ahead price will be below zero.</p>
             </div>
           </div>
           <div id="riskChart" class="small-chart"></div>
@@ -493,17 +494,17 @@
         <div class="panel glass">
           <div class="panel-header">
             <div>
-              <h2>Highest-risk hours</h2>
-              <p>Useful for spotting periods where flexible demand or batteries may matter most.</p>
+              <h2>Cheapest daily windows</h2>
+              <p>Best low-price windows for flexible consumption during each forecast day.</p>
             </div>
           </div>
-          <div id="riskList" class="risk-list"></div>
+          <div id="dailyWindowList" class="daily-window-list"></div>
         </div>
       </div>
     </section>
 
     <div class="footer">
-      Forecasts are experimental and for visualization only. Electricity prices are wholesale day-ahead forecasts, not retail tariffs.
+      Forecasts are experimental and for visualization only. Electricity prices are wholesale day-ahead forecasts, not household retail tariffs.
     </div>
   </main>
 
@@ -514,6 +515,8 @@
       "/public/data/predictions.json",
       "/data/predictions.json"
     ];
+
+    const PUBLIC_MODEL_LABEL = "Model v0.9";
 
     let payload = null;
     let selectedZone = null;
@@ -545,6 +548,25 @@
         hour: "2-digit", minute: "2-digit", second: "2-digit",
         timeZoneName: "short"
       }).format(dt);
+    }
+
+    function fmtHour(value) {
+      return new Intl.DateTimeFormat(undefined, {
+        hour: "2-digit",
+        minute: "2-digit"
+      }).format(value instanceof Date ? value : new Date(value));
+    }
+
+    function fmtDay(value) {
+      return new Intl.DateTimeFormat(undefined, {
+        weekday: "short",
+        month: "short",
+        day: "numeric"
+      }).format(value instanceof Date ? value : new Date(value));
+    }
+
+    function dayKey(timestamp) {
+      return new Date(timestamp).toISOString().slice(0, 10);
     }
 
     function convertPrice(value) {
@@ -589,7 +611,7 @@
     }
 
     function updateMeta() {
-      el("modelVersion").textContent = payload?.model_version || "Unknown";
+      el("modelVersion").textContent = PUBLIC_MODEL_LABEL;
       el("generatedAt").textContent = fmtGenerated(payload?.generated_at_utc);
       el("horizon").textContent = `${payload?.forecast_horizon_hours || "—"} hours`;
 
@@ -663,7 +685,7 @@
           fillcolor: "rgba(125, 211, 252, 0.18)",
           hoverinfo: "skip",
           showlegend: true,
-          name: "p10–p90 confidence band"
+          name: "p10–p90 uncertainty band"
         },
         {
           x,
@@ -677,8 +699,7 @@
         }
       ];
 
-      const layout = baseLayout(`${unitLabel()}`, true);
-      Plotly.react("priceChart", traces, layout, plotConfig());
+      Plotly.react("priceChart", traces, baseLayout(`${unitLabel()}`, true), plotConfig());
     }
 
     function plotRisk(points) {
@@ -730,6 +751,7 @@
       return {
         paper_bgcolor: "rgba(0,0,0,0)",
         plot_bgcolor: "rgba(0,0,0,0)",
+        dragmode: false,
         margin: { l: 70, r: 24, t: 18, b: showRangeslider ? 72 : 54 },
         font: { color: "#dbe5ff", family: "Inter, system-ui, sans-serif" },
         hoverlabel: {
@@ -738,12 +760,18 @@
           font: { color: "#fff" }
         },
         xaxis: {
+          fixedrange: true,
           gridcolor: "rgba(255,255,255,.08)",
           zerolinecolor: "rgba(255,255,255,.12)",
-          rangeslider: { visible: !!showRangeslider, bgcolor: "rgba(255,255,255,.04)", bordercolor: "rgba(255,255,255,.10)" },
+          rangeslider: {
+            visible: !!showRangeslider,
+            bgcolor: "rgba(255,255,255,.04)",
+            bordercolor: "rgba(255,255,255,.10)"
+          },
           rangeselector: { visible: false }
         },
         yaxis: {
+          fixedrange: true,
           title: yTitle,
           gridcolor: "rgba(255,255,255,.08)",
           zerolinecolor: "rgba(255,255,255,.22)"
@@ -759,30 +787,95 @@
 
     function plotConfig() {
       return {
-        displayModeBar: true,
+        displayModeBar: false,
         responsive: true,
-        displaylogo: false,
-        modeBarButtonsToRemove: ["lasso2d", "select2d"]
+        staticPlot: false,
+        scrollZoom: false,
+        doubleClick: false,
+        displaylogo: false
       };
     }
 
-    function updateRiskList(points) {
-      const container = el("riskList");
+    function cheapestWindowForDay(dayPoints, windowHours = 4) {
+      if (!dayPoints.length) return null;
+
+      const sorted = [...dayPoints].sort(
+        (a, b) => new Date(a.timestamp_utc) - new Date(b.timestamp_utc)
+      );
+
+      const n = Math.min(windowHours, sorted.length);
+      let best = null;
+
+      for (let i = 0; i <= sorted.length - n; i++) {
+        const window = sorted.slice(i, i + n);
+        const avgPrice =
+          window.reduce((sum, p) => sum + p.predicted_price_eur_mwh, 0) / n;
+        const avgRisk =
+          window.reduce((sum, p) => sum + (p.negative_probability || 0), 0) / n;
+
+        if (!best || avgPrice < best.avgPrice) {
+          best = {
+            start: window[0],
+            end: window[window.length - 1],
+            avgPrice,
+            avgRisk,
+            points: window
+          };
+        }
+      }
+
+      return best;
+    }
+
+    function updateDailyWindowList(points) {
+      const container = el("dailyWindowList");
       container.innerHTML = "";
-      const top = [...points]
-        .sort((a, b) => (b.negative_probability || 0) - (a.negative_probability || 0))
+
+      const byDay = new Map();
+      for (const p of points) {
+        const key = dayKey(p.timestamp_utc);
+        if (!byDay.has(key)) byDay.set(key, []);
+        byDay.get(key).push(p);
+      }
+
+      const windows = [...byDay.values()]
+        .map(dayPoints => cheapestWindowForDay(dayPoints, 4))
+        .filter(Boolean)
         .slice(0, 7);
 
-      for (const p of top) {
-        const prob = Math.max(0, Math.min(1, p.negative_probability || 0));
+      for (const w of windows) {
+        const price = convertPrice(w.avgPrice);
+        const riskPct = w.avgRisk * 100;
+        const endExclusive = new Date(new Date(w.end.timestamp_utc).getTime() + 60 * 60 * 1000);
+
         const row = document.createElement("div");
-        row.className = "risk-row";
+        row.className = "window-row";
+
         row.innerHTML = `
-          <div class="risk-time">${fmtDate(p.timestamp_utc)}</div>
-          <div class="bar"><span style="width:${(prob * 100).toFixed(1)}%"></span></div>
-          <div class="risk-prob">${(prob * 100).toFixed(1)}%</div>
+          <div class="window-time">
+            ${fmtDay(w.start.timestamp_utc)}<br>
+            <span style="color: var(--muted); font-weight: 700;">
+              ${fmtHour(w.start.timestamp_utc)}–${fmtHour(endExclusive)}
+            </span>
+          </div>
+
+          <div class="bar" title="Average negative-price probability">
+            <span style="width:${Math.max(4, Math.min(100, riskPct)).toFixed(1)}%"></span>
+          </div>
+
+          <div class="window-price">
+            ${price.toFixed(unit === "ct" ? 2 : 1)} ${unitLabel()}<br>
+            <span style="color: var(--muted); font-size: 12px;">
+              ${riskPct.toFixed(0)}% neg.
+            </span>
+          </div>
         `;
-        row.title = `${fmtPrice(p.predicted_price_eur_mwh)} forecast price`;
+
+        row.title =
+          `Cheapest ${w.points.length}-hour window · ` +
+          `${price.toFixed(unit === "ct" ? 2 : 1)} ${unitLabel()} average · ` +
+          `${riskPct.toFixed(1)}% average negative-price probability`;
+
         container.appendChild(row);
       }
     }
@@ -796,7 +889,7 @@
       updateCards(points);
       plotPrice(points);
       plotRisk(points);
-      updateRiskList(points);
+      updateDailyWindowList(points);
     }
 
     async function loadAndRender() {
