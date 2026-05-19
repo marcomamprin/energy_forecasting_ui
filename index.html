@@ -7,219 +7,1879 @@
   <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
   <style>
     :root {
-      --bg:#0b1020; --panel:rgba(255,255,255,.075); --panel-strong:rgba(255,255,255,.115);
-      --border:rgba(255,255,255,.14); --text:#f6f8ff; --muted:#aeb8d6; --muted2:#7984a8;
-      --blue:#7dd3fc; --green:#86efac; --yellow:#fde68a; --orange:#fdba74; --red:#fca5a5;
-      --shadow:0 24px 80px rgba(0,0,0,.35); --radius:24px;
+      --bg: #0b1020;
+      --panel: rgba(255, 255, 255, 0.075);
+      --panel-strong: rgba(255, 255, 255, 0.115);
+      --border: rgba(255, 255, 255, 0.14);
+      --text: #f6f8ff;
+      --muted: #aeb8d6;
+      --muted-2: #7984a8;
+      --blue: #7dd3fc;
+      --green: #86efac;
+      --yellow: #fde68a;
+      --orange: #fdba74;
+      --red: #fca5a5;
+      --shadow: 0 24px 80px rgba(0,0,0,.35);
+      --radius: 24px;
     }
-    *{box-sizing:border-box}
-    body{margin:0;min-height:100vh;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text);background:radial-gradient(circle at 20% 0%,rgba(56,189,248,.20),transparent 34rem),radial-gradient(circle at 90% 10%,rgba(196,181,253,.18),transparent 36rem),radial-gradient(circle at 50% 100%,rgba(134,239,172,.10),transparent 32rem),var(--bg)}
-    .page{width:min(1480px,calc(100% - 36px));margin:0 auto;padding:32px 0 48px}
-    .hero{display:grid;grid-template-columns:1.45fr .55fr;gap:20px;margin-bottom:20px}
-    .glass{background:linear-gradient(180deg,var(--panel-strong),var(--panel));border:1px solid var(--border);box-shadow:var(--shadow);border-radius:var(--radius);backdrop-filter:blur(18px)}
-    .hero-main{padding:30px;overflow:hidden;position:relative}.hero-side{padding:24px;display:flex;flex-direction:column;justify-content:space-between;gap:18px}
-    .eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--blue);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:12px;margin-bottom:16px}
-    .dot{width:9px;height:9px;border-radius:999px;background:var(--green);box-shadow:0 0 22px rgba(134,239,172,.9)}
-    h1{margin:0;font-size:clamp(34px,5vw,68px);line-height:.96;letter-spacing:-.055em;max-width:960px}
-    .subtitle{margin:18px 0 0;color:var(--muted);font-size:17px;line-height:1.65;max-width:850px}
-    .status-pill{width:fit-content;display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border-radius:999px;background:rgba(134,239,172,.10);color:var(--green);border:1px solid rgba(134,239,172,.22);font-size:13px;font-weight:700}
-    .meta-line{display:grid;gap:7px;margin-top:14px}.meta-label{color:var(--muted2);font-size:12px;text-transform:uppercase;letter-spacing:.08em;font-weight:800}.meta-value{font-size:14px;overflow-wrap:anywhere}
-    .notice{margin-top:18px;padding:14px 16px;border:1px solid rgba(253,230,138,.25);background:rgba(253,230,138,.08);color:#fff7cc;border-radius:18px;line-height:1.55;font-size:14px}
-    .toolbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;padding:18px;margin-bottom:20px}.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-    .segmented,select,button{border:1px solid var(--border);background:rgba(255,255,255,.07);color:var(--text);border-radius:16px;min-height:42px}select{padding:0 14px;outline:none}button{padding:0 14px;cursor:pointer;font-weight:800;transition:.18s ease}.segmented{display:inline-flex;padding:4px;gap:4px}.segmented button{border:0;min-height:34px;border-radius:12px;background:transparent;color:var(--muted)}.segmented button.active{background:rgba(125,211,252,.18);color:var(--text)}
-    .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:20px}.card{padding:20px}.card-title{color:var(--muted);font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;margin-bottom:10px}.card-value{font-size:clamp(25px,3vw,40px);font-weight:900;letter-spacing:-.045em;line-height:1}.card-sub{color:var(--muted2);font-size:13px;margin-top:9px;line-height:1.4}
-    .grid{display:grid;grid-template-columns:1fr;gap:18px}.panel{padding:18px}.panel-header{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:8px;padding:6px 8px 0}.panel h2{margin:0;font-size:22px;letter-spacing:-.03em}.panel p{margin:7px 0 0;color:var(--muted);line-height:1.5;font-size:14px}
-    .chart{width:100%;height:520px}.small-chart{width:100%;height:360px}.two-col{display:grid;grid-template-columns:1.05fr .95fr;gap:18px}
-    .daily-window-list{display:grid;gap:10px;padding:8px}.window-row{display:grid;grid-template-columns:170px 1fr 130px;gap:12px;align-items:center;padding:12px;border:1px solid rgba(255,255,255,.10);border-radius:18px;background:rgba(255,255,255,.045)}.window-time{font-weight:800;font-size:13px;line-height:1.4}.bar{height:12px;border-radius:999px;background:rgba(255,255,255,.10);overflow:hidden}.bar span{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--green),var(--yellow),var(--orange),var(--red))}.window-price{text-align:right;font-weight:900;line-height:1.35}
-    .footer{color:var(--muted2);font-size:13px;margin-top:24px;text-align:center}.error{padding:26px;color:var(--red);border:1px solid rgba(252,165,165,.25);background:rgba(252,165,165,.08);border-radius:18px;line-height:1.6}
-    @media(max-width:1000px){.hero,.two-col{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}.chart{height:460px}}@media(max-width:620px){.page{width:min(100% - 22px,1480px);padding-top:16px}.hero-main,.hero-side,.panel,.toolbar{padding:16px}.cards{grid-template-columns:1fr}.window-row{grid-template-columns:1fr}.window-price{text-align:left}.chart{height:420px}}
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 20% 0%, rgba(56, 189, 248, .20), transparent 34rem),
+        radial-gradient(circle at 90% 10%, rgba(196, 181, 253, .18), transparent 36rem),
+        radial-gradient(circle at 50% 100%, rgba(134, 239, 172, .10), transparent 32rem),
+        var(--bg);
+    }
+
+    .page {
+      width: min(1480px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 32px 0 48px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.45fr .55fr;
+      gap: 20px;
+      align-items: stretch;
+      margin-bottom: 20px;
+    }
+
+    .glass {
+      background: linear-gradient(180deg, var(--panel-strong), var(--panel));
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      backdrop-filter: blur(18px);
+    }
+
+    .hero-main {
+      padding: 30px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-main::after {
+      content: "";
+      position: absolute;
+      inset: auto -80px -160px auto;
+      width: 340px;
+      height: 340px;
+      border-radius: 999px;
+      background: rgba(125, 211, 252, .12);
+      filter: blur(4px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--blue);
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-size: 12px;
+      margin-bottom: 16px;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--green);
+      box-shadow: 0 0 22px rgba(134, 239, 172, .9);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(34px, 5vw, 68px);
+      line-height: .96;
+      letter-spacing: -0.055em;
+      max-width: 960px;
+    }
+
+    .subtitle {
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.65;
+      max-width: 850px;
+    }
+
+    .hero-side {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .status-pill {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(134, 239, 172, .10);
+      color: var(--green);
+      border: 1px solid rgba(134, 239, 172, .22);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .meta-line {
+      display: grid;
+      gap: 7px;
+      margin-top: 14px;
+    }
+
+    .meta-label {
+      color: var(--muted-2);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-weight: 800;
+    }
+
+    .meta-value {
+      color: var(--text);
+      font-size: 14px;
+      overflow-wrap: anywhere;
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 18px;
+      margin-bottom: 20px;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .segmented, select, button {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.07);
+      color: var(--text);
+      border-radius: 16px;
+      min-height: 42px;
+    }
+
+    select {
+      padding: 0 14px;
+      outline: none;
+    }
+
+    button {
+      padding: 0 14px;
+      cursor: pointer;
+      font-weight: 800;
+      transition: .18s ease;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.12);
+    }
+
+    .segmented {
+      display: inline-flex;
+      padding: 4px;
+      gap: 4px;
+    }
+
+    .segmented button {
+      border: 0;
+      min-height: 34px;
+      border-radius: 12px;
+      background: transparent;
+      color: var(--muted);
+    }
+
+    .segmented button.active {
+      background: rgba(125, 211, 252, .18);
+      color: var(--text);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      padding: 20px;
+    }
+
+    .card-title {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .card-value {
+      font-size: clamp(25px, 3vw, 40px);
+      font-weight: 900;
+      letter-spacing: -0.045em;
+      line-height: 1;
+    }
+
+    .card-sub {
+      color: var(--muted-2);
+      font-size: 13px;
+      margin-top: 9px;
+      line-height: 1.4;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .panel {
+      padding: 18px;
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 8px;
+      padding: 6px 8px 0;
+    }
+
+    .panel h2 {
+      margin: 0;
+      font-size: 22px;
+      letter-spacing: -0.03em;
+    }
+
+    .panel p {
+      margin: 7px 0 0;
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    .chart {
+      width: 100%;
+      height: 520px;
+    }
+
+    .small-chart {
+      width: 100%;
+      height: 360px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 18px;
+    }
+
+    .daily-window-list {
+      display: grid;
+      gap: 10px;
+      padding: 8px;
+    }
+
+    .window-row {
+      display: grid;
+      grid-template-columns: 170px 1fr 130px;
+      gap: 12px;
+      align-items: center;
+      padding: 12px;
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 18px;
+      background: rgba(255,255,255,.045);
+    }
+
+    .window-time {
+      color: var(--text);
+      font-weight: 800;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .bar {
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.10);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .bar span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--green), var(--yellow), var(--orange), var(--red));
+    }
+
+    .window-price {
+      text-align: right;
+      font-weight: 900;
+      color: var(--text);
+      line-height: 1.35;
+    }
+
+    .notice {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border: 1px solid rgba(253, 230, 138, .25);
+      background: rgba(253, 230, 138, .08);
+      color: #fff7cc;
+      border-radius: 18px;
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    .footer {
+      color: var(--muted-2);
+      font-size: 13px;
+      margin-top: 24px;
+      text-align: center;
+    }
+
+    .error {
+      padding: 26px;
+      color: var(--red);
+      border: 1px solid rgba(252, 165, 165, .25);
+      background: rgba(252, 165, 165, .08);
+      border-radius: 18px;
+      line-height: 1.6;
+    }
+
+    code {
+      color: #e0f2fe;
+      background: rgba(255,255,255,.08);
+      padding: 2px 6px;
+      border-radius: 7px;
+    }
+
+    @media (max-width: 1000px) {
+      .hero, .two-col { grid-template-columns: 1fr; }
+      .cards { grid-template-columns: repeat(2, 1fr); }
+      .chart { height: 460px; }
+    }
+
+    @media (max-width: 620px) {
+      .page { width: min(100% - 22px, 1480px); padding-top: 16px; }
+      .hero-main, .hero-side, .panel, .toolbar { padding: 16px; }
+      .cards { grid-template-columns: 1fr; }
+      .window-row { grid-template-columns: 1fr; }
+      .window-price { text-align: left; }
+      .chart { height: 420px; }
+    }
+  
+    .source-summary {
+      display: grid;
+      gap: 12px;
+      padding: 8px;
+    }
+
+    .source-row {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 12px;
+      align-items: center;
+      padding: 12px;
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 18px;
+      background: rgba(255,255,255,.045);
+    }
+
+    .source-key {
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .source-value {
+      color: var(--text);
+      font-weight: 800;
+      line-height: 1.4;
+      overflow-wrap: anywhere;
+    }
+
+    .legend-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .legend-swatch {
+      width: 18px;
+      height: 4px;
+      border-radius: 999px;
+      display: inline-block;
+    }
+
+
+    .chart-notes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .chart-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.045);
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.25;
+    }
+
+    .chart-note strong {
+      color: var(--text);
+    }
+
+    .full-width-panel {
+      display: block;
+      width: 100%;
+    }
+
+    .full-width-panel .panel {
+      width: 100%;
+    }
+
+    @media (min-width: 900px) {
+      .daily-window-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 1280px) {
+      .daily-window-list {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      .chart-notes {
+        display: grid;
+      }
+
+      .chart-note {
+        align-items: flex-start;
+        border-radius: 16px;
+      }
+
+      .cards {
+        gap: 12px;
+      }
+
+      .card-value {
+        font-size: 30px;
+      }
+
+      .panel h2 {
+        font-size: 19px;
+      }
+
+      .subtitle {
+        font-size: 15px;
+      }
+    }
+
+
+    .daily-window-list.prediction-windows {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      align-items: stretch;
+    }
+
+    .prediction-day-card {
+      padding: 14px;
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 20px;
+      background: rgba(255,255,255,.045);
+    }
+
+    .prediction-day-title {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .prediction-day-title span {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+    }
+
+    .window-pair {
+      display: grid;
+      gap: 10px;
+    }
+
+    .window-mini {
+      display: grid;
+      grid-template-columns: 64px 1fr auto;
+      gap: 10px;
+      align-items: center;
+      padding: 10px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.045);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .window-mini-label {
+      font-size: 12px;
+      font-weight: 900;
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .window-mini-time {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .window-mini-price {
+      font-weight: 950;
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    @media (max-width: 620px) {
+      .window-mini {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      .window-mini-price {
+        text-align: left;
+      }
+    }
+
+
+    .window-mini.empty {
+      opacity: .62;
+    }
+
+    .price-bar span {
+      background-image: none !important;
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        width: min(100% - 20px, 1480px);
+        padding: 14px 0 34px;
+      }
+
+      .hero-main {
+        padding: 20px 18px;
+      }
+
+      h1 {
+        font-size: clamp(30px, 11vw, 42px);
+      }
+
+      .subtitle {
+        font-size: 15px;
+        line-height: 1.55;
+      }
+
+      .toolbar {
+        padding: 14px;
+      }
+
+      .controls {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .controls select,
+      .segmented,
+      #refreshBtn {
+        width: 100%;
+      }
+
+      .segmented button {
+        flex: 1;
+      }
+
+      .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .card {
+        padding: 14px;
+      }
+
+      .card-title {
+        font-size: 10px;
+      }
+
+      .card-value {
+        font-size: clamp(24px, 7.8vw, 34px);
+      }
+
+      .chart {
+        height: 350px;
+      }
+
+      .panel {
+        padding: 14px;
+      }
+
+      .panel h2 {
+        font-size: 20px;
+      }
+
+      .panel p {
+        font-size: 13px;
+      }
+
+      .daily-window-list.prediction-windows {
+        grid-template-columns: 1fr;
+      }
+
+      .window-mini {
+        grid-template-columns: 56px 1fr;
+      }
+
+      .window-mini-price {
+        grid-column: 2;
+        text-align: left;
+        font-size: 18px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .chart {
+        height: 330px;
+      }
+    }
+
+
+    .window-mini-icon {
+      width: 34px;
+      height: 34px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 999px;
+      background: rgba(255,255,255,.075);
+      border: 1px solid rgba(255,255,255,.10);
+      font-size: 18px;
+      line-height: 1;
+      flex: 0 0 auto;
+    }
+
+    .window-mini-label-wrap {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .window-mini-meta {
+      display: grid;
+      gap: 2px;
+    }
+
+    .price-scale {
+      position: relative;
+      height: 10px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--green), var(--yellow), var(--red));
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.08);
+      margin-top: 6px;
+    }
+
+    .price-scale::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: rgba(255,255,255,.08);
+      mix-blend-mode: soft-light;
+      pointer-events: none;
+    }
+
+    .price-marker {
+      position: absolute;
+      top: 50%;
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      transform: translate(-50%, -50%);
+      background: #ffffff;
+      border: 3px solid rgba(11,16,32,.92);
+      box-shadow: 0 0 0 1px rgba(255,255,255,.35), 0 6px 18px rgba(0,0,0,.28);
+    }
+
+    .window-mini {
+      grid-template-columns: minmax(120px, .7fr) 1fr auto;
+    }
+
+    @media (max-width: 760px) {
+      .window-mini {
+        grid-template-columns: 1fr;
+      }
+
+      .window-mini-price {
+        grid-column: auto;
+      }
+    }
+
+
+    .basis-toggle {
+      min-width: 270px;
+    }
+
+    .basis-toggle button {
+      white-space: nowrap;
+    }
+
+    .window-mini {
+      grid-template-columns: minmax(126px, .9fr) 78px minmax(105px, auto);
+      gap: 10px;
+      overflow: hidden;
+    }
+
+    .window-mini-time {
+      white-space: nowrap;
+      overflow-wrap: normal;
+    }
+
+    .window-mini-price {
+      white-space: nowrap;
+      min-width: max-content;
+      text-align: right;
+    }
+
+    .price-badge {
+      justify-self: end;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-width: 70px;
+      justify-content: center;
+      padding: 7px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .02em;
+    }
+
+    .price-badge-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: currentColor;
+      box-shadow: 0 0 14px currentColor;
+    }
+
+    .price-badge.best,
+    .window-mini-icon.best {
+      color: var(--green);
+      background: rgba(134,239,172,.10);
+    }
+
+    .price-badge.good,
+    .window-mini-icon.good {
+      color: var(--yellow);
+      background: rgba(253,230,138,.10);
+    }
+
+    .price-badge.okay,
+    .window-mini-icon.okay {
+      color: var(--blue);
+      background: rgba(125,211,252,.10);
+    }
+
+    @media (max-width: 760px) {
+      .basis-toggle {
+        min-width: 0;
+      }
+
+      .window-mini {
+        grid-template-columns: 1fr auto;
+      }
+
+      .price-badge {
+        justify-self: start;
+      }
+
+      .window-mini-price {
+        grid-column: 2;
+        text-align: right;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .window-mini {
+        grid-template-columns: 1fr;
+      }
+
+      .window-mini-price {
+        grid-column: auto;
+        text-align: left;
+      }
+    }
+
+
+    /* final overflow fix for cheapest forecast windows */
+    .daily-window-list.prediction-windows {
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    }
+
+    .window-mini {
+      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-areas:
+        "main badge"
+        "price price";
+      align-items: center;
+      gap: 8px 12px;
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .window-mini-label-wrap {
+      grid-area: main;
+      min-width: 0;
+    }
+
+    .window-mini-meta {
+      min-width: 0;
+    }
+
+    .window-mini-time {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .price-badge {
+      grid-area: badge;
+      justify-self: end;
+      min-width: 68px;
+      max-width: 82px;
+      padding-inline: 8px;
+    }
+
+    .window-mini-price {
+      grid-area: price;
+      justify-self: end;
+      max-width: 100%;
+      white-space: nowrap;
+      overflow: visible;
+      text-align: right;
+      font-size: clamp(14px, 1.05vw, 18px);
+      line-height: 1.15;
+    }
+
+    @media (min-width: 1280px) {
+      .daily-window-list.prediction-windows {
+        grid-template-columns: repeat(3, minmax(360px, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .daily-window-list.prediction-windows {
+        grid-template-columns: 1fr;
+      }
+
+      .window-mini {
+        grid-template-columns: minmax(0, 1fr) auto;
+        grid-template-areas:
+          "main badge"
+          "price price";
+      }
+
+      .window-mini-price {
+        justify-self: start;
+        text-align: left;
+        font-size: 18px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .window-mini {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "main"
+          "badge"
+          "price";
+      }
+
+      .price-badge,
+      .window-mini-price {
+        justify-self: start;
+      }
+    }
+
   </style>
 </head>
+
 <body>
-<main class="page">
-  <section class="hero">
-    <div class="hero-main glass">
-      <div class="eyebrow"><span class="dot"></span> Netherlands electricity forecast</div>
-      <h1>Official prices, model forecasts, and negative-price risk.</h1>
-      <p class="subtitle">Known day-ahead market prices are shown as official values. For later hours, the model shows a forecast with uncertainty. Prices are shown in cents per kWh, with optional views in €/kWh and €/MWh.</p>
-    </div>
-    <aside class="hero-side glass">
-      <div>
-        <div class="status-pill"><span class="dot"></span> Live production output</div>
-        <div class="meta-line"><div class="meta-label">Model</div><div class="meta-value" id="modelVersion">Model v0.9</div></div>
-        <div class="meta-line"><div class="meta-label">Generated</div><div class="meta-value" id="generatedAt">Loading…</div></div>
-        <div class="meta-line"><div class="meta-label">Forecast horizon</div><div class="meta-value" id="horizon">Loading…</div></div>
+  <main class="page">
+    <section class="hero">
+      <div class="hero-main glass">
+        <div class="eyebrow"><span class="dot"></span> Netherlands electricity forecast</div>
+        <h1>Official prices and model forecasts for the next 7 days.</h1>
+        <p class="subtitle">
+          Known day-ahead market prices are shown as official values. For later hours, the model shows a forecast with uncertainty.
+          Prices are shown in <strong>cents per kWh</strong>, with optional views in <strong>€/kWh</strong> and <strong>€/MWh</strong>.
+        </p>
       </div>
-      <div class="notice">Hover the charts to inspect each datapoint. Official day-ahead prices have no uncertainty band; model forecasts include p10–p90 uncertainty.</div>
-    </aside>
-  </section>
 
-  <section class="toolbar glass">
-    <div class="controls">
-      <select id="zoneSelect"></select>
-      <div class="segmented"><button id="unitCents" class="active" type="button">ct/kWh</button><button id="unitEuroKwh" type="button">€/kWh</button><button id="unitEuroMwh" type="button">€/MWh</button></div>
-      <div class="segmented"><button data-range="24" type="button">24h</button><button data-range="72" type="button">3d</button><button data-range="168" class="active" type="button">7d</button></div>
+      <aside class="hero-side glass">
+        <div>
+          <div class="status-pill"><span class="dot"></span> Live production output</div>
+          <div class="meta-line">
+            <div class="meta-label">Model</div>
+            <div class="meta-value" id="modelVersion">Loading…</div>
+          </div>
+          <div class="meta-line">
+            <div class="meta-label">Generated</div>
+            <div class="meta-value" id="generatedAt">Loading…</div>
+          </div>
+          <div class="meta-line">
+            <div class="meta-label">Visible horizon</div>
+            <div class="meta-value" id="horizon">Loading…</div>
+          </div>
+        </div>
+        <div class="notice">
+          Official day-ahead prices are averaged to hourly values for comparison with the hourly model forecast. The model forecast remains hourly.
+          The shaded interval is shown only for model-forecasted hours.
+        </div>
+      </aside>
+    </section>
+
+    <section class="toolbar glass">
+      <div class="controls">
+        <select id="zoneSelect" aria-label="Select market zone"></select>
+        <div class="segmented" aria-label="Unit selection">
+          <button id="unitCents" class="active" type="button">ct/kWh</button>
+          <button id="unitEuroKwh" type="button">€/kWh</button>
+          <button id="unitEuroMwh" type="button">€/MWh</button>
+        </div>
+        <div class="segmented" aria-label="Time range selection">
+          <button data-range="24" type="button">24h</button>
+          <button data-range="72" type="button">3d</button>
+          <button data-range="168" class="active" type="button">7d</button>
+        </div>
+        <div class="segmented basis-toggle" aria-label="Price basis selection">
+          <button id="basisWholesale" class="active" type="button">Market price</button>
+          <button id="basisDynamic" type="button">Dynamic contract est.</button>
+        </div>
+      </div>
+      <button id="refreshBtn" type="button">Reload forecast</button>
+    </section>
+
+    <section class="cards">
+      <div class="card glass">
+        <div class="card-title">Average price</div>
+        <div class="card-value" id="avgPrice">—</div>
+        <div class="card-sub" id="avgSub">selected horizon</div>
+      </div>
+      <div class="card glass">
+        <div class="card-title">Cheapest hour</div>
+        <div class="card-value" id="minPrice">—</div>
+        <div class="card-sub" id="minSub">—</div>
+      </div>
+      <div class="card glass">
+        <div class="card-title">Peak hour</div>
+        <div class="card-value" id="maxPrice">—</div>
+        <div class="card-sub" id="maxSub">—</div>
+      </div>
+      <div class="card glass">
+        <div class="card-title">Official prices until</div>
+        <div class="card-value" id="officialCoverage">—</div>
+        <div class="card-sub" id="officialSub">—</div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="panel glass">
+        <div class="panel-header">
+          <div>
+            <h2>Official prices and model forecast</h2>
+            <p>
+              The green line shows official market prices, averaged to hourly values. The blue line shows model forecasts after official prices end.
+            </p>
+            <div class="chart-notes">
+              <div class="chart-note"><span class="legend-swatch" style="background: var(--green);"></span><strong>Official</strong><span>hourly average from 15-minute market data</span></div>
+              <div class="chart-note"><span class="legend-swatch" style="background: var(--blue);"></span><strong>Model</strong><span>hourly forecast with p10–p90 band</span></div>
+              <div class="chart-note" id="basisNote"><strong>Market price</strong><span>wholesale day-ahead price, not a household bill</span></div>
+            </div>
+          </div>
+        </div>
+        <div id="priceChart" class="chart"></div>
+      </div>
+
+      <div class="full-width-panel">
+        <div class="panel glass">
+          <div class="panel-header">
+            <div>
+              <h2>Cheapest forecast windows</h2>
+              <p>Best forecast-only 4-hour low-price windows, split into day and night for each predicted day. Values follow the selected price basis.</p>
+            </div>
+          </div>
+          <div id="dailyWindowList" class="daily-window-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      Forecasts are experimental and for visualization only. Market prices are wholesale day-ahead prices/forecasts. Dynamic contract estimates are illustrative and exclude fixed monthly costs, grid charges and personal contract details. Formula used: market × VAT + 2.53 ct/kWh fee + 11.09 ct/kWh tax.
     </div>
-    <button id="refreshBtn" type="button">Reload forecast</button>
-  </section>
+  </main>
 
-  <section class="cards">
-    <div class="card glass"><div class="card-title">Average displayed price</div><div class="card-value" id="avgPrice">—</div><div class="card-sub" id="avgSub">selected horizon</div></div>
-    <div class="card glass"><div class="card-title">Cheapest hour</div><div class="card-value" id="minPrice">—</div><div class="card-sub" id="minSub">—</div></div>
-    <div class="card glass"><div class="card-title">Peak hour</div><div class="card-value" id="maxPrice">—</div><div class="card-sub" id="maxSub">—</div></div>
-    <div class="card glass"><div class="card-title">Highest negative risk</div><div class="card-value" id="riskValue">—</div><div class="card-sub" id="riskSub">—</div></div>
-  </section>
+  <script>
+    const PREDICTION_CANDIDATES = [
+      "./public/data/predictions.json",
+      "./predictions.json",
+      "/energy_forecasting_ui/public/data/predictions.json",
+      "/public/data/predictions.json",
+      "/data/predictions.json"
+    ];
 
-  <section class="grid">
-    <div class="panel glass">
-      <div class="panel-header"><div><h2>Official prices and model forecast</h2><p>Official day-ahead prices are used where available. The uncertainty band is shown only for model-forecasted hours.</p></div></div>
-      <div id="priceChart" class="chart"></div>
-    </div>
-    <div class="two-col">
-      <div class="panel glass"><div class="panel-header"><div><h2>Negative-price probability</h2><p>Hourly probability that the wholesale day-ahead price will be below zero.</p></div></div><div id="riskChart" class="small-chart"></div></div>
-      <div class="panel glass"><div class="panel-header"><div><h2>Cheapest daily windows</h2><p>Best low-price windows for flexible consumption during each forecast day.</p></div></div><div id="dailyWindowList" class="daily-window-list"></div></div>
-    </div>
-  </section>
-  <div class="footer">Forecasts are experimental and for visualization only. Electricity prices are wholesale day-ahead prices/forecasts, not household retail tariffs.</div>
-</main>
+    const OFFICIAL_CANDIDATES = [
+      "./public/data/official_prices.json",
+      "./official_prices.json",
+      "/energy_forecasting_ui/public/data/official_prices.json",
+      "/public/data/official_prices.json",
+      "/data/official_prices.json"
+    ];
 
-<script>
-const PREDICTION_URLS = ["./public/data/predictions.json","/energy_forecasting_ui/public/data/predictions.json","/public/data/predictions.json","/data/predictions.json","./predictions.json"];
-const OFFICIAL_URLS = ["./public/data/official_prices.json","/energy_forecasting_ui/public/data/official_prices.json","/public/data/official_prices.json","/data/official_prices.json","./official_prices.json"];
-const PUBLIC_MODEL_LABEL = "Model v0.9";
+    const PUBLIC_MODEL_LABEL = "Model v0.9";
+    const MS_HOUR = 60 * 60 * 1000;
+    const MS_DAY = 24 * MS_HOUR;
 
-let predictions = null, official = null, selectedZone = null, selectedRange = 168, unit = "ct";
-const el = id => document.getElementById(id);
+    let predictionPayload = null;
+    let officialPayload = null;
+    let selectedZone = null;
+    let selectedRangeHours = 168;
+    let unit = "ct";
+    let priceBasis = "wholesale";
 
-async function fetchFirst(urls, required=true) {
-  let lastErr = null;
-  for (const url of urls) {
-    try {
-      const r = await fetch(`${url}?t=${Date.now()}`, {cache:"no-store"});
-      if (!r.ok) throw new Error(`${r.status} ${r.statusText}`);
-      console.info("Loaded", url);
-      return await r.json();
-    } catch(e) { lastErr = e; }
-  }
-  if (required) throw lastErr || new Error("Could not load JSON");
-  return null;
-}
+    // Illustrative dynamic retail estimate based on the a generic dynamic-contract structure:
+    // market price + supplier purchase/handling fee + Dutch energy tax.
+    // These constants should be reviewed when tariffs change.
+    const VAT_RATE = 0.21;
+    const DYNAMIC_CONTRACT_FEE_CT_KWH_INCL_VAT = 2.53;
+    const NL_ENERGY_TAX_CT_KWH_INCL_VAT = 11.085;
 
-function fmtDate(v, weekday=true) {
-  return new Intl.DateTimeFormat(undefined,{weekday:weekday?"short":undefined,month:"short",day:"numeric",hour:"2-digit",minute:"2-digit"}).format(new Date(v));
-}
-function fmtDay(v){return new Intl.DateTimeFormat(undefined,{weekday:"short",month:"short",day:"numeric"}).format(new Date(v));}
-function fmtHour(v){return new Intl.DateTimeFormat(undefined,{hour:"2-digit",minute:"2-digit"}).format(new Date(v));}
-function fmtGenerated(v){return v ? new Intl.DateTimeFormat(undefined,{year:"numeric",month:"short",day:"numeric",hour:"2-digit",minute:"2-digit",second:"2-digit",timeZoneName:"short"}).format(new Date(v)) : "Unknown";}
-function unitLabel(){return unit==="ct"?"ct/kWh":unit==="eurkwh"?"€/kWh":"€/MWh";}
-function convertPrice(v){if(v==null || Number.isNaN(v)) return null; if(unit==="ct") return v/10; if(unit==="eurkwh") return v/1000; return v;}
-function priceDigits(){return unit==="eurkwh"?3:(unit==="ct"?2:1);}
-function fmtPrice(v){const p=convertPrice(v); return p==null ? "—" : `${p.toFixed(priceDigits())} ${unitLabel()}`;}
-function isoHour(v){return new Date(v).toISOString().replace(".000Z","Z");}
+    const el = (id) => document.getElementById(id);
 
-function getOfficialMap(zone) {
-  const z = official?.zones?.find(x => x.zone === zone);
-  const m = new Map();
-  for (const p of (z?.points || [])) m.set(isoHour(p.timestamp_utc), p.official_price_eur_mwh);
-  return m;
-}
-function getZonePayload(){return predictions?.zones?.find(z=>z.zone===selectedZone) || predictions?.zones?.[0];}
-function getMergedPoints() {
-  const z = getZonePayload(); if(!z) return [];
-  const officialMap = getOfficialMap(z.zone);
-  return (z.points || []).slice(0, selectedRange).map(p => {
-    const ts = isoHour(p.timestamp_utc);
-    const off = officialMap.get(ts);
-    const officialAvailable = off !== undefined && off !== null;
-    return {
-      ...p,
-      timestamp_utc: ts,
-      official_price_eur_mwh: officialAvailable ? off : null,
-      display_price_eur_mwh: officialAvailable ? off : p.predicted_price_eur_mwh,
-      price_source: officialAvailable ? "Official day-ahead" : "Model forecast"
-    };
-  });
-}
+    function toDate(value) {
+      return new Date(value);
+    }
 
-function localMidnightTicks(points){
-  if(!points.length) return [];
-  const dates=points.map(p=>new Date(p.timestamp_utc));
-  const start=new Date(Math.min(...dates)), end=new Date(Math.max(...dates));
-  const cur=new Date(start.getFullYear(),start.getMonth(),start.getDate());
-  const final=new Date(end.getFullYear(),end.getMonth(),end.getDate()+1);
-  const ticks=[]; while(cur<=final){ticks.push(new Date(cur));cur.setDate(cur.getDate()+1);} return ticks;
-}
-function tickLabels(ticks){return ticks.map(d=>new Intl.DateTimeFormat(undefined,{month:"short",day:"numeric"}).format(d));}
-function weekendShapes(points){
-  const ticks=localMidnightTicks(points), shapes=[];
-  for(const t of ticks){const day=t.getDay(); if(day===0 || day===6){const x1=new Date(t); x1.setDate(x1.getDate()+1); shapes.push({type:"rect",xref:"x",yref:"paper",x0:t,x1,y0:0,y1:1,fillcolor:"rgba(255,255,255,.045)",line:{width:0},layer:"below"});}}
-  return shapes;
-}
-function baseLayout(yTitle, points, shapes=[]) {
-  const ticks=localMidnightTicks(points);
-  return {paper_bgcolor:"rgba(0,0,0,0)",plot_bgcolor:"rgba(0,0,0,0)",dragmode:false,margin:{l:70,r:24,t:18,b:58},font:{color:"#dbe5ff",family:"Inter, system-ui, sans-serif"},hoverlabel:{bgcolor:"#111827",bordercolor:"rgba(255,255,255,.18)",font:{color:"#fff"}},xaxis:{fixedrange:true,tickmode:ticks.length?"array":"auto",tickvals:ticks.length?ticks:undefined,ticktext:ticks.length?tickLabels(ticks):undefined,ticks:"outside",ticklen:8,tickcolor:"rgba(255,255,255,.24)",gridcolor:"rgba(255,255,255,.13)",zerolinecolor:"rgba(255,255,255,.12)"},yaxis:{fixedrange:true,title:yTitle,gridcolor:"rgba(255,255,255,.08)",zerolinecolor:"rgba(255,255,255,.22)"},legend:{orientation:"h",x:0,y:1.12,bgcolor:"rgba(0,0,0,0)"},shapes};
-}
-function plotConfig(){return{displayModeBar:false,responsive:true,staticPlot:false,scrollZoom:false,doubleClick:false,displaylogo:false};}
+    function isoHour(value) {
+      return new Date(value).toISOString().replace(".000Z", "Z");
+    }
 
-function updateMeta(){
-  el("modelVersion").textContent = PUBLIC_MODEL_LABEL;
-  el("generatedAt").textContent = fmtGenerated(predictions?.generated_at_utc);
-  el("horizon").textContent = `${predictions?.forecast_horizon_hours || "—"} hours`;
-  const select=el("zoneSelect"); select.innerHTML="";
-  for(const z of predictions?.zones || []){const opt=document.createElement("option"); opt.value=z.zone; opt.textContent=z.zone; select.appendChild(opt);}
-  selectedZone = selectedZone || predictions?.zones?.[0]?.zone; select.value = selectedZone;
-}
-function updateCards(points){
-  const prices=points.map(p=>p.display_price_eur_mwh).filter(Number.isFinite);
-  const avg=prices.reduce((a,b)=>a+b,0)/prices.length;
-  const minP=points.reduce((a,b)=>b.display_price_eur_mwh<a.display_price_eur_mwh?b:a,points[0]);
-  const maxP=points.reduce((a,b)=>b.display_price_eur_mwh>a.display_price_eur_mwh?b:a,points[0]);
-  const riskP=points.reduce((a,b)=>(b.negative_probability||0)>(a.negative_probability||0)?b:a,points[0]);
-  const officialCount=points.filter(p=>p.price_source==="Official day-ahead").length;
-  el("avgPrice").textContent=fmtPrice(avg); el("avgSub").textContent=`${points.length} hours · ${officialCount} official`;
-  el("minPrice").textContent=fmtPrice(minP.display_price_eur_mwh); el("minSub").textContent=`${fmtDate(minP.timestamp_utc)} · ${minP.price_source}`;
-  el("maxPrice").textContent=fmtPrice(maxP.display_price_eur_mwh); el("maxSub").textContent=`${fmtDate(maxP.timestamp_utc)} · ${maxP.price_source}`;
-  el("riskValue").textContent=`${((riskP.negative_probability||0)*100).toFixed(1)}%`; el("riskSub").textContent=`${fmtDate(riskP.timestamp_utc)} · ${fmtPrice(riskP.display_price_eur_mwh)}`;
-}
-function plotPrice(points){
-  const x=points.map(p=>p.timestamp_utc);
-  const officialY=points.map(p=>p.price_source==="Official day-ahead"?convertPrice(p.display_price_eur_mwh):null);
-  const forecastY=points.map(p=>p.price_source==="Model forecast"?convertPrice(p.display_price_eur_mwh):null);
-  const p10=points.map(p=>p.price_source==="Model forecast"?convertPrice(p.p10):null);
-  const p90=points.map(p=>p.price_source==="Model forecast"?convertPrice(p.p90):null);
-  const hover=points.map(p=>[`<b>${fmtDate(p.timestamp_utc)}</b>`,`Source: <b>${p.price_source}</b>`,`Price: <b>${fmtPrice(p.display_price_eur_mwh)}</b>`,`Model forecast: ${fmtPrice(p.predicted_price_eur_mwh)}`,`Negative-price probability: ${((p.negative_probability||0)*100).toFixed(1)}%`].join("<br>"));
-  const traces=[
-    {x,y:p90,mode:"lines",line:{width:0},hoverinfo:"skip",showlegend:false,name:"p90"},
-    {x,y:p10,mode:"lines",line:{width:0},fill:"tonexty",fillcolor:"rgba(125,211,252,.18)",hoverinfo:"skip",name:"model p10–p90 uncertainty"},
-    {x,y:forecastY,mode:"lines+markers",connectgaps:false,line:{color:"#7dd3fc",width:3,shape:"spline",smoothing:.45},marker:{color:"#e0f2fe",size:5},text:hover,hovertemplate:"%{text}<extra></extra>",name:"Model forecast"},
-    {x,y:officialY,mode:"lines+markers",connectgaps:false,line:{color:"#86efac",width:4},marker:{color:"#86efac",size:7},text:hover,hovertemplate:"%{text}<extra></extra>",name:"Official day-ahead"}
-  ];
-  Plotly.react("priceChart",traces,baseLayout(unitLabel(),points,weekendShapes(points)),plotConfig());
-}
-function plotRisk(points){
-  const x=points.map(p=>p.timestamp_utc), y=points.map(p=>(p.negative_probability||0)*100);
-  const colors=y.map(v=>v>=70?"#fca5a5":v>=40?"#fdba74":v>=15?"#fde68a":"#86efac");
-  const hover=points.map((p,i)=>[`<b>${fmtDate(p.timestamp_utc)}</b>`,`Negative-price probability: <b>${y[i].toFixed(1)}%</b>`,`Displayed price: ${fmtPrice(p.display_price_eur_mwh)}`,`Source: ${p.price_source}`].join("<br>"));
-  const layout=baseLayout("% probability",points,[...weekendShapes(points),{type:"line",xref:"paper",x0:0,x1:1,yref:"y",y0:50,y1:50,line:{color:"rgba(252,165,165,.6)",width:1,dash:"dot"}}]);
-  layout.yaxis.range=[0,Math.max(20,Math.ceil(Math.max(...y,1)/10)*10)];
-  Plotly.react("riskChart",[{x,y,type:"bar",marker:{color:colors,line:{color:"rgba(255,255,255,.25)",width:.5}},text:hover,hovertemplate:"%{text}<extra></extra>",name:"Negative-price probability"}],layout,plotConfig());
-}
-function dayKey(ts){return new Date(ts).toISOString().slice(0,10);}
-function cheapestWindow(dayPoints,windowHours=4){const sorted=[...dayPoints].sort((a,b)=>new Date(a.timestamp_utc)-new Date(b.timestamp_utc)); const n=Math.min(windowHours,sorted.length); let best=null; for(let i=0;i<=sorted.length-n;i++){const w=sorted.slice(i,i+n); const avg=w.reduce((s,p)=>s+p.display_price_eur_mwh,0)/n; const risk=w.reduce((s,p)=>s+(p.negative_probability||0),0)/n; if(!best || avg<best.avgPrice) best={start:w[0],end:w[w.length-1],avgPrice:avg,avgRisk:risk,points:w};} return best;}
-function updateDailyWindowList(points){
-  const c=el("dailyWindowList"); c.innerHTML="";
-  const byDay=new Map(); for(const p of points){const k=dayKey(p.timestamp_utc); if(!byDay.has(k)) byDay.set(k,[]); byDay.get(k).push(p);}
-  const windows=[...byDay.values()].map(v=>cheapestWindow(v,4)).filter(Boolean).slice(0,7);
-  for(const w of windows){const risk=w.avgRisk*100; const end=new Date(new Date(w.end.timestamp_utc).getTime()+3600000); const row=document.createElement("div"); row.className="window-row"; row.innerHTML=`<div class="window-time">${fmtDay(w.start.timestamp_utc)}<br><span style="color:var(--muted);font-weight:700">${fmtHour(w.start.timestamp_utc)}–${fmtHour(end)}</span></div><div class="bar" title="Average negative-price probability"><span style="width:${Math.max(4,Math.min(100,risk)).toFixed(1)}%"></span></div><div class="window-price">${fmtPrice(w.avgPrice)}<br><span style="color:var(--muted);font-size:12px">${risk.toFixed(0)}% neg.</span></div>`; c.appendChild(row);}
-}
-function render(){const points=getMergedPoints(); if(!points.length){document.querySelector(".grid").innerHTML=`<div class="error">No forecast points found.</div>`;return;} updateCards(points); plotPrice(points); plotRisk(points); updateDailyWindowList(points);}
-async function loadAndRender(){try{el("refreshBtn").textContent="Loading…"; predictions=await fetchFirst(PREDICTION_URLS,true); official=await fetchFirst(OFFICIAL_URLS,false); selectedZone=selectedZone||predictions?.zones?.[0]?.zone; updateMeta(); render();}catch(e){console.error(e);document.querySelector(".grid").innerHTML=`<div class="error"><strong>Could not load forecast data.</strong><br>Check predictions.json and official_prices.json paths.</div>`;}finally{el("refreshBtn").textContent="Reload forecast";}}
-el("zoneSelect").addEventListener("change",e=>{selectedZone=e.target.value;render();});
-function setUnit(u){unit=u; for(const id of ["unitCents","unitEuroKwh","unitEuroMwh"]) el(id).classList.remove("active"); el(u==="ct"?"unitCents":u==="eurkwh"?"unitEuroKwh":"unitEuroMwh").classList.add("active"); render();}
-el("unitCents").addEventListener("click",()=>setUnit("ct")); el("unitEuroKwh").addEventListener("click",()=>setUnit("eurkwh")); el("unitEuroMwh").addEventListener("click",()=>setUnit("eurmwh"));
-document.querySelectorAll("[data-range]").forEach(btn=>btn.addEventListener("click",()=>{selectedRange=Number(btn.dataset.range);document.querySelectorAll("[data-range]").forEach(b=>b.classList.remove("active"));btn.classList.add("active");render();}));
-el("refreshBtn").addEventListener("click",loadAndRender);
-loadAndRender();
-</script>
+    function floorToHourMs(value) {
+      const dt = value instanceof Date ? new Date(value) : new Date(value);
+      dt.setMinutes(0, 0, 0);
+      return dt.getTime();
+    }
+
+    function ceilToHourMs(value) {
+      const dt = value instanceof Date ? new Date(value) : new Date(value);
+      if (dt.getMinutes() || dt.getSeconds() || dt.getMilliseconds()) {
+        dt.setHours(dt.getHours() + 1, 0, 0, 0);
+      } else {
+        dt.setMinutes(0, 0, 0);
+      }
+      return dt.getTime();
+    }
+
+    function fmtDate(value, withWeekday = true) {
+      const dt = value instanceof Date ? value : toDate(value);
+      return new Intl.DateTimeFormat(undefined, {
+        weekday: withWeekday ? "short" : undefined,
+        month: "short",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+      }).format(dt);
+    }
+
+    function fmtGenerated(value) {
+      if (!value) return "Unknown";
+      const dt = toDate(value);
+      return new Intl.DateTimeFormat(undefined, {
+        year: "numeric", month: "short", day: "numeric",
+        hour: "2-digit", minute: "2-digit", second: "2-digit",
+        timeZoneName: "short"
+      }).format(dt);
+    }
+
+    function fmtHour(value) {
+      return new Intl.DateTimeFormat(undefined, {
+        hour: "2-digit",
+        minute: "2-digit"
+      }).format(value instanceof Date ? value : new Date(value));
+    }
+
+    function fmtDay(value) {
+      return new Intl.DateTimeFormat(undefined, {
+        weekday: "short",
+        month: "short",
+        day: "numeric"
+      }).format(value instanceof Date ? value : new Date(value));
+    }
+
+    function dayKey(timestamp) {
+      return localDayKeyFromMs(new Date(timestamp).getTime());
+    }
+
+    function applyPriceBasisEurMwh(value) {
+      if (value === null || value === undefined || Number.isNaN(value)) return null;
+      if (priceBasis !== "dynamic") return value;
+
+      // Input is market price in EUR/MWh, equivalent to value / 10 ct/kWh.
+      // Dynamic consumer estimate: market component with VAT + dynamic contract fee incl. VAT + energy tax incl. VAT.
+      const marketCtKwhExVat = value / 10;
+      const estimatedCtKwh = marketCtKwhExVat * (1 + VAT_RATE)
+        + DYNAMIC_CONTRACT_FEE_CT_KWH_INCL_VAT
+        + NL_ENERGY_TAX_CT_KWH_INCL_VAT;
+
+      return estimatedCtKwh * 10;
+    }
+
+    function convertPrice(value) {
+      const basisAdjusted = applyPriceBasisEurMwh(value);
+      if (basisAdjusted === null || basisAdjusted === undefined || Number.isNaN(basisAdjusted)) return null;
+      if (unit === "ct") return basisAdjusted / 10;
+      if (unit === "eurkwh") return basisAdjusted / 1000;
+      return basisAdjusted;
+    }
+
+    function unitLabel() {
+      if (unit === "ct") return "ct/kWh";
+      if (unit === "eurkwh") return "€/kWh";
+      return "€/MWh";
+    }
+
+    function unitDigits() {
+      if (unit === "eurkwh") return 3;
+      if (unit === "ct") return 2;
+      return 1;
+    }
+
+    function fmtPrice(value) {
+      if (value === null || value === undefined || Number.isNaN(value)) return "—";
+      const price = convertPrice(value);
+      return `${price.toFixed(unitDigits())} ${unitLabel()}`;
+    }
+
+    function convertAlreadyAdjustedPrice(value) {
+      if (value === null || value === undefined || Number.isNaN(value)) return null;
+      if (unit === "ct") return value / 10;
+      if (unit === "eurkwh") return value / 1000;
+      return value;
+    }
+
+    function fmtAlreadyAdjustedPrice(value) {
+      if (value === null || value === undefined || Number.isNaN(value)) return "—";
+      const price = convertAlreadyAdjustedPrice(value);
+      return `${price.toFixed(unitDigits())} ${unitLabel()}`;
+    }
+
+    function updateBasisNote() {
+      const note = el("basisNote");
+      if (!note) return;
+      if (priceBasis === "dynamic") {
+        note.innerHTML = `<strong>Dynamic contract est.</strong><span>illustrative retail-style estimate</span>`;
+      } else {
+        note.innerHTML = `<strong>Market price</strong><span>wholesale day-ahead price, not a household bill</span>`;
+      }
+    }
+
+    async function fetchFirstAvailable(urls, required = true) {
+      let lastError = null;
+      for (const url of urls) {
+        try {
+          const response = await fetch(`${url}?t=${Date.now()}`, { cache: "no-store" });
+          if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+          const data = await response.json();
+          console.info(`Loaded ${url}`);
+          return data;
+        } catch (err) {
+          lastError = err;
+        }
+      }
+      if (required) throw lastError || new Error("Could not load JSON.");
+      return null;
+    }
+
+    function getPredictionZonePayload() {
+      if (!predictionPayload || !predictionPayload.zones?.length) return null;
+      return predictionPayload.zones.find(z => z.zone === selectedZone) || predictionPayload.zones[0];
+    }
+
+    function getOfficialZonePayload() {
+      if (!officialPayload || !officialPayload.zones?.length) return null;
+      return officialPayload.zones.find(z => z.zone === selectedZone) || null;
+    }
+
+    function sortedPredictionPoints() {
+      const zone = getPredictionZonePayload();
+      return (zone?.points || [])
+        .map(p => ({
+          timestamp_utc: isoHour(p.timestamp_utc),
+          timestamp_ms: new Date(p.timestamp_utc).getTime(),
+          predicted_price_eur_mwh: Number(p.predicted_price_eur_mwh),
+          p10: p.p10 === undefined || p.p10 === null ? null : Number(p.p10),
+          p90: p.p90 === undefined || p.p90 === null ? null : Number(p.p90),
+          source: "model"
+        }))
+        .filter(p => Number.isFinite(p.timestamp_ms) && Number.isFinite(p.predicted_price_eur_mwh))
+        .sort((a, b) => a.timestamp_ms - b.timestamp_ms);
+    }
+
+    function sortedOfficialPoints() {
+      const zone = getOfficialZonePayload();
+      return (zone?.points || [])
+        .map(p => ({
+          timestamp_utc: new Date(p.timestamp_utc).toISOString().replace(".000Z", "Z"),
+          timestamp_ms: new Date(p.timestamp_utc).getTime(),
+          official_price_eur_mwh: Number(p.official_price_eur_mwh),
+          source: "official"
+        }))
+        .filter(p => Number.isFinite(p.timestamp_ms) && Number.isFinite(p.official_price_eur_mwh))
+        .sort((a, b) => a.timestamp_ms - b.timestamp_ms);
+    }
+
+    function hourlyOfficialPoints() {
+      const buckets = new Map();
+
+      for (const point of sortedOfficialPoints()) {
+        const hourMs = floorToHourMs(point.timestamp_ms);
+        if (!buckets.has(hourMs)) buckets.set(hourMs, []);
+        buckets.get(hourMs).push(point.official_price_eur_mwh);
+      }
+
+      return [...buckets.entries()]
+        .sort((a, b) => a[0] - b[0])
+        .map(([hourMs, values]) => {
+          const avg = values.reduce((sum, value) => sum + value, 0) / values.length;
+          return {
+            timestamp_utc: new Date(hourMs).toISOString().replace(".000Z", "Z"),
+            timestamp_ms: hourMs,
+            price_eur_mwh: avg,
+            p10: null,
+            p90: null,
+            source: "official",
+            source_label: "Official hourly average",
+            samples: values.length
+          };
+        });
+    }
+
+    function displayWindow() {
+      // Start the visible chart at the current local hour. This shows the current
+      // official market hour and then the next selectedRangeHours ahead.
+      const startMs = floorToHourMs(Date.now());
+      const endMs = startMs + selectedRangeHours * MS_HOUR;
+      return { startMs, endMs };
+    }
+
+    function getVisibleSeries() {
+      const { startMs, endMs } = displayWindow();
+
+      const officialVisible = hourlyOfficialPoints()
+        .filter(p => p.timestamp_ms >= startMs && p.timestamp_ms < endMs);
+
+      const lastOfficialMs = officialVisible.length
+        ? Math.max(...officialVisible.map(p => p.timestamp_ms))
+        : -Infinity;
+
+      const forecastVisible = sortedPredictionPoints()
+        .filter(p => p.timestamp_ms >= startMs && p.timestamp_ms < endMs && p.timestamp_ms > lastOfficialMs)
+        .map(p => ({
+          timestamp_utc: p.timestamp_utc,
+          timestamp_ms: p.timestamp_ms,
+          price_eur_mwh: p.predicted_price_eur_mwh,
+          p10: p.p10,
+          p90: p.p90,
+          source: "model",
+          source_label: "Model forecast"
+        }));
+
+      const combined = [...officialVisible, ...forecastVisible].sort((a, b) => a.timestamp_ms - b.timestamp_ms);
+      return { combined, officialDisplay: officialVisible, forecastVisible, startMs, endMs, lastOfficialMs };
+    }
+
+    function localDayStartMs(value) {
+      const dt = value instanceof Date ? new Date(value) : new Date(value);
+      return new Date(dt.getFullYear(), dt.getMonth(), dt.getDate()).getTime();
+    }
+
+    function localDayKeyFromMs(timestampMs) {
+      const dt = new Date(timestampMs);
+      const year = dt.getFullYear();
+      const month = String(dt.getMonth() + 1).padStart(2, "0");
+      const day = String(dt.getDate()).padStart(2, "0");
+      return `${year}-${month}-${day}`;
+    }
+
+    function utcIsoInstant(value) {
+      return (value instanceof Date ? value : new Date(value)).toISOString();
+    }
+
+    function getLocalMidnightTicksFromRange(startMs, endMs) {
+      const firstMidnight = localDayStartMs(startMs);
+      const cursor = new Date(firstMidnight);
+      const final = new Date(localDayStartMs(endMs) + MS_DAY);
+      const ticks = [];
+
+      while (cursor <= final) {
+        const ms = cursor.getTime();
+        if (ms >= startMs && ms <= endMs) ticks.push(new Date(ms));
+        cursor.setDate(cursor.getDate() + 1);
+      }
+
+      return ticks;
+    }
+
+    function getCenteredDayTicksFromRange(startMs, endMs) {
+      const dayStart = localDayStartMs(startMs);
+      const finalDayStart = localDayStartMs(endMs);
+      const ticks = [];
+
+      for (let dayMs = dayStart; dayMs <= finalDayStart; dayMs += MS_DAY) {
+        const segmentStart = Math.max(startMs, dayMs);
+        const segmentEnd = Math.min(endMs, dayMs + MS_DAY);
+        if (segmentEnd > segmentStart) {
+          ticks.push(new Date((segmentStart + segmentEnd) / 2));
+        }
+      }
+
+      return ticks;
+    }
+
+    function getCenteredDayTickLabels(ticks) {
+      return ticks.map(dt => {
+        const date = new Intl.DateTimeFormat(undefined, { month: "short", day: "numeric" }).format(dt);
+        const weekday = new Intl.DateTimeFormat(undefined, { weekday: "short" }).format(dt);
+        return `${date}<br>${weekday}`;
+      });
+    }
+
+    function daySeparatorShapes(startMs, endMs) {
+      return getLocalMidnightTicksFromRange(startMs, endMs).map(tick => {
+        const x = utcIsoInstant(tick);
+        return {
+          type: "line",
+          xref: "x",
+          yref: "paper",
+          x0: x,
+          x1: x,
+          y0: 0,
+          y1: 1,
+          line: { color: "rgba(255,255,255,.20)", width: 1 },
+          layer: "below"
+        };
+      });
+    }
+
+    function updateMeta() {
+      el("modelVersion").textContent = PUBLIC_MODEL_LABEL;
+      el("generatedAt").textContent = fmtGenerated(predictionPayload?.generated_at_utc);
+      el("horizon").textContent = `${selectedRangeHours} hours visible`;
+
+      const select = el("zoneSelect");
+      select.innerHTML = "";
+      for (const z of predictionPayload.zones || []) {
+        const opt = document.createElement("option");
+        opt.value = z.zone;
+        opt.textContent = z.zone;
+        select.appendChild(opt);
+      }
+      selectedZone = selectedZone || predictionPayload.zones?.[0]?.zone;
+      select.value = selectedZone;
+    }
+
+    function timeWeightedAverage(points) {
+      if (!points.length) return null;
+      if (points.length === 1) return points[0].price_eur_mwh;
+      let weighted = 0;
+      let totalMs = 0;
+      for (let i = 0; i < points.length; i++) {
+        const current = points[i];
+        const next = points[i + 1];
+        let duration = next ? next.timestamp_ms - current.timestamp_ms : null;
+        if (!duration || duration <= 0 || duration > 2 * MS_HOUR) {
+          duration = current.source === "official" ? 15 * 60 * 1000 : MS_HOUR;
+        }
+        weighted += current.price_eur_mwh * duration;
+        totalMs += duration;
+      }
+      return totalMs ? weighted / totalMs : null;
+    }
+
+    function timeWeightedAverageActiveBasis(points) {
+      const avgMarket = timeWeightedAverage(points);
+      return avgMarket === null ? null : applyPriceBasisEurMwh(avgMarket);
+    }
+
+    function updateCards(series) {
+      const points = series.combined;
+      if (!points.length) return;
+
+      const pointsWithBasis = points.map(point => ({
+        ...point,
+        basis_price_eur_mwh: applyPriceBasisEurMwh(point.price_eur_mwh)
+      })).filter(point => Number.isFinite(point.basis_price_eur_mwh));
+
+      if (!pointsWithBasis.length) return;
+
+      const avgMarket = timeWeightedAverage(points);
+      const avgBasis = avgMarket === null ? null : applyPriceBasisEurMwh(avgMarket);
+
+      const minPoint = pointsWithBasis.reduce(
+        (best, point) => point.basis_price_eur_mwh < best.basis_price_eur_mwh ? point : best,
+        pointsWithBasis[0]
+      );
+      const maxPoint = pointsWithBasis.reduce(
+        (best, point) => point.basis_price_eur_mwh > best.basis_price_eur_mwh ? point : best,
+        pointsWithBasis[0]
+      );
+
+      const officialCount = series.officialDisplay.length;
+      const modelCount = series.forecastVisible.length;
+      const lastOfficial = officialCount ? series.officialDisplay[officialCount - 1] : null;
+      const firstForecast = modelCount ? series.forecastVisible[0] : null;
+      const basisLabel = priceBasis === "dynamic" ? "dynamic contract estimate" : "market price";
+
+      el("avgPrice").textContent = fmtAlreadyAdjustedPrice(avgBasis);
+      el("avgSub").textContent = `${points.length} visible hourly datapoints · ${basisLabel} · time-weighted`;
+
+      el("minPrice").textContent = fmtAlreadyAdjustedPrice(minPoint.basis_price_eur_mwh);
+      el("minSub").textContent = `${fmtDate(minPoint.timestamp_utc)} · ${minPoint.source === "official" ? "official" : "model"}`;
+
+      el("maxPrice").textContent = fmtAlreadyAdjustedPrice(maxPoint.basis_price_eur_mwh);
+      el("maxSub").textContent = `${fmtDate(maxPoint.timestamp_utc)} · ${maxPoint.source === "official" ? "official" : "model"}`;
+
+      if (lastOfficial) {
+        el("officialCoverage").textContent = fmtDate(lastOfficial.timestamp_utc, false);
+        el("officialSub").textContent = firstForecast
+          ? `model starts ${fmtDate(firstForecast.timestamp_utc, false)}`
+          : "all visible points are official";
+      } else {
+        el("officialCoverage").textContent = "—";
+        el("officialSub").textContent = `${modelCount} model forecast points visible`;
+      }
+    }
+
+    function plotPrice(series) {
+      const official = series.officialDisplay;
+      const forecast = series.forecastVisible;
+
+      const officialHover = official.map(p => [
+        `<b>${fmtDate(p.timestamp_utc)}</b>`,
+        `Source: <b>Official day-ahead price</b>`,
+        `Hourly average: <b>${fmtPrice(p.price_eur_mwh)}</b>`,
+        `Built from ${p.samples || 4} quarter-hour prices`
+      ].join("<br>"));
+
+      const forecastHover = forecast.map(p => [
+        `<b>${fmtDate(p.timestamp_utc)}</b>`,
+        `Source: <b>Model forecast</b>`,
+        `Forecast: <b>${fmtPrice(p.price_eur_mwh)}</b>`,
+        p.p10 === null ? null : `p10: ${fmtPrice(p.p10)}`,
+        p.p90 === null ? null : `p90: ${fmtPrice(p.p90)}`
+      ].filter(Boolean).join("<br>"));
+
+      const handoff = [];
+      if (official.length && forecast.length) {
+        const lastOfficial = official[official.length - 1];
+        const firstForecast = forecast[0];
+        if (firstForecast.timestamp_ms - lastOfficial.timestamp_ms <= 2 * MS_HOUR) {
+          handoff.push(lastOfficial, firstForecast);
+        }
+      }
+
+      const traces = [
+        {
+          x: forecast.map(p => p.timestamp_utc),
+          y: forecast.map(p => convertPrice(p.p90)),
+          mode: "lines",
+          line: { width: 0 },
+          hoverinfo: "skip",
+          showlegend: false,
+          name: "p90"
+        },
+        {
+          x: forecast.map(p => p.timestamp_utc),
+          y: forecast.map(p => convertPrice(p.p10)),
+          mode: "lines",
+          line: { width: 0 },
+          fill: "tonexty",
+          fillcolor: "rgba(125, 211, 252, 0.18)",
+          hoverinfo: "skip",
+          showlegend: false,
+          name: "Model p10–p90 uncertainty"
+        },
+        {
+          x: official.map(p => p.timestamp_utc),
+          y: official.map(p => convertPrice(p.price_eur_mwh)),
+          mode: "lines+markers",
+          connectgaps: false,
+          line: { color: "#86efac", width: 3, shape: "spline", smoothing: 0.55 },
+          marker: { color: "#86efac", size: 5 },
+          text: officialHover,
+          hovertemplate: "%{text}<extra></extra>",
+          name: "Official day-ahead"
+        },
+        {
+          x: handoff.map(p => p.timestamp_utc),
+          y: handoff.map(p => convertPrice(p.price_eur_mwh)),
+          mode: "lines",
+          line: { color: "rgba(255,255,255,.45)", width: 2, dash: "dot" },
+          hoverinfo: "skip",
+          showlegend: false,
+          name: "handoff"
+        },
+        {
+          x: forecast.map(p => p.timestamp_utc),
+          y: forecast.map(p => convertPrice(p.price_eur_mwh)),
+          mode: "lines+markers",
+          connectgaps: false,
+          line: { color: "#7dd3fc", width: 3, shape: "spline", smoothing: 0.45 },
+          marker: { color: "#e0f2fe", size: 5 },
+          text: forecastHover,
+          hovertemplate: "%{text}<extra></extra>",
+          name: "Model forecast"
+        }
+      ];
+
+      const dayTicks = getCenteredDayTicksFromRange(series.startMs, series.endMs);
+      const layout = baseLayout(`${unitLabel()}`, dayTicks, daySeparatorShapes(series.startMs, series.endMs), series.startMs, series.endMs);
+      Plotly.react("priceChart", traces, layout, plotConfig());
+    }
+
+    function baseLayout(yTitle, midnightTicks = [], shapes = [], startMs = null, endMs = null) {
+      const isMobile = window.matchMedia("(max-width: 760px)").matches;
+      const localTickVals = midnightTicks.map(utcIsoInstant);
+      const localRange = startMs && endMs ? [utcIsoInstant(new Date(startMs)), utcIsoInstant(new Date(endMs))] : undefined;
+      return {
+        paper_bgcolor: "rgba(0,0,0,0)",
+        plot_bgcolor: "rgba(0,0,0,0)",
+        dragmode: false,
+        margin: isMobile ? { l: 48, r: 8, t: 12, b: 52 } : { l: 70, r: 24, t: 18, b: 58 },
+        font: { color: "#dbe5ff", family: "Inter, system-ui, sans-serif" },
+        hoverlabel: {
+          bgcolor: "#111827",
+          bordercolor: "rgba(255,255,255,.18)",
+          font: { color: "#fff" }
+        },
+        xaxis: {
+          fixedrange: true,
+          range: localRange,
+          tickmode: midnightTicks.length ? "array" : "auto",
+          tickvals: localTickVals.length ? localTickVals : undefined,
+          ticktext: midnightTicks.length ? getCenteredDayTickLabels(midnightTicks) : undefined,
+          ticks: "outside",
+          ticklen: isMobile ? 5 : 8,
+          tickfont: { size: isMobile ? 10 : 12 },
+          tickcolor: "rgba(255,255,255,.24)",
+          showgrid: false,
+          showgrid: false,
+          gridcolor: "rgba(255,255,255,.13)",
+          zerolinecolor: "rgba(255,255,255,.12)",
+          rangeselector: { visible: false }
+        },
+        yaxis: {
+          fixedrange: true,
+          title: isMobile ? "" : yTitle,
+          tickfont: { size: isMobile ? 10 : 12 },
+          gridcolor: "rgba(255,255,255,.08)",
+          zerolinecolor: "rgba(255,255,255,.22)"
+        },
+        showlegend: false,
+        shapes
+      };
+    }
+
+    function plotConfig() {
+      return {
+        displayModeBar: false,
+        responsive: true,
+        staticPlot: false,
+        scrollZoom: false,
+        doubleClick: false,
+        displaylogo: false
+      };
+    }
+
+    function sourceName(source) {
+      return source === "official" ? "official" : "model";
+    }
+
+    function localHour(timestampMs) {
+      return new Date(timestampMs).getHours();
+    }
+
+    function isDayPredictionPoint(point) {
+      const hour = localHour(point.timestamp_ms);
+      return hour >= 7 && hour < 22;
+    }
+
+    function isNightPredictionPoint(point) {
+      const hour = localHour(point.timestamp_ms);
+      return hour < 7 || hour >= 22;
+    }
+
+    function cheapestWindowForPoints(candidatePoints, windowHours = 4) {
+      if (!candidatePoints.length) return null;
+      const sorted = [...candidatePoints].sort((a, b) => a.timestamp_ms - b.timestamp_ms);
+      let best = null;
+
+      for (let i = 0; i < sorted.length; i++) {
+        const start = sorted[i].timestamp_ms;
+        const end = start + windowHours * MS_HOUR;
+        const window = sorted.filter(p => p.timestamp_ms >= start && p.timestamp_ms < end);
+
+        // Need a real 4-hour model window. This avoids showing awkward partial
+        // current-day windows as if they were complete recommendations.
+        if (window.length < windowHours) continue;
+
+        const avgPrice = timeWeightedAverageActiveBasis(window);
+        if (avgPrice === null) continue;
+        if (!best || avgPrice < best.avgPrice) {
+          best = { start: sorted[i], endMs: end, avgPrice, points: window };
+        }
+      }
+
+      return best;
+    }
+
+    function priceColor(value, min, max) {
+      const span = Math.max(max - min, 1e-6);
+      const t = Math.max(0, Math.min(1, (value - min) / span));
+      if (t < 0.34) return "#86efac";
+      if (t < 0.67) return "#fde68a";
+      return "#fca5a5";
+    }
+
+    function updateDailyWindowList(series) {
+      const container = el("dailyWindowList");
+      container.classList.add("prediction-windows");
+      container.innerHTML = "";
+
+      // Cheapest windows are based only on the model prediction period.
+      const forecastPoints = series.forecastVisible || [];
+
+      const byDay = new Map();
+      for (const p of forecastPoints) {
+        const key = localDayKeyFromMs(p.timestamp_ms);
+        if (!byDay.has(key)) byDay.set(key, []);
+        byDay.get(key).push(p);
+      }
+
+      const dayEntries = [...byDay.entries()]
+        .sort(([a], [b]) => a.localeCompare(b))
+        .slice(0, 7)
+        .map(([key, points]) => ({
+          key,
+          points: points.sort((a, b) => a.timestamp_ms - b.timestamp_ms),
+          dayWindow: cheapestWindowForPoints(points.filter(isDayPredictionPoint), 4),
+          nightWindow: cheapestWindowForPoints(points.filter(isNightPredictionPoint), 4)
+        }))
+        .filter(entry => entry.points.length);
+
+      if (!dayEntries.length) {
+        container.innerHTML = `<div class="source-row"><div class="source-value">No forecast-only daily windows available yet.</div></div>`;
+        return;
+      }
+
+      const allWindows = dayEntries.flatMap(entry => [entry.dayWindow, entry.nightWindow].filter(Boolean));
+      const prices = allWindows.map(w => w.avgPrice);
+      const min = prices.length ? Math.min(...prices) : 0;
+      const max = prices.length ? Math.max(...prices) : 1;
+
+      function priceLevel(value, min, max) {
+        const span = Math.max(max - min, 1e-6);
+        const t = Math.max(0, Math.min(1, (value - min) / span));
+        if (t < 0.34) return { label: "Best", cls: "best" };
+        if (t < 0.67) return { label: "Good", cls: "good" };
+        return { label: "Okay", cls: "okay" };
+      }
+
+      function renderMini(label, window) {
+        const icon = label === "Day" ? "☀️" : "🌙";
+
+        if (!window) {
+          return `
+            <div class="window-mini empty">
+              <div class="window-mini-label-wrap">
+                <span class="window-mini-icon">${icon}</span>
+                <div class="window-mini-meta">
+                  <div class="window-mini-label">${label}</div>
+                  <div class="window-mini-time">not enough forecast hours</div>
+                </div>
+              </div>
+              <div class="window-mini-price">—</div>
+            </div>
+          `;
+        }
+
+        const level = priceLevel(window.avgPrice, min, max);
+
+        return `
+          <div class="window-mini" title="${label} forecast window · ${fmtAlreadyAdjustedPrice(window.avgPrice)} average">
+            <div class="window-mini-label-wrap">
+              <span class="window-mini-icon ${level.cls}">${icon}</span>
+              <div class="window-mini-meta">
+                <div class="window-mini-label">${label}</div>
+                <div class="window-mini-time">${fmtHour(window.start.timestamp_utc)}–${fmtHour(new Date(window.endMs))}</div>
+              </div>
+            </div>
+            <div class="price-badge ${level.cls}">
+              <span class="price-badge-dot"></span>
+              ${level.label}
+            </div>
+            <div class="window-mini-price">${fmtAlreadyAdjustedPrice(window.avgPrice)}</div>
+          </div>
+        `;
+      }
+
+      for (const entry of dayEntries) {
+        const firstPoint = entry.points[0];
+        const card = document.createElement("div");
+        card.className = "prediction-day-card";
+        card.innerHTML = `
+          <div class="prediction-day-title">
+            <strong>${fmtDay(firstPoint.timestamp_utc)}</strong>
+            <span>forecast</span>
+          </div>
+          <div class="window-pair">
+            ${renderMini("Day", entry.dayWindow)}
+            ${renderMini("Night", entry.nightWindow)}
+          </div>
+        `;
+        container.appendChild(card);
+      }
+    }
+
+    function render() {
+      const series = getVisibleSeries();
+      if (!series.combined.length) {
+        document.querySelector(".grid").innerHTML = `<div class="error">No visible forecast or official-price points found.</div>`;
+        return;
+      }
+      updateBasisNote();
+      updateCards(series);
+      plotPrice(series);
+      updateDailyWindowList(series);
+    }
+
+    async function loadAndRender() {
+      try {
+        el("refreshBtn").textContent = "Loading…";
+        predictionPayload = await fetchFirstAvailable(PREDICTION_CANDIDATES, true);
+        officialPayload = await fetchFirstAvailable(OFFICIAL_CANDIDATES, false);
+        selectedZone = selectedZone || predictionPayload?.zones?.[0]?.zone;
+        updateMeta();
+        render();
+      } catch (error) {
+        console.error(error);
+        document.querySelector(".grid").innerHTML = `
+          <div class="error">
+            <strong>Could not load forecast data.</strong><br>
+            Make sure <code>public/data/predictions.json</code> exists. Optional official prices should be at
+            <code>public/data/official_prices.json</code>.
+          </div>
+        `;
+      } finally {
+        el("refreshBtn").textContent = "Reload forecast";
+      }
+    }
+
+    el("zoneSelect").addEventListener("change", (event) => {
+      selectedZone = event.target.value;
+      render();
+    });
+
+    function setUnit(nextUnit) {
+      unit = nextUnit;
+      el("unitCents").classList.toggle("active", unit === "ct");
+      el("unitEuroKwh").classList.toggle("active", unit === "eurkwh");
+      el("unitEuroMwh").classList.toggle("active", unit === "eurmwh");
+      render();
+    }
+
+    el("unitCents").addEventListener("click", () => setUnit("ct"));
+    el("unitEuroKwh").addEventListener("click", () => setUnit("eurkwh"));
+    el("unitEuroMwh").addEventListener("click", () => setUnit("eurmwh"));
+
+    function setPriceBasis(nextBasis) {
+      priceBasis = nextBasis;
+      el("basisWholesale").classList.toggle("active", priceBasis === "wholesale");
+      el("basisDynamic").classList.toggle("active", priceBasis === "dynamic");
+      render();
+    }
+
+    el("basisWholesale").addEventListener("click", () => setPriceBasis("wholesale"));
+    el("basisDynamic").addEventListener("click", () => setPriceBasis("dynamic"));
+
+    document.querySelectorAll("[data-range]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        selectedRangeHours = Number(btn.dataset.range);
+        document.querySelectorAll("[data-range]").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        el("horizon").textContent = `${selectedRangeHours} hours visible`;
+        render();
+      });
+    });
+
+    el("refreshBtn").addEventListener("click", loadAndRender);
+
+    loadAndRender();
+  </script>
 </body>
 </html>
