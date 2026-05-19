@@ -391,6 +391,571 @@
       .window-price { text-align: left; }
       .chart { height: 420px; }
     }
+  
+    .source-summary {
+      display: grid;
+      gap: 12px;
+      padding: 8px;
+    }
+
+    .source-row {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 12px;
+      align-items: center;
+      padding: 12px;
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 18px;
+      background: rgba(255,255,255,.045);
+    }
+
+    .source-key {
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .source-value {
+      color: var(--text);
+      font-weight: 800;
+      line-height: 1.4;
+      overflow-wrap: anywhere;
+    }
+
+    .legend-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .legend-swatch {
+      width: 18px;
+      height: 4px;
+      border-radius: 999px;
+      display: inline-block;
+    }
+
+
+    .chart-notes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .chart-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.045);
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.25;
+    }
+
+    .chart-note strong {
+      color: var(--text);
+    }
+
+    .full-width-panel {
+      display: block;
+      width: 100%;
+    }
+
+    .full-width-panel .panel {
+      width: 100%;
+    }
+
+    @media (min-width: 900px) {
+      .daily-window-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 1280px) {
+      .daily-window-list {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      .chart-notes {
+        display: grid;
+      }
+
+      .chart-note {
+        align-items: flex-start;
+        border-radius: 16px;
+      }
+
+      .cards {
+        gap: 12px;
+      }
+
+      .card-value {
+        font-size: 30px;
+      }
+
+      .panel h2 {
+        font-size: 19px;
+      }
+
+      .subtitle {
+        font-size: 15px;
+      }
+    }
+
+
+    .daily-window-list.prediction-windows {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      align-items: stretch;
+    }
+
+    .prediction-day-card {
+      padding: 14px;
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 20px;
+      background: rgba(255,255,255,.045);
+    }
+
+    .prediction-day-title {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .prediction-day-title span {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+    }
+
+    .window-pair {
+      display: grid;
+      gap: 10px;
+    }
+
+    .window-mini {
+      display: grid;
+      grid-template-columns: 64px 1fr auto;
+      gap: 10px;
+      align-items: center;
+      padding: 10px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.045);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .window-mini-label {
+      font-size: 12px;
+      font-weight: 900;
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .window-mini-time {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .window-mini-price {
+      font-weight: 950;
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    @media (max-width: 620px) {
+      .window-mini {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      .window-mini-price {
+        text-align: left;
+      }
+    }
+
+
+    .window-mini.empty {
+      opacity: .62;
+    }
+
+    .price-bar span {
+      background-image: none !important;
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        width: min(100% - 20px, 1480px);
+        padding: 14px 0 34px;
+      }
+
+      .hero-main {
+        padding: 20px 18px;
+      }
+
+      h1 {
+        font-size: clamp(30px, 11vw, 42px);
+      }
+
+      .subtitle {
+        font-size: 15px;
+        line-height: 1.55;
+      }
+
+      .toolbar {
+        padding: 14px;
+      }
+
+      .controls {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .controls select,
+      .segmented,
+      #refreshBtn {
+        width: 100%;
+      }
+
+      .segmented button {
+        flex: 1;
+      }
+
+      .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .card {
+        padding: 14px;
+      }
+
+      .card-title {
+        font-size: 10px;
+      }
+
+      .card-value {
+        font-size: clamp(24px, 7.8vw, 34px);
+      }
+
+      .chart {
+        height: 350px;
+      }
+
+      .panel {
+        padding: 14px;
+      }
+
+      .panel h2 {
+        font-size: 20px;
+      }
+
+      .panel p {
+        font-size: 13px;
+      }
+
+      .daily-window-list.prediction-windows {
+        grid-template-columns: 1fr;
+      }
+
+      .window-mini {
+        grid-template-columns: 56px 1fr;
+      }
+
+      .window-mini-price {
+        grid-column: 2;
+        text-align: left;
+        font-size: 18px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .chart {
+        height: 330px;
+      }
+    }
+
+
+    .window-mini-icon {
+      width: 34px;
+      height: 34px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 999px;
+      background: rgba(255,255,255,.075);
+      border: 1px solid rgba(255,255,255,.10);
+      font-size: 18px;
+      line-height: 1;
+      flex: 0 0 auto;
+    }
+
+    .window-mini-label-wrap {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .window-mini-meta {
+      display: grid;
+      gap: 2px;
+    }
+
+    .price-scale {
+      position: relative;
+      height: 10px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--green), var(--yellow), var(--red));
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.08);
+      margin-top: 6px;
+    }
+
+    .price-scale::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: rgba(255,255,255,.08);
+      mix-blend-mode: soft-light;
+      pointer-events: none;
+    }
+
+    .price-marker {
+      position: absolute;
+      top: 50%;
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      transform: translate(-50%, -50%);
+      background: #ffffff;
+      border: 3px solid rgba(11,16,32,.92);
+      box-shadow: 0 0 0 1px rgba(255,255,255,.35), 0 6px 18px rgba(0,0,0,.28);
+    }
+
+    .window-mini {
+      grid-template-columns: minmax(120px, .7fr) 1fr auto;
+    }
+
+    @media (max-width: 760px) {
+      .window-mini {
+        grid-template-columns: 1fr;
+      }
+
+      .window-mini-price {
+        grid-column: auto;
+      }
+    }
+
+
+    .basis-toggle {
+      min-width: 270px;
+    }
+
+    .basis-toggle button {
+      white-space: nowrap;
+    }
+
+    .window-mini {
+      grid-template-columns: minmax(126px, .9fr) 78px minmax(105px, auto);
+      gap: 10px;
+      overflow: hidden;
+    }
+
+    .window-mini-time {
+      white-space: nowrap;
+      overflow-wrap: normal;
+    }
+
+    .window-mini-price {
+      white-space: nowrap;
+      min-width: max-content;
+      text-align: right;
+    }
+
+    .price-badge {
+      justify-self: end;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-width: 70px;
+      justify-content: center;
+      padding: 7px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .02em;
+    }
+
+    .price-badge-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: currentColor;
+      box-shadow: 0 0 14px currentColor;
+    }
+
+    .price-badge.best,
+    .window-mini-icon.best {
+      color: var(--green);
+      background: rgba(134,239,172,.10);
+    }
+
+    .price-badge.good,
+    .window-mini-icon.good {
+      color: var(--yellow);
+      background: rgba(253,230,138,.10);
+    }
+
+    .price-badge.okay,
+    .window-mini-icon.okay {
+      color: var(--blue);
+      background: rgba(125,211,252,.10);
+    }
+
+    @media (max-width: 760px) {
+      .basis-toggle {
+        min-width: 0;
+      }
+
+      .window-mini {
+        grid-template-columns: 1fr auto;
+      }
+
+      .price-badge {
+        justify-self: start;
+      }
+
+      .window-mini-price {
+        grid-column: 2;
+        text-align: right;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .window-mini {
+        grid-template-columns: 1fr;
+      }
+
+      .window-mini-price {
+        grid-column: auto;
+        text-align: left;
+      }
+    }
+
+
+    /* final overflow fix for cheapest forecast windows */
+    .daily-window-list.prediction-windows {
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    }
+
+    .window-mini {
+      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-areas:
+        "main badge"
+        "price price";
+      align-items: center;
+      gap: 8px 12px;
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .window-mini-label-wrap {
+      grid-area: main;
+      min-width: 0;
+    }
+
+    .window-mini-meta {
+      min-width: 0;
+    }
+
+    .window-mini-time {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .price-badge {
+      grid-area: badge;
+      justify-self: end;
+      min-width: 68px;
+      max-width: 82px;
+      padding-inline: 8px;
+    }
+
+    .window-mini-price {
+      grid-area: price;
+      justify-self: end;
+      max-width: 100%;
+      white-space: nowrap;
+      overflow: visible;
+      text-align: right;
+      font-size: clamp(14px, 1.05vw, 18px);
+      line-height: 1.15;
+    }
+
+    @media (min-width: 1280px) {
+      .daily-window-list.prediction-windows {
+        grid-template-columns: repeat(3, minmax(360px, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .daily-window-list.prediction-windows {
+        grid-template-columns: 1fr;
+      }
+
+      .window-mini {
+        grid-template-columns: minmax(0, 1fr) auto;
+        grid-template-areas:
+          "main badge"
+          "price price";
+      }
+
+      .window-mini-price {
+        justify-self: start;
+        text-align: left;
+        font-size: 18px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .window-mini {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "main"
+          "badge"
+          "price";
+      }
+
+      .price-badge,
+      .window-mini-price {
+        justify-self: start;
+      }
+    }
+
   </style>
 </head>
 
@@ -399,10 +964,10 @@
     <section class="hero">
       <div class="hero-main glass">
         <div class="eyebrow"><span class="dot"></span> Netherlands electricity forecast</div>
-        <h1>Price, negative-price risk, and uncertainty for the next 7 days.</h1>
+        <h1>Official prices and model forecasts for the next 7 days.</h1>
         <p class="subtitle">
-          Forecasts are produced daily from the private energy forecasting pipeline and published as a public JSON file.
-          Prices are shown in <strong>cents per kWh</strong>, because this is easier to understand than €/MWh.
+          Known day-ahead market prices are shown as official values. For later hours, the model shows a forecast with uncertainty.
+          Prices are shown in <strong>cents per kWh</strong>, with optional views in <strong>€/kWh</strong> and <strong>€/MWh</strong>.
         </p>
       </div>
 
@@ -418,12 +983,13 @@
             <div class="meta-value" id="generatedAt">Loading…</div>
           </div>
           <div class="meta-line">
-            <div class="meta-label">Forecast horizon</div>
+            <div class="meta-label">Visible horizon</div>
             <div class="meta-value" id="horizon">Loading…</div>
           </div>
         </div>
         <div class="notice">
-          Hover the charts to inspect each hourly datapoint. The shaded interval shows model uncertainty from p10 to p90.
+          Official day-ahead prices are averaged to hourly values for comparison with the hourly model forecast. The model forecast remains hourly.
+          The shaded interval is shown only for model-forecasted hours.
         </div>
       </aside>
     </section>
@@ -433,12 +999,17 @@
         <select id="zoneSelect" aria-label="Select market zone"></select>
         <div class="segmented" aria-label="Unit selection">
           <button id="unitCents" class="active" type="button">ct/kWh</button>
+          <button id="unitEuroKwh" type="button">€/kWh</button>
           <button id="unitEuroMwh" type="button">€/MWh</button>
         </div>
         <div class="segmented" aria-label="Time range selection">
           <button data-range="24" type="button">24h</button>
           <button data-range="72" type="button">3d</button>
           <button data-range="168" class="active" type="button">7d</button>
+        </div>
+        <div class="segmented basis-toggle" aria-label="Price basis selection">
+          <button id="basisWholesale" class="active" type="button">Market price</button>
+          <button id="basisDynamic" type="button">Dynamic contract est.</button>
         </div>
       </div>
       <button id="refreshBtn" type="button">Reload forecast</button>
@@ -461,9 +1032,9 @@
         <div class="card-sub" id="maxSub">—</div>
       </div>
       <div class="card glass">
-        <div class="card-title">Highest negative risk</div>
-        <div class="card-value" id="riskValue">—</div>
-        <div class="card-sub" id="riskSub">—</div>
+        <div class="card-title">Official prices until</div>
+        <div class="card-value" id="officialCoverage">—</div>
+        <div class="card-sub" id="officialSub">—</div>
       </div>
     </section>
 
@@ -471,31 +1042,26 @@
       <div class="panel glass">
         <div class="panel-header">
           <div>
-            <h2>Forecast price with uncertainty band</h2>
+            <h2>Official prices and model forecast</h2>
             <p>
-              Main forecast line with p10–p90 uncertainty interval. In ct/kWh, divide €/MWh by 10.
+              The green line shows official market prices, averaged to hourly values. The blue line shows model forecasts after official prices end.
             </p>
+            <div class="chart-notes">
+              <div class="chart-note"><span class="legend-swatch" style="background: var(--green);"></span><strong>Official</strong><span>hourly average from 15-minute market data</span></div>
+              <div class="chart-note"><span class="legend-swatch" style="background: var(--blue);"></span><strong>Model</strong><span>hourly forecast with p10–p90 band</span></div>
+              <div class="chart-note" id="basisNote"><strong>Market price</strong><span>wholesale day-ahead price, not a household bill</span></div>
+            </div>
           </div>
         </div>
         <div id="priceChart" class="chart"></div>
       </div>
 
-      <div class="two-col">
+      <div class="full-width-panel">
         <div class="panel glass">
           <div class="panel-header">
             <div>
-              <h2>Negative-price probability</h2>
-              <p>Hourly probability that the wholesale day-ahead price will be below zero.</p>
-            </div>
-          </div>
-          <div id="riskChart" class="small-chart"></div>
-        </div>
-
-        <div class="panel glass">
-          <div class="panel-header">
-            <div>
-              <h2>Cheapest daily windows</h2>
-              <p>Best low-price windows for flexible consumption during each forecast day.</p>
+              <h2>Cheapest forecast windows</h2>
+              <p>Best forecast-only 4-hour low-price windows, split into day and night for each predicted day. Values follow the selected price basis.</p>
             </div>
           </div>
           <div id="dailyWindowList" class="daily-window-list"></div>
@@ -504,29 +1070,69 @@
     </section>
 
     <div class="footer">
-      Forecasts are experimental and for visualization only. Electricity prices are wholesale day-ahead forecasts, not household retail tariffs.
+      Forecasts are experimental and for visualization only. Market prices are wholesale day-ahead prices/forecasts. Dynamic contract estimates are illustrative and exclude fixed monthly costs, grid charges and personal contract details. Formula used: market × VAT + 2.53 ct/kWh fee + 11.09 ct/kWh tax.
     </div>
   </main>
 
   <script>
-    const DATA_CANDIDATES = [
-      "./predictions.json",
+    const PREDICTION_CANDIDATES = [
       "./public/data/predictions.json",
+      "./predictions.json",
+      "/energy_forecasting_ui/public/data/predictions.json",
       "/public/data/predictions.json",
       "/data/predictions.json"
     ];
 
-    const PUBLIC_MODEL_LABEL = "Model v0.9";
+    const OFFICIAL_CANDIDATES = [
+      "./public/data/official_prices.json",
+      "./official_prices.json",
+      "/energy_forecasting_ui/public/data/official_prices.json",
+      "/public/data/official_prices.json",
+      "/data/official_prices.json"
+    ];
 
-    let payload = null;
+    const PUBLIC_MODEL_LABEL = "Model v0.9";
+    const MS_HOUR = 60 * 60 * 1000;
+    const MS_DAY = 24 * MS_HOUR;
+
+    let predictionPayload = null;
+    let officialPayload = null;
     let selectedZone = null;
-    let selectedRange = 168;
+    let selectedRangeHours = 168;
     let unit = "ct";
+    let priceBasis = "wholesale";
+
+    // Illustrative dynamic retail estimate based on the a generic dynamic-contract structure:
+    // market price + supplier purchase/handling fee + Dutch energy tax.
+    // These constants should be reviewed when tariffs change.
+    const VAT_RATE = 0.21;
+    const DYNAMIC_CONTRACT_FEE_CT_KWH_INCL_VAT = 2.53;
+    const NL_ENERGY_TAX_CT_KWH_INCL_VAT = 11.085;
 
     const el = (id) => document.getElementById(id);
 
     function toDate(value) {
       return new Date(value);
+    }
+
+    function isoHour(value) {
+      return new Date(value).toISOString().replace(".000Z", "Z");
+    }
+
+    function floorToHourMs(value) {
+      const dt = value instanceof Date ? new Date(value) : new Date(value);
+      dt.setMinutes(0, 0, 0);
+      return dt.getTime();
+    }
+
+    function ceilToHourMs(value) {
+      const dt = value instanceof Date ? new Date(value) : new Date(value);
+      if (dt.getMinutes() || dt.getSeconds() || dt.getMilliseconds()) {
+        dt.setHours(dt.getHours() + 1, 0, 0, 0);
+      } else {
+        dt.setMinutes(0, 0, 0);
+      }
+      return dt.getTime();
     }
 
     function fmtDate(value, withWeekday = true) {
@@ -565,141 +1171,382 @@
       }).format(value instanceof Date ? value : new Date(value));
     }
 
-    function getLocalMidnightTicks(points) {
-      if (!points.length) return [];
+    function dayKey(timestamp) {
+      return localDayKeyFromMs(new Date(timestamp).getTime());
+    }
 
-      const dates = points.map(p => new Date(p.timestamp_utc));
-      const start = new Date(Math.min(...dates));
-      const end = new Date(Math.max(...dates));
+    function applyPriceBasisEurMwh(value) {
+      if (value === null || value === undefined || Number.isNaN(value)) return null;
+      if (priceBasis !== "dynamic") return value;
 
-      // Plotly renders date axes in the viewer's local timezone.
-      // These ticks therefore align the vertical grid lines to local midnight.
-      const cursor = new Date(start.getFullYear(), start.getMonth(), start.getDate());
-      const final = new Date(end.getFullYear(), end.getMonth(), end.getDate() + 1);
+      // Input is market price in EUR/MWh, equivalent to value / 10 ct/kWh.
+      // Dynamic consumer estimate: market component with VAT + dynamic contract fee incl. VAT + energy tax incl. VAT.
+      const marketCtKwhExVat = value / 10;
+      const estimatedCtKwh = marketCtKwhExVat * (1 + VAT_RATE)
+        + DYNAMIC_CONTRACT_FEE_CT_KWH_INCL_VAT
+        + NL_ENERGY_TAX_CT_KWH_INCL_VAT;
+
+      return estimatedCtKwh * 10;
+    }
+
+    function convertPrice(value) {
+      const basisAdjusted = applyPriceBasisEurMwh(value);
+      if (basisAdjusted === null || basisAdjusted === undefined || Number.isNaN(basisAdjusted)) return null;
+      if (unit === "ct") return basisAdjusted / 10;
+      if (unit === "eurkwh") return basisAdjusted / 1000;
+      return basisAdjusted;
+    }
+
+    function unitLabel() {
+      if (unit === "ct") return "ct/kWh";
+      if (unit === "eurkwh") return "€/kWh";
+      return "€/MWh";
+    }
+
+    function unitDigits() {
+      if (unit === "eurkwh") return 3;
+      if (unit === "ct") return 2;
+      return 1;
+    }
+
+    function fmtPrice(value) {
+      if (value === null || value === undefined || Number.isNaN(value)) return "—";
+      const price = convertPrice(value);
+      return `${price.toFixed(unitDigits())} ${unitLabel()}`;
+    }
+
+    function convertAlreadyAdjustedPrice(value) {
+      if (value === null || value === undefined || Number.isNaN(value)) return null;
+      if (unit === "ct") return value / 10;
+      if (unit === "eurkwh") return value / 1000;
+      return value;
+    }
+
+    function fmtAlreadyAdjustedPrice(value) {
+      if (value === null || value === undefined || Number.isNaN(value)) return "—";
+      const price = convertAlreadyAdjustedPrice(value);
+      return `${price.toFixed(unitDigits())} ${unitLabel()}`;
+    }
+
+    function updateBasisNote() {
+      const note = el("basisNote");
+      if (!note) return;
+      if (priceBasis === "dynamic") {
+        note.innerHTML = `<strong>Dynamic contract est.</strong><span>illustrative retail-style estimate</span>`;
+      } else {
+        note.innerHTML = `<strong>Market price</strong><span>wholesale day-ahead price, not a household bill</span>`;
+      }
+    }
+
+    async function fetchFirstAvailable(urls, required = true) {
+      let lastError = null;
+      for (const url of urls) {
+        try {
+          const response = await fetch(`${url}?t=${Date.now()}`, { cache: "no-store" });
+          if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+          const data = await response.json();
+          console.info(`Loaded ${url}`);
+          return data;
+        } catch (err) {
+          lastError = err;
+        }
+      }
+      if (required) throw lastError || new Error("Could not load JSON.");
+      return null;
+    }
+
+    function getPredictionZonePayload() {
+      if (!predictionPayload || !predictionPayload.zones?.length) return null;
+      return predictionPayload.zones.find(z => z.zone === selectedZone) || predictionPayload.zones[0];
+    }
+
+    function getOfficialZonePayload() {
+      if (!officialPayload || !officialPayload.zones?.length) return null;
+      return officialPayload.zones.find(z => z.zone === selectedZone) || null;
+    }
+
+    function sortedPredictionPoints() {
+      const zone = getPredictionZonePayload();
+      return (zone?.points || [])
+        .map(p => ({
+          timestamp_utc: isoHour(p.timestamp_utc),
+          timestamp_ms: new Date(p.timestamp_utc).getTime(),
+          predicted_price_eur_mwh: Number(p.predicted_price_eur_mwh),
+          p10: p.p10 === undefined || p.p10 === null ? null : Number(p.p10),
+          p90: p.p90 === undefined || p.p90 === null ? null : Number(p.p90),
+          source: "model"
+        }))
+        .filter(p => Number.isFinite(p.timestamp_ms) && Number.isFinite(p.predicted_price_eur_mwh))
+        .sort((a, b) => a.timestamp_ms - b.timestamp_ms);
+    }
+
+    function sortedOfficialPoints() {
+      const zone = getOfficialZonePayload();
+      return (zone?.points || [])
+        .map(p => ({
+          timestamp_utc: new Date(p.timestamp_utc).toISOString().replace(".000Z", "Z"),
+          timestamp_ms: new Date(p.timestamp_utc).getTime(),
+          official_price_eur_mwh: Number(p.official_price_eur_mwh),
+          source: "official"
+        }))
+        .filter(p => Number.isFinite(p.timestamp_ms) && Number.isFinite(p.official_price_eur_mwh))
+        .sort((a, b) => a.timestamp_ms - b.timestamp_ms);
+    }
+
+    function hourlyOfficialPoints() {
+      const buckets = new Map();
+
+      for (const point of sortedOfficialPoints()) {
+        const hourMs = floorToHourMs(point.timestamp_ms);
+        if (!buckets.has(hourMs)) buckets.set(hourMs, []);
+        buckets.get(hourMs).push(point.official_price_eur_mwh);
+      }
+
+      return [...buckets.entries()]
+        .sort((a, b) => a[0] - b[0])
+        .map(([hourMs, values]) => {
+          const avg = values.reduce((sum, value) => sum + value, 0) / values.length;
+          return {
+            timestamp_utc: new Date(hourMs).toISOString().replace(".000Z", "Z"),
+            timestamp_ms: hourMs,
+            price_eur_mwh: avg,
+            p10: null,
+            p90: null,
+            source: "official",
+            source_label: "Official hourly average",
+            samples: values.length
+          };
+        });
+    }
+
+    function displayWindow() {
+      // Start the visible chart at the current local hour. This shows the current
+      // official market hour and then the next selectedRangeHours ahead.
+      const startMs = floorToHourMs(Date.now());
+      const endMs = startMs + selectedRangeHours * MS_HOUR;
+      return { startMs, endMs };
+    }
+
+    function getVisibleSeries() {
+      const { startMs, endMs } = displayWindow();
+
+      const officialVisible = hourlyOfficialPoints()
+        .filter(p => p.timestamp_ms >= startMs && p.timestamp_ms < endMs);
+
+      const lastOfficialMs = officialVisible.length
+        ? Math.max(...officialVisible.map(p => p.timestamp_ms))
+        : -Infinity;
+
+      const forecastVisible = sortedPredictionPoints()
+        .filter(p => p.timestamp_ms >= startMs && p.timestamp_ms < endMs && p.timestamp_ms > lastOfficialMs)
+        .map(p => ({
+          timestamp_utc: p.timestamp_utc,
+          timestamp_ms: p.timestamp_ms,
+          price_eur_mwh: p.predicted_price_eur_mwh,
+          p10: p.p10,
+          p90: p.p90,
+          source: "model",
+          source_label: "Model forecast"
+        }));
+
+      const combined = [...officialVisible, ...forecastVisible].sort((a, b) => a.timestamp_ms - b.timestamp_ms);
+      return { combined, officialDisplay: officialVisible, forecastVisible, startMs, endMs, lastOfficialMs };
+    }
+
+    function localDayStartMs(value) {
+      const dt = value instanceof Date ? new Date(value) : new Date(value);
+      return new Date(dt.getFullYear(), dt.getMonth(), dt.getDate()).getTime();
+    }
+
+    function localDayKeyFromMs(timestampMs) {
+      const dt = new Date(timestampMs);
+      const year = dt.getFullYear();
+      const month = String(dt.getMonth() + 1).padStart(2, "0");
+      const day = String(dt.getDate()).padStart(2, "0");
+      return `${year}-${month}-${day}`;
+    }
+
+    function utcIsoInstant(value) {
+      return (value instanceof Date ? value : new Date(value)).toISOString();
+    }
+
+    function getLocalMidnightTicksFromRange(startMs, endMs) {
+      const firstMidnight = localDayStartMs(startMs);
+      const cursor = new Date(firstMidnight);
+      const final = new Date(localDayStartMs(endMs) + MS_DAY);
       const ticks = [];
 
       while (cursor <= final) {
-        ticks.push(new Date(cursor));
+        const ms = cursor.getTime();
+        if (ms >= startMs && ms <= endMs) ticks.push(new Date(ms));
         cursor.setDate(cursor.getDate() + 1);
       }
 
       return ticks;
     }
 
-    function getLocalMidnightTickLabels(ticks) {
-      return ticks.map(dt =>
-        new Intl.DateTimeFormat(undefined, {
-          month: "short",
-          day: "numeric"
-        }).format(dt)
-      );
-    }
+    function getCenteredDayTicksFromRange(startMs, endMs) {
+      const dayStart = localDayStartMs(startMs);
+      const finalDayStart = localDayStartMs(endMs);
+      const ticks = [];
 
-    function dayKey(timestamp) {
-      return new Date(timestamp).toISOString().slice(0, 10);
-    }
-
-    function convertPrice(value) {
-      if (value === null || value === undefined || Number.isNaN(value)) return null;
-      return unit === "ct" ? value / 10 : value;
-    }
-
-    function unitLabel() {
-      return unit === "ct" ? "ct/kWh" : "€/MWh";
-    }
-
-    function fmtPrice(value, digits = unit === "ct" ? 2 : 1) {
-      if (value === null || value === undefined || Number.isNaN(value)) return "—";
-      return `${convertPrice(value).toFixed(digits)} ${unitLabel()}`;
-    }
-
-    function getZonePayload() {
-      if (!payload || !payload.zones?.length) return null;
-      return payload.zones.find(z => z.zone === selectedZone) || payload.zones[0];
-    }
-
-    function getPoints() {
-      const zone = getZonePayload();
-      if (!zone) return [];
-      return (zone.points || []).slice(0, selectedRange);
-    }
-
-    async function fetchFirstAvailable() {
-      let lastError = null;
-      for (const url of DATA_CANDIDATES) {
-        try {
-          const response = await fetch(`${url}?t=${Date.now()}`, { cache: "no-store" });
-          if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
-          const data = await response.json();
-          console.info(`Loaded forecast from ${url}`);
-          return data;
-        } catch (err) {
-          lastError = err;
+      for (let dayMs = dayStart; dayMs <= finalDayStart; dayMs += MS_DAY) {
+        const segmentStart = Math.max(startMs, dayMs);
+        const segmentEnd = Math.min(endMs, dayMs + MS_DAY);
+        if (segmentEnd > segmentStart) {
+          ticks.push(new Date((segmentStart + segmentEnd) / 2));
         }
       }
-      throw lastError || new Error("Could not load forecast JSON.");
+
+      return ticks;
+    }
+
+    function getCenteredDayTickLabels(ticks) {
+      return ticks.map(dt => {
+        const date = new Intl.DateTimeFormat(undefined, { month: "short", day: "numeric" }).format(dt);
+        const weekday = new Intl.DateTimeFormat(undefined, { weekday: "short" }).format(dt);
+        return `${date}<br>${weekday}`;
+      });
+    }
+
+    function daySeparatorShapes(startMs, endMs) {
+      return getLocalMidnightTicksFromRange(startMs, endMs).map(tick => {
+        const x = utcIsoInstant(tick);
+        return {
+          type: "line",
+          xref: "x",
+          yref: "paper",
+          x0: x,
+          x1: x,
+          y0: 0,
+          y1: 1,
+          line: { color: "rgba(255,255,255,.20)", width: 1 },
+          layer: "below"
+        };
+      });
     }
 
     function updateMeta() {
       el("modelVersion").textContent = PUBLIC_MODEL_LABEL;
-      el("generatedAt").textContent = fmtGenerated(payload?.generated_at_utc);
-      el("horizon").textContent = `${payload?.forecast_horizon_hours || "—"} hours`;
+      el("generatedAt").textContent = fmtGenerated(predictionPayload?.generated_at_utc);
+      el("horizon").textContent = `${selectedRangeHours} hours visible`;
 
       const select = el("zoneSelect");
       select.innerHTML = "";
-      for (const z of payload.zones || []) {
+      for (const z of predictionPayload.zones || []) {
         const opt = document.createElement("option");
         opt.value = z.zone;
         opt.textContent = z.zone;
         select.appendChild(opt);
       }
-      selectedZone = selectedZone || payload.zones?.[0]?.zone;
+      selectedZone = selectedZone || predictionPayload.zones?.[0]?.zone;
       select.value = selectedZone;
     }
 
-    function updateCards(points) {
-      if (!points.length) return;
-
-      const prices = points.map(p => p.predicted_price_eur_mwh).filter(Number.isFinite);
-      const avg = prices.reduce((a, b) => a + b, 0) / prices.length;
-      const minPoint = points.reduce((a, b) => b.predicted_price_eur_mwh < a.predicted_price_eur_mwh ? b : a, points[0]);
-      const maxPoint = points.reduce((a, b) => b.predicted_price_eur_mwh > a.predicted_price_eur_mwh ? b : a, points[0]);
-      const riskPoint = points.reduce((a, b) => (b.negative_probability || 0) > (a.negative_probability || 0) ? b : a, points[0]);
-
-      el("avgPrice").textContent = fmtPrice(avg);
-      el("avgSub").textContent = `${points.length} hourly points`;
-
-      el("minPrice").textContent = fmtPrice(minPoint.predicted_price_eur_mwh);
-      el("minSub").textContent = fmtDate(minPoint.timestamp_utc);
-
-      el("maxPrice").textContent = fmtPrice(maxPoint.predicted_price_eur_mwh);
-      el("maxSub").textContent = fmtDate(maxPoint.timestamp_utc);
-
-      el("riskValue").textContent = `${((riskPoint.negative_probability || 0) * 100).toFixed(1)}%`;
-      el("riskSub").textContent = `${fmtDate(riskPoint.timestamp_utc)} · ${fmtPrice(riskPoint.predicted_price_eur_mwh)}`;
+    function timeWeightedAverage(points) {
+      if (!points.length) return null;
+      if (points.length === 1) return points[0].price_eur_mwh;
+      let weighted = 0;
+      let totalMs = 0;
+      for (let i = 0; i < points.length; i++) {
+        const current = points[i];
+        const next = points[i + 1];
+        let duration = next ? next.timestamp_ms - current.timestamp_ms : null;
+        if (!duration || duration <= 0 || duration > 2 * MS_HOUR) {
+          duration = current.source === "official" ? 15 * 60 * 1000 : MS_HOUR;
+        }
+        weighted += current.price_eur_mwh * duration;
+        totalMs += duration;
+      }
+      return totalMs ? weighted / totalMs : null;
     }
 
-    function plotPrice(points) {
-      const x = points.map(p => p.timestamp_utc);
-      const y = points.map(p => convertPrice(p.predicted_price_eur_mwh));
-      const p10 = points.map(p => convertPrice(p.p10));
-      const p90 = points.map(p => convertPrice(p.p90));
-      const probs = points.map(p => ((p.negative_probability || 0) * 100));
+    function timeWeightedAverageActiveBasis(points) {
+      const avgMarket = timeWeightedAverage(points);
+      return avgMarket === null ? null : applyPriceBasisEurMwh(avgMarket);
+    }
 
-      const hover = points.map((p, i) => {
-        return [
-          `<b>${fmtDate(p.timestamp_utc)}</b>`,
-          `Forecast: <b>${y[i].toFixed(unit === "ct" ? 2 : 1)} ${unitLabel()}</b>`,
-          `p10: ${p10[i].toFixed(unit === "ct" ? 2 : 1)} ${unitLabel()}`,
-          `p90: ${p90[i].toFixed(unit === "ct" ? 2 : 1)} ${unitLabel()}`,
-          `Negative-price probability: ${probs[i].toFixed(1)}%`
-        ].join("<br>");
-      });
+    function updateCards(series) {
+      const points = series.combined;
+      if (!points.length) return;
+
+      const pointsWithBasis = points.map(point => ({
+        ...point,
+        basis_price_eur_mwh: applyPriceBasisEurMwh(point.price_eur_mwh)
+      })).filter(point => Number.isFinite(point.basis_price_eur_mwh));
+
+      if (!pointsWithBasis.length) return;
+
+      const avgMarket = timeWeightedAverage(points);
+      const avgBasis = avgMarket === null ? null : applyPriceBasisEurMwh(avgMarket);
+
+      const minPoint = pointsWithBasis.reduce(
+        (best, point) => point.basis_price_eur_mwh < best.basis_price_eur_mwh ? point : best,
+        pointsWithBasis[0]
+      );
+      const maxPoint = pointsWithBasis.reduce(
+        (best, point) => point.basis_price_eur_mwh > best.basis_price_eur_mwh ? point : best,
+        pointsWithBasis[0]
+      );
+
+      const officialCount = series.officialDisplay.length;
+      const modelCount = series.forecastVisible.length;
+      const lastOfficial = officialCount ? series.officialDisplay[officialCount - 1] : null;
+      const firstForecast = modelCount ? series.forecastVisible[0] : null;
+      const basisLabel = priceBasis === "dynamic" ? "dynamic contract estimate" : "market price";
+
+      el("avgPrice").textContent = fmtAlreadyAdjustedPrice(avgBasis);
+      el("avgSub").textContent = `${points.length} visible hourly datapoints · ${basisLabel} · time-weighted`;
+
+      el("minPrice").textContent = fmtAlreadyAdjustedPrice(minPoint.basis_price_eur_mwh);
+      el("minSub").textContent = `${fmtDate(minPoint.timestamp_utc)} · ${minPoint.source === "official" ? "official" : "model"}`;
+
+      el("maxPrice").textContent = fmtAlreadyAdjustedPrice(maxPoint.basis_price_eur_mwh);
+      el("maxSub").textContent = `${fmtDate(maxPoint.timestamp_utc)} · ${maxPoint.source === "official" ? "official" : "model"}`;
+
+      if (lastOfficial) {
+        el("officialCoverage").textContent = fmtDate(lastOfficial.timestamp_utc, false);
+        el("officialSub").textContent = firstForecast
+          ? `model starts ${fmtDate(firstForecast.timestamp_utc, false)}`
+          : "all visible points are official";
+      } else {
+        el("officialCoverage").textContent = "—";
+        el("officialSub").textContent = `${modelCount} model forecast points visible`;
+      }
+    }
+
+    function plotPrice(series) {
+      const official = series.officialDisplay;
+      const forecast = series.forecastVisible;
+
+      const officialHover = official.map(p => [
+        `<b>${fmtDate(p.timestamp_utc)}</b>`,
+        `Source: <b>Official day-ahead price</b>`,
+        `Hourly average: <b>${fmtPrice(p.price_eur_mwh)}</b>`,
+        `Built from ${p.samples || 4} quarter-hour prices`
+      ].join("<br>"));
+
+      const forecastHover = forecast.map(p => [
+        `<b>${fmtDate(p.timestamp_utc)}</b>`,
+        `Source: <b>Model forecast</b>`,
+        `Forecast: <b>${fmtPrice(p.price_eur_mwh)}</b>`,
+        p.p10 === null ? null : `p10: ${fmtPrice(p.p10)}`,
+        p.p90 === null ? null : `p90: ${fmtPrice(p.p90)}`
+      ].filter(Boolean).join("<br>"));
+
+      const handoff = [];
+      if (official.length && forecast.length) {
+        const lastOfficial = official[official.length - 1];
+        const firstForecast = forecast[0];
+        if (firstForecast.timestamp_ms - lastOfficial.timestamp_ms <= 2 * MS_HOUR) {
+          handoff.push(lastOfficial, firstForecast);
+        }
+      }
 
       const traces = [
         {
-          x,
-          y: p90,
+          x: forecast.map(p => p.timestamp_utc),
+          y: forecast.map(p => convertPrice(p.p90)),
           mode: "lines",
           line: { width: 0 },
           hoverinfo: "skip",
@@ -707,85 +1554,63 @@
           name: "p90"
         },
         {
-          x,
-          y: p10,
+          x: forecast.map(p => p.timestamp_utc),
+          y: forecast.map(p => convertPrice(p.p10)),
           mode: "lines",
           line: { width: 0 },
           fill: "tonexty",
           fillcolor: "rgba(125, 211, 252, 0.18)",
           hoverinfo: "skip",
-          showlegend: true,
-          name: "p10–p90 uncertainty band"
+          showlegend: false,
+          name: "Model p10–p90 uncertainty"
         },
         {
-          x,
-          y,
+          x: official.map(p => p.timestamp_utc),
+          y: official.map(p => convertPrice(p.price_eur_mwh)),
           mode: "lines+markers",
+          connectgaps: false,
+          line: { color: "#86efac", width: 3, shape: "spline", smoothing: 0.55 },
+          marker: { color: "#86efac", size: 5 },
+          text: officialHover,
+          hovertemplate: "%{text}<extra></extra>",
+          name: "Official day-ahead"
+        },
+        {
+          x: handoff.map(p => p.timestamp_utc),
+          y: handoff.map(p => convertPrice(p.price_eur_mwh)),
+          mode: "lines",
+          line: { color: "rgba(255,255,255,.45)", width: 2, dash: "dot" },
+          hoverinfo: "skip",
+          showlegend: false,
+          name: "handoff"
+        },
+        {
+          x: forecast.map(p => p.timestamp_utc),
+          y: forecast.map(p => convertPrice(p.price_eur_mwh)),
+          mode: "lines+markers",
+          connectgaps: false,
           line: { color: "#7dd3fc", width: 3, shape: "spline", smoothing: 0.45 },
           marker: { color: "#e0f2fe", size: 5 },
-          text: hover,
+          text: forecastHover,
           hovertemplate: "%{text}<extra></extra>",
-          name: "Forecast"
+          name: "Model forecast"
         }
       ];
 
-      const midnightTicks = getLocalMidnightTicks(points);
-      const layout = baseLayout(`${unitLabel()}`, true, midnightTicks);
+      const dayTicks = getCenteredDayTicksFromRange(series.startMs, series.endMs);
+      const layout = baseLayout(`${unitLabel()}`, dayTicks, daySeparatorShapes(series.startMs, series.endMs), series.startMs, series.endMs);
       Plotly.react("priceChart", traces, layout, plotConfig());
     }
 
-    function plotRisk(points) {
-      const x = points.map(p => p.timestamp_utc);
-      const y = points.map(p => (p.negative_probability || 0) * 100);
-      const prices = points.map(p => convertPrice(p.predicted_price_eur_mwh));
-
-      const colors = y.map(v => {
-        if (v >= 70) return "#fca5a5";
-        if (v >= 40) return "#fdba74";
-        if (v >= 15) return "#fde68a";
-        return "#86efac";
-      });
-
-      const hover = points.map((p, i) => [
-        `<b>${fmtDate(p.timestamp_utc)}</b>`,
-        `Negative-price probability: <b>${y[i].toFixed(1)}%</b>`,
-        `Forecast price: ${prices[i].toFixed(unit === "ct" ? 2 : 1)} ${unitLabel()}`
-      ].join("<br>"));
-
-      const traces = [{
-        x,
-        y,
-        type: "bar",
-        marker: { color: colors, line: { color: "rgba(255,255,255,.25)", width: 0.5 } },
-        text: hover,
-        hovertemplate: "%{text}<extra></extra>",
-        name: "Negative-price probability"
-      }];
-
-      const midnightTicks = getLocalMidnightTicks(points);
-      const layout = baseLayout("% probability", false, midnightTicks);
-      layout.yaxis.range = [0, Math.max(20, Math.ceil(Math.max(...y, 1) / 10) * 10)];
-      layout.shapes = [
-        {
-          type: "line",
-          xref: "paper",
-          x0: 0,
-          x1: 1,
-          yref: "y",
-          y0: 50,
-          y1: 50,
-          line: { color: "rgba(252, 165, 165, .6)", width: 1, dash: "dot" }
-        }
-      ];
-      Plotly.react("riskChart", traces, layout, plotConfig());
-    }
-
-    function baseLayout(yTitle, showRangeslider, midnightTicks = []) {
+    function baseLayout(yTitle, midnightTicks = [], shapes = [], startMs = null, endMs = null) {
+      const isMobile = window.matchMedia("(max-width: 760px)").matches;
+      const localTickVals = midnightTicks.map(utcIsoInstant);
+      const localRange = startMs && endMs ? [utcIsoInstant(new Date(startMs)), utcIsoInstant(new Date(endMs))] : undefined;
       return {
         paper_bgcolor: "rgba(0,0,0,0)",
         plot_bgcolor: "rgba(0,0,0,0)",
         dragmode: false,
-        margin: { l: 70, r: 24, t: 18, b: showRangeslider ? 72 : 54 },
+        margin: isMobile ? { l: 48, r: 8, t: 12, b: 52 } : { l: 70, r: 24, t: 18, b: 58 },
         font: { color: "#dbe5ff", family: "Inter, system-ui, sans-serif" },
         hoverlabel: {
           bgcolor: "#111827",
@@ -794,33 +1619,29 @@
         },
         xaxis: {
           fixedrange: true,
+          range: localRange,
           tickmode: midnightTicks.length ? "array" : "auto",
-          tickvals: midnightTicks.length ? midnightTicks : undefined,
-          ticktext: midnightTicks.length ? getLocalMidnightTickLabels(midnightTicks) : undefined,
+          tickvals: localTickVals.length ? localTickVals : undefined,
+          ticktext: midnightTicks.length ? getCenteredDayTickLabels(midnightTicks) : undefined,
           ticks: "outside",
-          ticklen: 8,
+          ticklen: isMobile ? 5 : 8,
+          tickfont: { size: isMobile ? 10 : 12 },
           tickcolor: "rgba(255,255,255,.24)",
+          showgrid: false,
+          showgrid: false,
           gridcolor: "rgba(255,255,255,.13)",
           zerolinecolor: "rgba(255,255,255,.12)",
-          rangeslider: {
-            visible: !!showRangeslider,
-            bgcolor: "rgba(255,255,255,.04)",
-            bordercolor: "rgba(255,255,255,.10)"
-          },
           rangeselector: { visible: false }
         },
         yaxis: {
           fixedrange: true,
-          title: yTitle,
+          title: isMobile ? "" : yTitle,
+          tickfont: { size: isMobile ? 10 : 12 },
           gridcolor: "rgba(255,255,255,.08)",
           zerolinecolor: "rgba(255,255,255,.22)"
         },
-        legend: {
-          orientation: "h",
-          x: 0,
-          y: 1.12,
-          bgcolor: "rgba(0,0,0,0)"
-        }
+        showlegend: false,
+        shapes
       };
     }
 
@@ -835,116 +1656,183 @@
       };
     }
 
-    function cheapestWindowForDay(dayPoints, windowHours = 4) {
-      if (!dayPoints.length) return null;
+    function sourceName(source) {
+      return source === "official" ? "official" : "model";
+    }
 
-      const sorted = [...dayPoints].sort(
-        (a, b) => new Date(a.timestamp_utc) - new Date(b.timestamp_utc)
-      );
+    function localHour(timestampMs) {
+      return new Date(timestampMs).getHours();
+    }
 
-      const n = Math.min(windowHours, sorted.length);
+    function isDayPredictionPoint(point) {
+      const hour = localHour(point.timestamp_ms);
+      return hour >= 7 && hour < 22;
+    }
+
+    function isNightPredictionPoint(point) {
+      const hour = localHour(point.timestamp_ms);
+      return hour < 7 || hour >= 22;
+    }
+
+    function cheapestWindowForPoints(candidatePoints, windowHours = 4) {
+      if (!candidatePoints.length) return null;
+      const sorted = [...candidatePoints].sort((a, b) => a.timestamp_ms - b.timestamp_ms);
       let best = null;
 
-      for (let i = 0; i <= sorted.length - n; i++) {
-        const window = sorted.slice(i, i + n);
-        const avgPrice =
-          window.reduce((sum, p) => sum + p.predicted_price_eur_mwh, 0) / n;
-        const avgRisk =
-          window.reduce((sum, p) => sum + (p.negative_probability || 0), 0) / n;
+      for (let i = 0; i < sorted.length; i++) {
+        const start = sorted[i].timestamp_ms;
+        const end = start + windowHours * MS_HOUR;
+        const window = sorted.filter(p => p.timestamp_ms >= start && p.timestamp_ms < end);
 
+        // Need a real 4-hour model window. This avoids showing awkward partial
+        // current-day windows as if they were complete recommendations.
+        if (window.length < windowHours) continue;
+
+        const avgPrice = timeWeightedAverageActiveBasis(window);
+        if (avgPrice === null) continue;
         if (!best || avgPrice < best.avgPrice) {
-          best = {
-            start: window[0],
-            end: window[window.length - 1],
-            avgPrice,
-            avgRisk,
-            points: window
-          };
+          best = { start: sorted[i], endMs: end, avgPrice, points: window };
         }
       }
 
       return best;
     }
 
-    function updateDailyWindowList(points) {
+    function priceColor(value, min, max) {
+      const span = Math.max(max - min, 1e-6);
+      const t = Math.max(0, Math.min(1, (value - min) / span));
+      if (t < 0.34) return "#86efac";
+      if (t < 0.67) return "#fde68a";
+      return "#fca5a5";
+    }
+
+    function updateDailyWindowList(series) {
       const container = el("dailyWindowList");
+      container.classList.add("prediction-windows");
       container.innerHTML = "";
 
+      // Cheapest windows are based only on the model prediction period.
+      const forecastPoints = series.forecastVisible || [];
+
       const byDay = new Map();
-      for (const p of points) {
-        const key = dayKey(p.timestamp_utc);
+      for (const p of forecastPoints) {
+        const key = localDayKeyFromMs(p.timestamp_ms);
         if (!byDay.has(key)) byDay.set(key, []);
         byDay.get(key).push(p);
       }
 
-      const windows = [...byDay.values()]
-        .map(dayPoints => cheapestWindowForDay(dayPoints, 4))
-        .filter(Boolean)
-        .slice(0, 7);
+      const dayEntries = [...byDay.entries()]
+        .sort(([a], [b]) => a.localeCompare(b))
+        .slice(0, 7)
+        .map(([key, points]) => ({
+          key,
+          points: points.sort((a, b) => a.timestamp_ms - b.timestamp_ms),
+          dayWindow: cheapestWindowForPoints(points.filter(isDayPredictionPoint), 4),
+          nightWindow: cheapestWindowForPoints(points.filter(isNightPredictionPoint), 4)
+        }))
+        .filter(entry => entry.points.length);
 
-      for (const w of windows) {
-        const price = convertPrice(w.avgPrice);
-        const riskPct = w.avgRisk * 100;
-        const endExclusive = new Date(new Date(w.end.timestamp_utc).getTime() + 60 * 60 * 1000);
+      if (!dayEntries.length) {
+        container.innerHTML = `<div class="source-row"><div class="source-value">No forecast-only daily windows available yet.</div></div>`;
+        return;
+      }
 
-        const row = document.createElement("div");
-        row.className = "window-row";
+      const allWindows = dayEntries.flatMap(entry => [entry.dayWindow, entry.nightWindow].filter(Boolean));
+      const prices = allWindows.map(w => w.avgPrice);
+      const min = prices.length ? Math.min(...prices) : 0;
+      const max = prices.length ? Math.max(...prices) : 1;
 
-        row.innerHTML = `
-          <div class="window-time">
-            ${fmtDay(w.start.timestamp_utc)}<br>
-            <span style="color: var(--muted); font-weight: 700;">
-              ${fmtHour(w.start.timestamp_utc)}–${fmtHour(endExclusive)}
-            </span>
-          </div>
+      function priceLevel(value, min, max) {
+        const span = Math.max(max - min, 1e-6);
+        const t = Math.max(0, Math.min(1, (value - min) / span));
+        if (t < 0.34) return { label: "Best", cls: "best" };
+        if (t < 0.67) return { label: "Good", cls: "good" };
+        return { label: "Okay", cls: "okay" };
+      }
 
-          <div class="bar" title="Average negative-price probability">
-            <span style="width:${Math.max(4, Math.min(100, riskPct)).toFixed(1)}%"></span>
-          </div>
+      function renderMini(label, window) {
+        const icon = label === "Day" ? "☀️" : "🌙";
 
-          <div class="window-price">
-            ${price.toFixed(unit === "ct" ? 2 : 1)} ${unitLabel()}<br>
-            <span style="color: var(--muted); font-size: 12px;">
-              ${riskPct.toFixed(0)}% neg.
-            </span>
+        if (!window) {
+          return `
+            <div class="window-mini empty">
+              <div class="window-mini-label-wrap">
+                <span class="window-mini-icon">${icon}</span>
+                <div class="window-mini-meta">
+                  <div class="window-mini-label">${label}</div>
+                  <div class="window-mini-time">not enough forecast hours</div>
+                </div>
+              </div>
+              <div class="window-mini-price">—</div>
+            </div>
+          `;
+        }
+
+        const level = priceLevel(window.avgPrice, min, max);
+
+        return `
+          <div class="window-mini" title="${label} forecast window · ${fmtAlreadyAdjustedPrice(window.avgPrice)} average">
+            <div class="window-mini-label-wrap">
+              <span class="window-mini-icon ${level.cls}">${icon}</span>
+              <div class="window-mini-meta">
+                <div class="window-mini-label">${label}</div>
+                <div class="window-mini-time">${fmtHour(window.start.timestamp_utc)}–${fmtHour(new Date(window.endMs))}</div>
+              </div>
+            </div>
+            <div class="price-badge ${level.cls}">
+              <span class="price-badge-dot"></span>
+              ${level.label}
+            </div>
+            <div class="window-mini-price">${fmtAlreadyAdjustedPrice(window.avgPrice)}</div>
           </div>
         `;
+      }
 
-        row.title =
-          `Cheapest ${w.points.length}-hour window · ` +
-          `${price.toFixed(unit === "ct" ? 2 : 1)} ${unitLabel()} average · ` +
-          `${riskPct.toFixed(1)}% average negative-price probability`;
-
-        container.appendChild(row);
+      for (const entry of dayEntries) {
+        const firstPoint = entry.points[0];
+        const card = document.createElement("div");
+        card.className = "prediction-day-card";
+        card.innerHTML = `
+          <div class="prediction-day-title">
+            <strong>${fmtDay(firstPoint.timestamp_utc)}</strong>
+            <span>forecast</span>
+          </div>
+          <div class="window-pair">
+            ${renderMini("Day", entry.dayWindow)}
+            ${renderMini("Night", entry.nightWindow)}
+          </div>
+        `;
+        container.appendChild(card);
       }
     }
 
     function render() {
-      const points = getPoints();
-      if (!points.length) {
-        document.querySelector(".grid").innerHTML = `<div class="error">No forecast points found in predictions.json.</div>`;
+      const series = getVisibleSeries();
+      if (!series.combined.length) {
+        document.querySelector(".grid").innerHTML = `<div class="error">No visible forecast or official-price points found.</div>`;
         return;
       }
-      updateCards(points);
-      plotPrice(points);
-      plotRisk(points);
-      updateDailyWindowList(points);
+      updateBasisNote();
+      updateCards(series);
+      plotPrice(series);
+      updateDailyWindowList(series);
     }
 
     async function loadAndRender() {
       try {
         el("refreshBtn").textContent = "Loading…";
-        payload = await fetchFirstAvailable();
-        selectedZone = selectedZone || payload?.zones?.[0]?.zone;
+        predictionPayload = await fetchFirstAvailable(PREDICTION_CANDIDATES, true);
+        officialPayload = await fetchFirstAvailable(OFFICIAL_CANDIDATES, false);
+        selectedZone = selectedZone || predictionPayload?.zones?.[0]?.zone;
         updateMeta();
         render();
       } catch (error) {
         console.error(error);
         document.querySelector(".grid").innerHTML = `
           <div class="error">
-            <strong>Could not load predictions.json.</strong><br>
-            Place this page either next to <code>predictions.json</code>, or in the repo root while the file lives at
-            <code>public/data/predictions.json</code>.
+            <strong>Could not load forecast data.</strong><br>
+            Make sure <code>public/data/predictions.json</code> exists. Optional official prices should be at
+            <code>public/data/official_prices.json</code>.
           </div>
         `;
       } finally {
@@ -957,25 +1845,34 @@
       render();
     });
 
-    el("unitCents").addEventListener("click", () => {
-      unit = "ct";
-      el("unitCents").classList.add("active");
-      el("unitEuroMwh").classList.remove("active");
+    function setUnit(nextUnit) {
+      unit = nextUnit;
+      el("unitCents").classList.toggle("active", unit === "ct");
+      el("unitEuroKwh").classList.toggle("active", unit === "eurkwh");
+      el("unitEuroMwh").classList.toggle("active", unit === "eurmwh");
       render();
-    });
+    }
 
-    el("unitEuroMwh").addEventListener("click", () => {
-      unit = "eurmwh";
-      el("unitEuroMwh").classList.add("active");
-      el("unitCents").classList.remove("active");
+    el("unitCents").addEventListener("click", () => setUnit("ct"));
+    el("unitEuroKwh").addEventListener("click", () => setUnit("eurkwh"));
+    el("unitEuroMwh").addEventListener("click", () => setUnit("eurmwh"));
+
+    function setPriceBasis(nextBasis) {
+      priceBasis = nextBasis;
+      el("basisWholesale").classList.toggle("active", priceBasis === "wholesale");
+      el("basisDynamic").classList.toggle("active", priceBasis === "dynamic");
       render();
-    });
+    }
+
+    el("basisWholesale").addEventListener("click", () => setPriceBasis("wholesale"));
+    el("basisDynamic").addEventListener("click", () => setPriceBasis("dynamic"));
 
     document.querySelectorAll("[data-range]").forEach(btn => {
       btn.addEventListener("click", () => {
-        selectedRange = Number(btn.dataset.range);
+        selectedRangeHours = Number(btn.dataset.range);
         document.querySelectorAll("[data-range]").forEach(b => b.classList.remove("active"));
         btn.classList.add("active");
+        el("horizon").textContent = `${selectedRangeHours} hours visible`;
         render();
       });
     });
