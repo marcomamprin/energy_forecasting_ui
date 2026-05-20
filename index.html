@@ -1320,17 +1320,26 @@
     }
 
     function displayWindow() {
-      // Start the visible chart at the current local hour. This shows the current
-      // official market hour and then the next selectedRangeHours ahead.
-      const startMs = floorToHourMs(Date.now());
+      const currentHourMs = floorToHourMs(Date.now());
+      const officialHours = hourlyOfficialPoints();
+      if (officialHours.length) {
+        const lastOfficialMs = officialHours[officialHours.length - 1].timestamp_ms;
+        const forecastStartMs = Math.max(lastOfficialMs + MS_HOUR, currentHourMs);
+        const endMs = forecastStartMs + selectedRangeHours * MS_HOUR;
+        return { startMs: currentHourMs, endMs, forecastStartMs };
+      }
+
+      // Falls back to the current local hour when optional official data is absent.
+      const startMs = currentHourMs;
       const endMs = startMs + selectedRangeHours * MS_HOUR;
-      return { startMs, endMs };
+      return { startMs, endMs, forecastStartMs: startMs };
     }
 
     function getVisibleSeries() {
-      const { startMs, endMs } = displayWindow();
+      const { startMs, endMs, forecastStartMs } = displayWindow();
+      const officialHours = hourlyOfficialPoints();
 
-      const officialVisible = hourlyOfficialPoints()
+      const officialVisible = officialHours
         .filter(p => p.timestamp_ms >= startMs && p.timestamp_ms < endMs);
 
       const lastOfficialMs = officialVisible.length
@@ -1338,7 +1347,7 @@
         : -Infinity;
 
       const forecastVisible = sortedPredictionPoints()
-        .filter(p => p.timestamp_ms >= startMs && p.timestamp_ms < endMs && p.timestamp_ms > lastOfficialMs)
+        .filter(p => p.timestamp_ms >= forecastStartMs && p.timestamp_ms < endMs && p.timestamp_ms > lastOfficialMs)
         .map(p => ({
           timestamp_utc: p.timestamp_utc,
           timestamp_ms: p.timestamp_ms,
@@ -1351,6 +1360,12 @@
 
       const combined = [...officialVisible, ...forecastVisible].sort((a, b) => a.timestamp_ms - b.timestamp_ms);
       return { combined, officialDisplay: officialVisible, forecastVisible, startMs, endMs, lastOfficialMs };
+    }
+
+    function forecastHorizonLabel() {
+      if (selectedRangeHours === 24) return "24h forecast + official trend";
+      if (selectedRangeHours % 24 === 0) return `${selectedRangeHours / 24}d forecast + official trend`;
+      return `${selectedRangeHours}h forecast + official trend`;
     }
 
     function localDayStartMs(value) {
@@ -1429,7 +1444,7 @@
     function updateMeta() {
       el("modelVersion").textContent = PUBLIC_MODEL_LABEL;
       el("generatedAt").textContent = fmtGenerated(predictionPayload?.generated_at_utc);
-      el("horizon").textContent = `${selectedRangeHours} hours visible`;
+      el("horizon").textContent = forecastHorizonLabel();
 
       const select = el("zoneSelect");
       select.innerHTML = "";
@@ -1874,7 +1889,7 @@
         selectedRangeHours = Number(btn.dataset.range);
         document.querySelectorAll("[data-range]").forEach(b => b.classList.remove("active"));
         btn.classList.add("active");
-        el("horizon").textContent = `${selectedRangeHours} hours visible`;
+        el("horizon").textContent = forecastHorizonLabel();
         render();
       });
     });
