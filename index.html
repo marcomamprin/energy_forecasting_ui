@@ -1505,7 +1505,9 @@
       el("maxSub").textContent = `${fmtDate(maxPoint.timestamp_utc)} · ${maxPoint.source === "official" ? "official" : "model"}`;
 
       if (lastOfficial) {
-        el("officialCoverage").textContent = fmtDate(lastOfficial.timestamp_utc, false);
+        // Add 59 minutes to the last official hour
+        const lastOfficialEnd = new Date(lastOfficial.timestamp_ms + 59 * 60 * 1000);
+        el("officialCoverage").textContent = fmtDate(lastOfficialEnd, false);
         el("officialSub").textContent = firstForecast
           ? `model starts ${fmtDate(firstForecast.timestamp_utc, false)}`
           : "all visible points are official";
