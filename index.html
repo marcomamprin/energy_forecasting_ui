@@ -1014,18 +1014,18 @@
       <div class="controls">
         <select id="zoneSelect" aria-label="Select market zone"></select>
         <div class="segmented" aria-label="Unit selection">
-          <button id="unitCents" class="active" type="button">ct/kWh</button>
-          <button id="unitEuroKwh" type="button">€/kWh</button>
+          <button id="unitCents" type="button">ct/kWh</button>
+          <button id="unitEuroKwh" class="active" type="button">€/kWh</button>
           <button id="unitEuroMwh" type="button">€/MWh</button>
         </div>
         <div class="segmented" aria-label="Time range selection">
           <button data-range="24" type="button">24h</button>
-          <button data-range="72" type="button">3d</button>
-          <button data-range="168" class="active" type="button">7d</button>
+          <button data-range="72" class="active" type="button">3d</button>
+          <button data-range="168" type="button">7d</button>
         </div>
         <div class="segmented basis-toggle" aria-label="Price basis selection">
-          <button id="basisWholesale" class="active" type="button">Market price</button>
-          <button id="basisDynamic" type="button">Dynamic contract est.</button>
+          <button id="basisWholesale" type="button">Market price</button>
+          <button id="basisDynamic" class="active" type="button">Dynamic contract est.</button>
         </div>
       </div>
       <button id="refreshBtn" type="button">Reload forecast</button>
@@ -1114,9 +1114,9 @@
     let predictionPayload = null;
     let officialPayload = null;
     let selectedZone = null;
-    let selectedRangeHours = 168;
-    let unit = "ct";
-    let priceBasis = "wholesale";
+    let selectedRangeHours = 72;
+    let unit = "eurkwh";
+    let priceBasis = "dynamic";
 
     // Illustrative dynamic retail estimate based on the a generic dynamic-contract structure:
     // market price + supplier purchase/handling fee + Dutch energy tax.
