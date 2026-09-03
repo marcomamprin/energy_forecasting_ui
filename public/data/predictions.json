@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-02T16:50:35.288252Z",
+  "generated_at_utc": "2026-09-03T16:41:57.613710Z",
   "model_version": "v10_p3_capacity_full_weather_scarcity",
   "forecast_horizon_hours": 168,
   "zones": [
@@ -7,1180 +7,1180 @@
       "zone": "NL",
       "points": [
         {
-          "timestamp_utc": "2026-09-02T01:00:00Z",
-          "predicted_price_eur_mwh": 116.946,
-          "negative_probability": 0.01231,
-          "p10": 95.504,
-          "p90": 141.93
-        },
-        {
-          "timestamp_utc": "2026-09-02T02:00:00Z",
-          "predicted_price_eur_mwh": 118.963,
-          "negative_probability": 0.00965,
-          "p10": 98.526,
-          "p90": 149.753
-        },
-        {
-          "timestamp_utc": "2026-09-02T03:00:00Z",
-          "predicted_price_eur_mwh": 128.193,
-          "negative_probability": 0.00846,
-          "p10": 104.757,
-          "p90": 163.254
-        },
-        {
-          "timestamp_utc": "2026-09-02T04:00:00Z",
-          "predicted_price_eur_mwh": 151.061,
-          "negative_probability": 0.00311,
-          "p10": 120.971,
-          "p90": 203.798
-        },
-        {
-          "timestamp_utc": "2026-09-02T05:00:00Z",
-          "predicted_price_eur_mwh": 170.607,
-          "negative_probability": 0.00135,
-          "p10": 134.993,
-          "p90": 238.362
-        },
-        {
-          "timestamp_utc": "2026-09-02T06:00:00Z",
-          "predicted_price_eur_mwh": 175.151,
-          "negative_probability": 0.00115,
-          "p10": 137.467,
-          "p90": 245.031
-        },
-        {
-          "timestamp_utc": "2026-09-02T07:00:00Z",
-          "predicted_price_eur_mwh": 168.706,
-          "negative_probability": 0.00159,
-          "p10": 132.865,
-          "p90": 232.167
-        },
-        {
-          "timestamp_utc": "2026-09-02T08:00:00Z",
-          "predicted_price_eur_mwh": 157.377,
-          "negative_probability": 0.00277,
-          "p10": 124.841,
-          "p90": 212.197
-        },
-        {
-          "timestamp_utc": "2026-09-02T09:00:00Z",
-          "predicted_price_eur_mwh": 148.096,
-          "negative_probability": 0.0041,
-          "p10": 118.083,
-          "p90": 195.106
-        },
-        {
-          "timestamp_utc": "2026-09-02T10:00:00Z",
-          "predicted_price_eur_mwh": 142.292,
-          "negative_probability": 0.00584,
-          "p10": 113.264,
-          "p90": 184.034
-        },
-        {
-          "timestamp_utc": "2026-09-02T11:00:00Z",
-          "predicted_price_eur_mwh": 139.844,
-          "negative_probability": 0.00615,
-          "p10": 109.964,
-          "p90": 179.408
-        },
-        {
-          "timestamp_utc": "2026-09-02T12:00:00Z",
-          "predicted_price_eur_mwh": 139.481,
-          "negative_probability": 0.00539,
-          "p10": 111.146,
-          "p90": 177.976
-        },
-        {
-          "timestamp_utc": "2026-09-02T13:00:00Z",
-          "predicted_price_eur_mwh": 143.686,
-          "negative_probability": 0.00298,
-          "p10": 114.308,
-          "p90": 185.931
-        },
-        {
-          "timestamp_utc": "2026-09-02T14:00:00Z",
-          "predicted_price_eur_mwh": 154.205,
-          "negative_probability": 0.00118,
-          "p10": 120.995,
-          "p90": 205.14
-        },
-        {
-          "timestamp_utc": "2026-09-02T15:00:00Z",
-          "predicted_price_eur_mwh": 172.861,
-          "negative_probability": 0.00032,
-          "p10": 133.454,
-          "p90": 238.114
-        },
-        {
-          "timestamp_utc": "2026-09-02T16:00:00Z",
-          "predicted_price_eur_mwh": 196.745,
-          "negative_probability": 7e-05,
-          "p10": 150.841,
-          "p90": 284.339
-        },
-        {
-          "timestamp_utc": "2026-09-02T17:00:00Z",
-          "predicted_price_eur_mwh": 219.332,
-          "negative_probability": 2e-05,
-          "p10": 166.934,
-          "p90": 326.71
-        },
-        {
-          "timestamp_utc": "2026-09-02T18:00:00Z",
-          "predicted_price_eur_mwh": 223.385,
-          "negative_probability": 2e-05,
-          "p10": 168.303,
-          "p90": 331.837
-        },
-        {
-          "timestamp_utc": "2026-09-02T19:00:00Z",
-          "predicted_price_eur_mwh": 205.693,
-          "negative_probability": 7e-05,
-          "p10": 156.284,
-          "p90": 298.483
-        },
-        {
-          "timestamp_utc": "2026-09-02T20:00:00Z",
-          "predicted_price_eur_mwh": 181.233,
-          "negative_probability": 0.00034,
-          "p10": 139.777,
-          "p90": 253.901
-        },
-        {
-          "timestamp_utc": "2026-09-02T21:00:00Z",
-          "predicted_price_eur_mwh": 161.436,
-          "negative_probability": 0.00101,
-          "p10": 127.701,
-          "p90": 218.68
-        },
-        {
-          "timestamp_utc": "2026-09-02T22:00:00Z",
-          "predicted_price_eur_mwh": 147.108,
-          "negative_probability": 0.002,
-          "p10": 116.859,
-          "p90": 192.546
-        },
-        {
-          "timestamp_utc": "2026-09-02T23:00:00Z",
-          "predicted_price_eur_mwh": 137.196,
-          "negative_probability": 0.00386,
-          "p10": 112.01,
-          "p90": 175.239
-        },
-        {
-          "timestamp_utc": "2026-09-03T00:00:00Z",
-          "predicted_price_eur_mwh": 131.474,
-          "negative_probability": 0.00481,
-          "p10": 107.79,
-          "p90": 163.676
-        },
-        {
-          "timestamp_utc": "2026-09-03T01:00:00Z",
-          "predicted_price_eur_mwh": 125.647,
-          "negative_probability": 0.00657,
-          "p10": 105.007,
-          "p90": 154.196
-        },
-        {
-          "timestamp_utc": "2026-09-03T02:00:00Z",
-          "predicted_price_eur_mwh": 121.984,
-          "negative_probability": 0.00836,
-          "p10": 101.985,
-          "p90": 149.072
-        },
-        {
-          "timestamp_utc": "2026-09-03T03:00:00Z",
-          "predicted_price_eur_mwh": 121.528,
-          "negative_probability": 0.00962,
-          "p10": 101.367,
-          "p90": 149.59
-        },
-        {
-          "timestamp_utc": "2026-09-03T04:00:00Z",
-          "predicted_price_eur_mwh": 127.882,
-          "negative_probability": 0.00801,
-          "p10": 106.456,
-          "p90": 161.099
-        },
-        {
-          "timestamp_utc": "2026-09-03T05:00:00Z",
-          "predicted_price_eur_mwh": 140.688,
-          "negative_probability": 0.00582,
-          "p10": 115.872,
-          "p90": 182.712
-        },
-        {
-          "timestamp_utc": "2026-09-03T06:00:00Z",
-          "predicted_price_eur_mwh": 151.871,
-          "negative_probability": 0.00445,
-          "p10": 123.306,
-          "p90": 201.793
-        },
-        {
-          "timestamp_utc": "2026-09-03T07:00:00Z",
-          "predicted_price_eur_mwh": 154.27,
-          "negative_probability": 0.00393,
-          "p10": 124.651,
-          "p90": 205.973
-        },
-        {
-          "timestamp_utc": "2026-09-03T08:00:00Z",
-          "predicted_price_eur_mwh": 148.664,
-          "negative_probability": 0.00537,
-          "p10": 120.724,
-          "p90": 196.577
-        },
-        {
-          "timestamp_utc": "2026-09-03T09:00:00Z",
-          "predicted_price_eur_mwh": 138.736,
-          "negative_probability": 0.01057,
-          "p10": 111.486,
-          "p90": 178.373
-        },
-        {
-          "timestamp_utc": "2026-09-03T10:00:00Z",
-          "predicted_price_eur_mwh": 132.4,
-          "negative_probability": 0.01367,
-          "p10": 106.816,
-          "p90": 166.711
-        },
-        {
-          "timestamp_utc": "2026-09-03T11:00:00Z",
-          "predicted_price_eur_mwh": 129.704,
-          "negative_probability": 0.01743,
-          "p10": 102.575,
-          "p90": 161.471
-        },
-        {
-          "timestamp_utc": "2026-09-03T12:00:00Z",
-          "predicted_price_eur_mwh": 130.399,
-          "negative_probability": 0.01467,
-          "p10": 102.115,
-          "p90": 161.435
-        },
-        {
-          "timestamp_utc": "2026-09-03T13:00:00Z",
-          "predicted_price_eur_mwh": 133.98,
-          "negative_probability": 0.00845,
-          "p10": 105.002,
-          "p90": 168.156
-        },
-        {
-          "timestamp_utc": "2026-09-03T14:00:00Z",
-          "predicted_price_eur_mwh": 148.239,
-          "negative_probability": 0.00264,
-          "p10": 117.731,
-          "p90": 194.808
-        },
-        {
-          "timestamp_utc": "2026-09-03T15:00:00Z",
-          "predicted_price_eur_mwh": 166.872,
-          "negative_probability": 0.00071,
-          "p10": 130.128,
-          "p90": 229.342
-        },
-        {
-          "timestamp_utc": "2026-09-03T16:00:00Z",
-          "predicted_price_eur_mwh": 188.628,
-          "negative_probability": 0.00017,
-          "p10": 145.621,
-          "p90": 269.799
-        },
-        {
-          "timestamp_utc": "2026-09-03T17:00:00Z",
-          "predicted_price_eur_mwh": 200.74,
-          "negative_probability": 0.0001,
-          "p10": 154.523,
-          "p90": 292.036
-        },
-        {
-          "timestamp_utc": "2026-09-03T18:00:00Z",
-          "predicted_price_eur_mwh": 197.888,
-          "negative_probability": 0.00013,
-          "p10": 151.485,
-          "p90": 286.636
-        },
-        {
-          "timestamp_utc": "2026-09-03T19:00:00Z",
-          "predicted_price_eur_mwh": 185.736,
-          "negative_probability": 0.00027,
-          "p10": 142.751,
-          "p90": 263.524
-        },
-        {
-          "timestamp_utc": "2026-09-03T20:00:00Z",
-          "predicted_price_eur_mwh": 166.198,
-          "negative_probability": 0.00075,
-          "p10": 130.084,
-          "p90": 228.945
-        },
-        {
-          "timestamp_utc": "2026-09-03T21:00:00Z",
-          "predicted_price_eur_mwh": 151.628,
-          "negative_probability": 0.00165,
-          "p10": 120.614,
-          "p90": 202.159
-        },
-        {
           "timestamp_utc": "2026-09-03T22:00:00Z",
-          "predicted_price_eur_mwh": 141.075,
-          "negative_probability": 0.00253,
-          "p10": 113.94,
-          "p90": 182.773
+          "predicted_price_eur_mwh": 117.71,
+          "negative_probability": 0.01179,
+          "p10": 97.732,
+          "p90": 137.949
         },
         {
           "timestamp_utc": "2026-09-03T23:00:00Z",
-          "predicted_price_eur_mwh": 134.597,
-          "negative_probability": 0.0033,
-          "p10": 109.873,
-          "p90": 170.252
+          "predicted_price_eur_mwh": 116.802,
+          "negative_probability": 0.00977,
+          "p10": 97.626,
+          "p90": 137.02
         },
         {
           "timestamp_utc": "2026-09-04T00:00:00Z",
-          "predicted_price_eur_mwh": 128.889,
-          "negative_probability": 0.00466,
-          "p10": 105.709,
-          "p90": 159.698
+          "predicted_price_eur_mwh": 114.153,
+          "negative_probability": 0.01197,
+          "p10": 94.148,
+          "p90": 132.027
         },
         {
           "timestamp_utc": "2026-09-04T01:00:00Z",
-          "predicted_price_eur_mwh": 124.938,
-          "negative_probability": 0.00611,
-          "p10": 103.286,
-          "p90": 152.98
+          "predicted_price_eur_mwh": 110.865,
+          "negative_probability": 0.01481,
+          "p10": 91.592,
+          "p90": 126.711
         },
         {
           "timestamp_utc": "2026-09-04T02:00:00Z",
-          "predicted_price_eur_mwh": 125.979,
-          "negative_probability": 0.00615,
-          "p10": 104.272,
-          "p90": 153.477
+          "predicted_price_eur_mwh": 112.054,
+          "negative_probability": 0.01347,
+          "p10": 93.191,
+          "p90": 129.717
         },
         {
           "timestamp_utc": "2026-09-04T03:00:00Z",
-          "predicted_price_eur_mwh": 124.6,
-          "negative_probability": 0.00826,
-          "p10": 103.751,
-          "p90": 152.535
+          "predicted_price_eur_mwh": 112.332,
+          "negative_probability": 0.0161,
+          "p10": 93.585,
+          "p90": 131.58
         },
         {
           "timestamp_utc": "2026-09-04T04:00:00Z",
-          "predicted_price_eur_mwh": 129.145,
-          "negative_probability": 0.00643,
-          "p10": 105.947,
-          "p90": 158.878
+          "predicted_price_eur_mwh": 117.475,
+          "negative_probability": 0.01146,
+          "p10": 97.658,
+          "p90": 138.749
         },
         {
           "timestamp_utc": "2026-09-04T05:00:00Z",
-          "predicted_price_eur_mwh": 127.5,
-          "negative_probability": 0.00807,
-          "p10": 106.305,
-          "p90": 157.706
+          "predicted_price_eur_mwh": 119.377,
+          "negative_probability": 0.01221,
+          "p10": 98.431,
+          "p90": 143.419
         },
         {
           "timestamp_utc": "2026-09-04T06:00:00Z",
-          "predicted_price_eur_mwh": 125.636,
-          "negative_probability": 0.01075,
-          "p10": 104.496,
-          "p90": 156.938
+          "predicted_price_eur_mwh": 118.594,
+          "negative_probability": 0.01417,
+          "p10": 95.883,
+          "p90": 145.127
         },
         {
           "timestamp_utc": "2026-09-04T07:00:00Z",
-          "predicted_price_eur_mwh": 122.076,
-          "negative_probability": 0.01757,
-          "p10": 101.52,
-          "p90": 153.517
+          "predicted_price_eur_mwh": 111.166,
+          "negative_probability": 0.02599,
+          "p10": 88.643,
+          "p90": 137.718
         },
         {
           "timestamp_utc": "2026-09-04T08:00:00Z",
-          "predicted_price_eur_mwh": 121.78,
-          "negative_probability": 0.01787,
-          "p10": 101.822,
-          "p90": 147.353
+          "predicted_price_eur_mwh": 107.579,
+          "negative_probability": 0.05111,
+          "p10": 79.958,
+          "p90": 130.21
         },
         {
           "timestamp_utc": "2026-09-04T09:00:00Z",
-          "predicted_price_eur_mwh": 113.272,
-          "negative_probability": 0.03612,
-          "p10": 90.787,
-          "p90": 137.251
+          "predicted_price_eur_mwh": 97.347,
+          "negative_probability": 0.10774,
+          "p10": 61.328,
+          "p90": 121.962
         },
         {
           "timestamp_utc": "2026-09-04T10:00:00Z",
-          "predicted_price_eur_mwh": 107.935,
-          "negative_probability": 0.06184,
-          "p10": 81.312,
-          "p90": 134.86
+          "predicted_price_eur_mwh": 90.73,
+          "negative_probability": 0.15568,
+          "p10": 51.691,
+          "p90": 122.628
         },
         {
           "timestamp_utc": "2026-09-04T11:00:00Z",
-          "predicted_price_eur_mwh": 104.407,
-          "negative_probability": 0.07138,
-          "p10": 74.043,
-          "p90": 131.265
+          "predicted_price_eur_mwh": 81.939,
+          "negative_probability": 0.21201,
+          "p10": 40.331,
+          "p90": 118.665
         },
         {
           "timestamp_utc": "2026-09-04T12:00:00Z",
-          "predicted_price_eur_mwh": 108.945,
-          "negative_probability": 0.04239,
-          "p10": 79.74,
-          "p90": 129.77
+          "predicted_price_eur_mwh": 91.547,
+          "negative_probability": 0.14074,
+          "p10": 53.443,
+          "p90": 120.449
         },
         {
           "timestamp_utc": "2026-09-04T13:00:00Z",
-          "predicted_price_eur_mwh": 116.887,
-          "negative_probability": 0.02893,
-          "p10": 89.857,
-          "p90": 139.585
+          "predicted_price_eur_mwh": 101.682,
+          "negative_probability": 0.08503,
+          "p10": 67.032,
+          "p90": 124.752
         },
         {
           "timestamp_utc": "2026-09-04T14:00:00Z",
-          "predicted_price_eur_mwh": 127.346,
-          "negative_probability": 0.01009,
-          "p10": 101.771,
-          "p90": 159.05
+          "predicted_price_eur_mwh": 112.333,
+          "negative_probability": 0.03246,
+          "p10": 88.349,
+          "p90": 134.839
         },
         {
           "timestamp_utc": "2026-09-04T15:00:00Z",
-          "predicted_price_eur_mwh": 145.54,
-          "negative_probability": 0.00211,
-          "p10": 116.161,
-          "p90": 191.94
+          "predicted_price_eur_mwh": 124.705,
+          "negative_probability": 0.00899,
+          "p10": 101.843,
+          "p90": 150.777
         },
         {
           "timestamp_utc": "2026-09-04T16:00:00Z",
-          "predicted_price_eur_mwh": 167.227,
-          "negative_probability": 0.00061,
-          "p10": 130.646,
-          "p90": 231.537
+          "predicted_price_eur_mwh": 138.626,
+          "negative_probability": 0.00328,
+          "p10": 112.425,
+          "p90": 177.467
         },
         {
           "timestamp_utc": "2026-09-04T17:00:00Z",
-          "predicted_price_eur_mwh": 183.038,
-          "negative_probability": 0.00026,
-          "p10": 142.659,
-          "p90": 260.573
+          "predicted_price_eur_mwh": 157.847,
+          "negative_probability": 0.00101,
+          "p10": 126.133,
+          "p90": 211.484
         },
         {
           "timestamp_utc": "2026-09-04T18:00:00Z",
-          "predicted_price_eur_mwh": 187.138,
-          "negative_probability": 0.00021,
-          "p10": 144.015,
-          "p90": 265.424
+          "predicted_price_eur_mwh": 165.045,
+          "negative_probability": 0.00054,
+          "p10": 129.918,
+          "p90": 223.159
         },
         {
           "timestamp_utc": "2026-09-04T19:00:00Z",
-          "predicted_price_eur_mwh": 171.863,
-          "negative_probability": 0.00046,
-          "p10": 134.44,
-          "p90": 238.6
+          "predicted_price_eur_mwh": 152.736,
+          "negative_probability": 0.00096,
+          "p10": 122.12,
+          "p90": 202.114
         },
         {
           "timestamp_utc": "2026-09-04T20:00:00Z",
-          "predicted_price_eur_mwh": 153.789,
-          "negative_probability": 0.00112,
-          "p10": 122.664,
-          "p90": 206.242
+          "predicted_price_eur_mwh": 136.145,
+          "negative_probability": 0.00219,
+          "p10": 111.019,
+          "p90": 171.179
         },
         {
           "timestamp_utc": "2026-09-04T21:00:00Z",
-          "predicted_price_eur_mwh": 144.358,
-          "negative_probability": 0.00162,
-          "p10": 116.654,
-          "p90": 187.63
+          "predicted_price_eur_mwh": 125.428,
+          "negative_probability": 0.00355,
+          "p10": 104.545,
+          "p90": 150.635
         },
         {
           "timestamp_utc": "2026-09-04T22:00:00Z",
-          "predicted_price_eur_mwh": 136.471,
-          "negative_probability": 0.00248,
-          "p10": 111.257,
-          "p90": 173.553
+          "predicted_price_eur_mwh": 117.623,
+          "negative_probability": 0.00495,
+          "p10": 98.448,
+          "p90": 137.904
         },
         {
           "timestamp_utc": "2026-09-04T23:00:00Z",
-          "predicted_price_eur_mwh": 132.997,
-          "negative_probability": 0.00303,
-          "p10": 108.62,
-          "p90": 165.493
+          "predicted_price_eur_mwh": 117.066,
+          "negative_probability": 0.0053,
+          "p10": 98.091,
+          "p90": 136.592
         },
         {
           "timestamp_utc": "2026-09-05T00:00:00Z",
-          "predicted_price_eur_mwh": 127.95,
-          "negative_probability": 0.00479,
-          "p10": 105.478,
-          "p90": 158.178
+          "predicted_price_eur_mwh": 113.552,
+          "negative_probability": 0.00729,
+          "p10": 95.005,
+          "p90": 132.26
         },
         {
           "timestamp_utc": "2026-09-05T01:00:00Z",
-          "predicted_price_eur_mwh": 127.264,
-          "negative_probability": 0.00513,
-          "p10": 104.242,
-          "p90": 156.067
+          "predicted_price_eur_mwh": 111.977,
+          "negative_probability": 0.00974,
+          "p10": 93.202,
+          "p90": 130.193
         },
         {
           "timestamp_utc": "2026-09-05T02:00:00Z",
-          "predicted_price_eur_mwh": 125.364,
-          "negative_probability": 0.00783,
-          "p10": 103.054,
-          "p90": 153.764
+          "predicted_price_eur_mwh": 110.015,
+          "negative_probability": 0.0135,
+          "p10": 91.58,
+          "p90": 127.488
         },
         {
           "timestamp_utc": "2026-09-05T03:00:00Z",
-          "predicted_price_eur_mwh": 126.064,
-          "negative_probability": 0.01084,
-          "p10": 103.621,
-          "p90": 154.702
+          "predicted_price_eur_mwh": 109.876,
+          "negative_probability": 0.01539,
+          "p10": 90.371,
+          "p90": 127.326
         },
         {
           "timestamp_utc": "2026-09-05T04:00:00Z",
-          "predicted_price_eur_mwh": 127.385,
-          "negative_probability": 0.01272,
-          "p10": 104.641,
-          "p90": 156.859
+          "predicted_price_eur_mwh": 109.078,
+          "negative_probability": 0.02289,
+          "p10": 90.596,
+          "p90": 126.719
         },
         {
           "timestamp_utc": "2026-09-05T05:00:00Z",
-          "predicted_price_eur_mwh": 129.959,
-          "negative_probability": 0.01354,
-          "p10": 107.132,
-          "p90": 161.287
+          "predicted_price_eur_mwh": 110.161,
+          "negative_probability": 0.02894,
+          "p10": 90.472,
+          "p90": 128.152
         },
         {
           "timestamp_utc": "2026-09-05T06:00:00Z",
-          "predicted_price_eur_mwh": 131.147,
-          "negative_probability": 0.01374,
-          "p10": 107.228,
-          "p90": 162.67
+          "predicted_price_eur_mwh": 109.996,
+          "negative_probability": 0.04036,
+          "p10": 85.327,
+          "p90": 129.206
         },
         {
           "timestamp_utc": "2026-09-05T07:00:00Z",
-          "predicted_price_eur_mwh": 127.36,
-          "negative_probability": 0.02074,
-          "p10": 103.99,
-          "p90": 155.93
+          "predicted_price_eur_mwh": 105.045,
+          "negative_probability": 0.1053,
+          "p10": 70.718,
+          "p90": 125.53
         },
         {
           "timestamp_utc": "2026-09-05T08:00:00Z",
-          "predicted_price_eur_mwh": 120.625,
-          "negative_probability": 0.03874,
-          "p10": 94.217,
-          "p90": 145.357
+          "predicted_price_eur_mwh": 92.386,
+          "negative_probability": 0.28107,
+          "p10": 47.615,
+          "p90": 119.865
         },
         {
           "timestamp_utc": "2026-09-05T09:00:00Z",
-          "predicted_price_eur_mwh": 108.568,
-          "negative_probability": 0.10641,
-          "p10": 73.588,
-          "p90": 134.198
+          "predicted_price_eur_mwh": 69.666,
+          "negative_probability": 0.56681,
+          "p10": 24.753,
+          "p90": 109.356
         },
         {
           "timestamp_utc": "2026-09-05T10:00:00Z",
-          "predicted_price_eur_mwh": 95.687,
-          "negative_probability": 0.20471,
-          "p10": 52.951,
-          "p90": 127.871
+          "predicted_price_eur_mwh": 57.084,
+          "negative_probability": 0.70207,
+          "p10": 15.364,
+          "p90": 102.347
         },
         {
           "timestamp_utc": "2026-09-05T11:00:00Z",
-          "predicted_price_eur_mwh": 84.966,
-          "negative_probability": 0.3208,
-          "p10": 39.863,
-          "p90": 124.218
+          "predicted_price_eur_mwh": 49.004,
+          "negative_probability": 0.77067,
+          "p10": 10.675,
+          "p90": 97.247
         },
         {
           "timestamp_utc": "2026-09-05T12:00:00Z",
-          "predicted_price_eur_mwh": 87.951,
-          "negative_probability": 0.29546,
-          "p10": 37.949,
-          "p90": 126.256
+          "predicted_price_eur_mwh": 51.534,
+          "negative_probability": 0.75648,
+          "p10": 12.671,
+          "p90": 99.444
         },
         {
           "timestamp_utc": "2026-09-05T13:00:00Z",
-          "predicted_price_eur_mwh": 100.897,
-          "negative_probability": 0.17452,
-          "p10": 51.808,
-          "p90": 130.827
+          "predicted_price_eur_mwh": 64.423,
+          "negative_probability": 0.64113,
+          "p10": 18.342,
+          "p90": 109.481
         },
         {
           "timestamp_utc": "2026-09-05T14:00:00Z",
-          "predicted_price_eur_mwh": 114.707,
-          "negative_probability": 0.05555,
-          "p10": 75.356,
-          "p90": 138.3
+          "predicted_price_eur_mwh": 91.191,
+          "negative_probability": 0.28543,
+          "p10": 41.225,
+          "p90": 125.172
         },
         {
           "timestamp_utc": "2026-09-05T15:00:00Z",
-          "predicted_price_eur_mwh": 128.954,
-          "negative_probability": 0.01168,
-          "p10": 99.416,
-          "p90": 156.167
+          "predicted_price_eur_mwh": 111.9,
+          "negative_probability": 0.04985,
+          "p10": 78.315,
+          "p90": 136.392
         },
         {
           "timestamp_utc": "2026-09-05T16:00:00Z",
-          "predicted_price_eur_mwh": 152.931,
-          "negative_probability": 0.00161,
-          "p10": 121.786,
-          "p90": 199.94
+          "predicted_price_eur_mwh": 133.331,
+          "negative_probability": 0.00656,
+          "p10": 106.753,
+          "p90": 163.419
         },
         {
           "timestamp_utc": "2026-09-05T17:00:00Z",
-          "predicted_price_eur_mwh": 179.84,
-          "negative_probability": 0.0003,
-          "p10": 139.895,
-          "p90": 249.6
+          "predicted_price_eur_mwh": 156.541,
+          "negative_probability": 0.00098,
+          "p10": 125.916,
+          "p90": 204.528
         },
         {
           "timestamp_utc": "2026-09-05T18:00:00Z",
-          "predicted_price_eur_mwh": 190.248,
-          "negative_probability": 0.00017,
-          "p10": 145.228,
-          "p90": 267.503
+          "predicted_price_eur_mwh": 167.283,
+          "negative_probability": 0.00042,
+          "p10": 131.677,
+          "p90": 222.06
         },
         {
           "timestamp_utc": "2026-09-05T19:00:00Z",
-          "predicted_price_eur_mwh": 175.835,
-          "negative_probability": 0.00033,
-          "p10": 135.66,
-          "p90": 240.141
+          "predicted_price_eur_mwh": 158.213,
+          "negative_probability": 0.00066,
+          "p10": 125.528,
+          "p90": 205.598
         },
         {
           "timestamp_utc": "2026-09-05T20:00:00Z",
-          "predicted_price_eur_mwh": 155.88,
-          "negative_probability": 0.00087,
-          "p10": 122.472,
-          "p90": 204.774
+          "predicted_price_eur_mwh": 141.694,
+          "negative_probability": 0.00141,
+          "p10": 114.368,
+          "p90": 176.667
         },
         {
           "timestamp_utc": "2026-09-05T21:00:00Z",
-          "predicted_price_eur_mwh": 141.618,
-          "negative_probability": 0.00159,
-          "p10": 113.658,
-          "p90": 179.74
+          "predicted_price_eur_mwh": 129.715,
+          "negative_probability": 0.00244,
+          "p10": 106.501,
+          "p90": 155.764
         },
         {
           "timestamp_utc": "2026-09-05T22:00:00Z",
-          "predicted_price_eur_mwh": 136.408,
-          "negative_probability": 0.00198,
-          "p10": 110.631,
-          "p90": 169.469
+          "predicted_price_eur_mwh": 125.099,
+          "negative_probability": 0.0034,
+          "p10": 103.494,
+          "p90": 147.194
         },
         {
           "timestamp_utc": "2026-09-05T23:00:00Z",
-          "predicted_price_eur_mwh": 131.756,
-          "negative_probability": 0.00281,
-          "p10": 107.24,
-          "p90": 161.877
+          "predicted_price_eur_mwh": 123.093,
+          "negative_probability": 0.00343,
+          "p10": 102.331,
+          "p90": 143.88
         },
         {
           "timestamp_utc": "2026-09-06T00:00:00Z",
-          "predicted_price_eur_mwh": 126.845,
-          "negative_probability": 0.00467,
-          "p10": 104.3,
-          "p90": 154.313
+          "predicted_price_eur_mwh": 119.094,
+          "negative_probability": 0.00611,
+          "p10": 99.309,
+          "p90": 138.305
         },
         {
           "timestamp_utc": "2026-09-06T01:00:00Z",
-          "predicted_price_eur_mwh": 124.924,
-          "negative_probability": 0.00597,
-          "p10": 102.788,
-          "p90": 151.46
+          "predicted_price_eur_mwh": 117.037,
+          "negative_probability": 0.0079,
+          "p10": 97.539,
+          "p90": 135.395
         },
         {
           "timestamp_utc": "2026-09-06T02:00:00Z",
-          "predicted_price_eur_mwh": 123.248,
-          "negative_probability": 0.00826,
-          "p10": 101.505,
-          "p90": 149.356
+          "predicted_price_eur_mwh": 114.765,
+          "negative_probability": 0.01089,
+          "p10": 95.57,
+          "p90": 132.621
         },
         {
           "timestamp_utc": "2026-09-06T03:00:00Z",
-          "predicted_price_eur_mwh": 123.103,
-          "negative_probability": 0.01131,
-          "p10": 101.672,
-          "p90": 149.332
+          "predicted_price_eur_mwh": 113.79,
+          "negative_probability": 0.01431,
+          "p10": 94.617,
+          "p90": 131.55
         },
         {
           "timestamp_utc": "2026-09-06T04:00:00Z",
-          "predicted_price_eur_mwh": 125.386,
-          "negative_probability": 0.01282,
-          "p10": 103.872,
-          "p90": 153.373
+          "predicted_price_eur_mwh": 113.984,
+          "negative_probability": 0.01877,
+          "p10": 94.665,
+          "p90": 132.208
         },
         {
           "timestamp_utc": "2026-09-06T05:00:00Z",
-          "predicted_price_eur_mwh": 128.515,
-          "negative_probability": 0.01197,
-          "p10": 106.56,
-          "p90": 158.716
+          "predicted_price_eur_mwh": 115.556,
+          "negative_probability": 0.02084,
+          "p10": 95.932,
+          "p90": 135.509
         },
         {
           "timestamp_utc": "2026-09-06T06:00:00Z",
-          "predicted_price_eur_mwh": 128.519,
-          "negative_probability": 0.01398,
-          "p10": 106.932,
-          "p90": 158.095
+          "predicted_price_eur_mwh": 115.077,
+          "negative_probability": 0.0335,
+          "p10": 94.457,
+          "p90": 135.673
         },
         {
           "timestamp_utc": "2026-09-06T07:00:00Z",
-          "predicted_price_eur_mwh": 125.273,
-          "negative_probability": 0.01892,
-          "p10": 102.74,
-          "p90": 152.391
+          "predicted_price_eur_mwh": 111.314,
+          "negative_probability": 0.06395,
+          "p10": 83.446,
+          "p90": 131.994
         },
         {
           "timestamp_utc": "2026-09-06T08:00:00Z",
-          "predicted_price_eur_mwh": 118.831,
-          "negative_probability": 0.03297,
-          "p10": 94.093,
-          "p90": 143.002
+          "predicted_price_eur_mwh": 100.777,
+          "negative_probability": 0.17066,
+          "p10": 60.92,
+          "p90": 126.797
         },
         {
           "timestamp_utc": "2026-09-06T09:00:00Z",
-          "predicted_price_eur_mwh": 112.66,
-          "negative_probability": 0.067,
-          "p10": 81.753,
-          "p90": 137.828
+          "predicted_price_eur_mwh": 86.309,
+          "negative_probability": 0.34635,
+          "p10": 40.244,
+          "p90": 121.608
         },
         {
           "timestamp_utc": "2026-09-06T10:00:00Z",
-          "predicted_price_eur_mwh": 103.987,
-          "negative_probability": 0.1363,
-          "p10": 65.321,
-          "p90": 134.196
+          "predicted_price_eur_mwh": 73.188,
+          "negative_probability": 0.50765,
+          "p10": 28.019,
+          "p90": 114.94
         },
         {
           "timestamp_utc": "2026-09-06T11:00:00Z",
-          "predicted_price_eur_mwh": 96.719,
-          "negative_probability": 0.20234,
-          "p10": 52.384,
-          "p90": 131.513
+          "predicted_price_eur_mwh": 65.556,
+          "negative_probability": 0.58153,
+          "p10": 21.858,
+          "p90": 112.2
         },
         {
           "timestamp_utc": "2026-09-06T12:00:00Z",
-          "predicted_price_eur_mwh": 97.673,
-          "negative_probability": 0.19436,
-          "p10": 50.688,
-          "p90": 131.934
+          "predicted_price_eur_mwh": 67.46,
+          "negative_probability": 0.56,
+          "p10": 22.646,
+          "p90": 114.618
         },
         {
           "timestamp_utc": "2026-09-06T13:00:00Z",
-          "predicted_price_eur_mwh": 105.69,
-          "negative_probability": 0.12224,
-          "p10": 63.744,
-          "p90": 134.04
+          "predicted_price_eur_mwh": 77.477,
+          "negative_probability": 0.42436,
+          "p10": 31.016,
+          "p90": 118.673
         },
         {
           "timestamp_utc": "2026-09-06T14:00:00Z",
-          "predicted_price_eur_mwh": 119.34,
-          "negative_probability": 0.03856,
-          "p10": 84.01,
-          "p90": 143.532
+          "predicted_price_eur_mwh": 102.392,
+          "negative_probability": 0.13477,
+          "p10": 54.271,
+          "p90": 131.951
         },
         {
           "timestamp_utc": "2026-09-06T15:00:00Z",
-          "predicted_price_eur_mwh": 129.6,
-          "negative_probability": 0.01162,
-          "p10": 101.078,
-          "p90": 158.036
+          "predicted_price_eur_mwh": 113.163,
+          "negative_probability": 0.03842,
+          "p10": 82.006,
+          "p90": 135.826
         },
         {
           "timestamp_utc": "2026-09-06T16:00:00Z",
-          "predicted_price_eur_mwh": 148.234,
-          "negative_probability": 0.00228,
-          "p10": 118.374,
-          "p90": 193.242
+          "predicted_price_eur_mwh": 128.107,
+          "negative_probability": 0.0077,
+          "p10": 103.606,
+          "p90": 153.791
         },
         {
           "timestamp_utc": "2026-09-06T17:00:00Z",
-          "predicted_price_eur_mwh": 172.153,
-          "negative_probability": 0.00048,
-          "p10": 135.056,
-          "p90": 236.863
+          "predicted_price_eur_mwh": 145.857,
+          "negative_probability": 0.00158,
+          "p10": 118.936,
+          "p90": 184.961
         },
         {
           "timestamp_utc": "2026-09-06T18:00:00Z",
-          "predicted_price_eur_mwh": 182.358,
-          "negative_probability": 0.00023,
-          "p10": 140.272,
-          "p90": 254.047
+          "predicted_price_eur_mwh": 156.608,
+          "negative_probability": 0.00057,
+          "p10": 125.267,
+          "p90": 203.747
         },
         {
           "timestamp_utc": "2026-09-06T19:00:00Z",
-          "predicted_price_eur_mwh": 164.328,
-          "negative_probability": 0.0007,
-          "p10": 129.397,
-          "p90": 224.206
+          "predicted_price_eur_mwh": 147.428,
+          "negative_probability": 0.00101,
+          "p10": 119.288,
+          "p90": 189.531
         },
         {
           "timestamp_utc": "2026-09-06T20:00:00Z",
-          "predicted_price_eur_mwh": 146.0,
-          "negative_probability": 0.00178,
-          "p10": 117.126,
-          "p90": 190.593
+          "predicted_price_eur_mwh": 131.893,
+          "negative_probability": 0.00246,
+          "p10": 108.652,
+          "p90": 162.408
         },
         {
           "timestamp_utc": "2026-09-06T21:00:00Z",
-          "predicted_price_eur_mwh": 135.751,
-          "negative_probability": 0.0024,
-          "p10": 109.446,
-          "p90": 170.823
+          "predicted_price_eur_mwh": 123.423,
+          "negative_probability": 0.00389,
+          "p10": 102.163,
+          "p90": 145.818
         },
         {
           "timestamp_utc": "2026-09-06T22:00:00Z",
-          "predicted_price_eur_mwh": 123.636,
-          "negative_probability": 0.00537,
-          "p10": 102.322,
-          "p90": 151.231
+          "predicted_price_eur_mwh": 116.721,
+          "negative_probability": 0.00781,
+          "p10": 97.534,
+          "p90": 136.57
         },
         {
           "timestamp_utc": "2026-09-06T23:00:00Z",
-          "predicted_price_eur_mwh": 117.026,
-          "negative_probability": 0.00883,
-          "p10": 97.182,
-          "p90": 141.322
+          "predicted_price_eur_mwh": 112.437,
+          "negative_probability": 0.01071,
+          "p10": 94.295,
+          "p90": 130.197
         },
         {
           "timestamp_utc": "2026-09-07T00:00:00Z",
-          "predicted_price_eur_mwh": 116.966,
-          "negative_probability": 0.00842,
-          "p10": 95.715,
-          "p90": 140.633
+          "predicted_price_eur_mwh": 110.367,
+          "negative_probability": 0.0137,
+          "p10": 90.753,
+          "p90": 126.234
         },
         {
           "timestamp_utc": "2026-09-07T01:00:00Z",
-          "predicted_price_eur_mwh": 117.516,
-          "negative_probability": 0.00777,
-          "p10": 95.04,
-          "p90": 144.791
+          "predicted_price_eur_mwh": 108.169,
+          "negative_probability": 0.01501,
+          "p10": 88.022,
+          "p90": 124.123
         },
         {
           "timestamp_utc": "2026-09-07T02:00:00Z",
-          "predicted_price_eur_mwh": 118.117,
-          "negative_probability": 0.01053,
-          "p10": 95.967,
-          "p90": 147.829
+          "predicted_price_eur_mwh": 107.331,
+          "negative_probability": 0.02075,
+          "p10": 88.425,
+          "p90": 123.487
         },
         {
           "timestamp_utc": "2026-09-07T03:00:00Z",
-          "predicted_price_eur_mwh": 130.046,
-          "negative_probability": 0.00588,
-          "p10": 105.241,
-          "p90": 170.559
+          "predicted_price_eur_mwh": 111.072,
+          "negative_probability": 0.01531,
+          "p10": 90.829,
+          "p90": 130.543
         },
         {
           "timestamp_utc": "2026-09-07T04:00:00Z",
-          "predicted_price_eur_mwh": 151.545,
-          "negative_probability": 0.00269,
-          "p10": 121.275,
-          "p90": 207.709
+          "predicted_price_eur_mwh": 123.986,
+          "negative_probability": 0.00968,
+          "p10": 103.423,
+          "p90": 153.918
         },
         {
           "timestamp_utc": "2026-09-07T05:00:00Z",
-          "predicted_price_eur_mwh": 171.042,
-          "negative_probability": 0.00145,
-          "p10": 132.991,
-          "p90": 240.752
+          "predicted_price_eur_mwh": 143.22,
+          "negative_probability": 0.00603,
+          "p10": 116.563,
+          "p90": 187.974
         },
         {
           "timestamp_utc": "2026-09-07T06:00:00Z",
-          "predicted_price_eur_mwh": 179.861,
-          "negative_probability": 0.00107,
-          "p10": 139.258,
-          "p90": 254.878
+          "predicted_price_eur_mwh": 153.068,
+          "negative_probability": 0.00417,
+          "p10": 123.48,
+          "p90": 205.563
         },
         {
           "timestamp_utc": "2026-09-07T07:00:00Z",
-          "predicted_price_eur_mwh": 175.014,
-          "negative_probability": 0.00151,
-          "p10": 135.661,
-          "p90": 244.466
+          "predicted_price_eur_mwh": 148.586,
+          "negative_probability": 0.00512,
+          "p10": 119.388,
+          "p90": 196.27
         },
         {
           "timestamp_utc": "2026-09-07T08:00:00Z",
-          "predicted_price_eur_mwh": 161.914,
-          "negative_probability": 0.00315,
-          "p10": 125.783,
-          "p90": 219.869
+          "predicted_price_eur_mwh": 133.926,
+          "negative_probability": 0.01145,
+          "p10": 107.97,
+          "p90": 170.733
         },
         {
           "timestamp_utc": "2026-09-07T09:00:00Z",
-          "predicted_price_eur_mwh": 144.268,
-          "negative_probability": 0.0112,
-          "p10": 114.537,
-          "p90": 186.707
+          "predicted_price_eur_mwh": 119.645,
+          "negative_probability": 0.03081,
+          "p10": 95.724,
+          "p90": 145.548
         },
         {
           "timestamp_utc": "2026-09-07T10:00:00Z",
-          "predicted_price_eur_mwh": 136.711,
-          "negative_probability": 0.01544,
-          "p10": 107.247,
-          "p90": 171.941
+          "predicted_price_eur_mwh": 115.294,
+          "negative_probability": 0.04138,
+          "p10": 88.66,
+          "p90": 137.96
         },
         {
           "timestamp_utc": "2026-09-07T11:00:00Z",
-          "predicted_price_eur_mwh": 133.108,
-          "negative_probability": 0.02174,
-          "p10": 102.523,
-          "p90": 164.193
+          "predicted_price_eur_mwh": 112.305,
+          "negative_probability": 0.05754,
+          "p10": 82.557,
+          "p90": 134.071
         },
         {
           "timestamp_utc": "2026-09-07T12:00:00Z",
-          "predicted_price_eur_mwh": 134.084,
-          "negative_probability": 0.0117,
-          "p10": 102.999,
-          "p90": 168.25
+          "predicted_price_eur_mwh": 114.268,
+          "negative_probability": 0.04113,
+          "p10": 82.603,
+          "p90": 140.387
         },
         {
           "timestamp_utc": "2026-09-07T13:00:00Z",
-          "predicted_price_eur_mwh": 137.62,
-          "negative_probability": 0.00696,
-          "p10": 108.057,
-          "p90": 175.015
+          "predicted_price_eur_mwh": 118.164,
+          "negative_probability": 0.03157,
+          "p10": 90.764,
+          "p90": 142.705
         },
         {
           "timestamp_utc": "2026-09-07T14:00:00Z",
-          "predicted_price_eur_mwh": 152.147,
-          "negative_probability": 0.00147,
-          "p10": 119.48,
-          "p90": 202.575
+          "predicted_price_eur_mwh": 125.187,
+          "negative_probability": 0.01028,
+          "p10": 100.345,
+          "p90": 156.012
         },
         {
           "timestamp_utc": "2026-09-07T15:00:00Z",
-          "predicted_price_eur_mwh": 176.347,
-          "negative_probability": 0.00021,
-          "p10": 134.855,
-          "p90": 249.848
+          "predicted_price_eur_mwh": 139.951,
+          "negative_probability": 0.00282,
+          "p10": 112.478,
+          "p90": 182.102
         },
         {
           "timestamp_utc": "2026-09-07T16:00:00Z",
-          "predicted_price_eur_mwh": 212.421,
-          "negative_probability": 3e-05,
-          "p10": 159.827,
-          "p90": 315.088
+          "predicted_price_eur_mwh": 168.676,
+          "negative_probability": 0.00041,
+          "p10": 130.592,
+          "p90": 234.345
         },
         {
           "timestamp_utc": "2026-09-07T17:00:00Z",
-          "predicted_price_eur_mwh": 234.528,
-          "negative_probability": 1e-05,
-          "p10": 174.722,
-          "p90": 355.139
+          "predicted_price_eur_mwh": 198.553,
+          "negative_probability": 8e-05,
+          "p10": 150.046,
+          "p90": 289.782
         },
         {
           "timestamp_utc": "2026-09-07T18:00:00Z",
-          "predicted_price_eur_mwh": 235.485,
-          "negative_probability": 1e-05,
-          "p10": 174.401,
-          "p90": 354.545
+          "predicted_price_eur_mwh": 208.212,
+          "negative_probability": 5e-05,
+          "p10": 156.638,
+          "p90": 305.649
         },
         {
           "timestamp_utc": "2026-09-07T19:00:00Z",
-          "predicted_price_eur_mwh": 213.133,
-          "negative_probability": 5e-05,
-          "p10": 159.298,
-          "p90": 312.769
+          "predicted_price_eur_mwh": 189.244,
+          "negative_probability": 0.00015,
+          "p10": 144.555,
+          "p90": 270.511
         },
         {
           "timestamp_utc": "2026-09-07T20:00:00Z",
-          "predicted_price_eur_mwh": 186.237,
-          "negative_probability": 0.00021,
-          "p10": 141.218,
-          "p90": 264.291
+          "predicted_price_eur_mwh": 160.342,
+          "negative_probability": 0.0007,
+          "p10": 127.196,
+          "p90": 216.754
         },
         {
           "timestamp_utc": "2026-09-07T21:00:00Z",
-          "predicted_price_eur_mwh": 164.686,
-          "negative_probability": 0.00075,
-          "p10": 127.678,
-          "p90": 227.157
+          "predicted_price_eur_mwh": 137.701,
+          "negative_probability": 0.00223,
+          "p10": 112.538,
+          "p90": 175.832
         },
         {
           "timestamp_utc": "2026-09-07T22:00:00Z",
-          "predicted_price_eur_mwh": 149.484,
-          "negative_probability": 0.00162,
-          "p10": 118.249,
-          "p90": 199.883
+          "predicted_price_eur_mwh": 124.696,
+          "negative_probability": 0.00364,
+          "p10": 102.948,
+          "p90": 152.227
         },
         {
           "timestamp_utc": "2026-09-07T23:00:00Z",
-          "predicted_price_eur_mwh": 139.17,
-          "negative_probability": 0.00298,
-          "p10": 111.73,
-          "p90": 181.832
+          "predicted_price_eur_mwh": 117.343,
+          "negative_probability": 0.00648,
+          "p10": 98.083,
+          "p90": 139.229
         },
         {
           "timestamp_utc": "2026-09-08T00:00:00Z",
-          "predicted_price_eur_mwh": 132.593,
-          "negative_probability": 0.00492,
-          "p10": 107.616,
-          "p90": 171.026
+          "predicted_price_eur_mwh": 113.467,
+          "negative_probability": 0.00993,
+          "p10": 95.287,
+          "p90": 133.262
         },
         {
           "timestamp_utc": "2026-09-08T01:00:00Z",
-          "predicted_price_eur_mwh": 129.214,
-          "negative_probability": 0.00604,
-          "p10": 103.505,
-          "p90": 165.499
+          "predicted_price_eur_mwh": 111.214,
+          "negative_probability": 0.01361,
+          "p10": 92.199,
+          "p90": 129.528
         },
         {
           "timestamp_utc": "2026-09-08T02:00:00Z",
-          "predicted_price_eur_mwh": 124.797,
-          "negative_probability": 0.009,
-          "p10": 100.743,
-          "p90": 161.505
+          "predicted_price_eur_mwh": 110.172,
+          "negative_probability": 0.01623,
+          "p10": 90.373,
+          "p90": 129.984
         },
         {
           "timestamp_utc": "2026-09-08T03:00:00Z",
-          "predicted_price_eur_mwh": 134.384,
-          "negative_probability": 0.00636,
-          "p10": 106.437,
-          "p90": 178.015
+          "predicted_price_eur_mwh": 114.507,
+          "negative_probability": 0.01377,
+          "p10": 93.209,
+          "p90": 139.107
         },
         {
           "timestamp_utc": "2026-09-08T04:00:00Z",
-          "predicted_price_eur_mwh": 153.887,
-          "negative_probability": 0.00333,
-          "p10": 121.653,
-          "p90": 211.329
+          "predicted_price_eur_mwh": 130.585,
+          "negative_probability": 0.00871,
+          "p10": 106.747,
+          "p90": 168.368
         },
         {
           "timestamp_utc": "2026-09-08T05:00:00Z",
-          "predicted_price_eur_mwh": 174.332,
-          "negative_probability": 0.00144,
-          "p10": 135.432,
-          "p90": 246.258
+          "predicted_price_eur_mwh": 150.955,
+          "negative_probability": 0.00456,
+          "p10": 122.221,
+          "p90": 204.552
         },
         {
           "timestamp_utc": "2026-09-08T06:00:00Z",
-          "predicted_price_eur_mwh": 183.35,
-          "negative_probability": 0.001,
-          "p10": 140.427,
-          "p90": 260.292
+          "predicted_price_eur_mwh": 163.603,
+          "negative_probability": 0.00282,
+          "p10": 128.28,
+          "p90": 224.469
         },
         {
           "timestamp_utc": "2026-09-08T07:00:00Z",
-          "predicted_price_eur_mwh": 176.81,
-          "negative_probability": 0.00166,
-          "p10": 136.092,
-          "p90": 246.218
+          "predicted_price_eur_mwh": 157.139,
+          "negative_probability": 0.00474,
+          "p10": 123.347,
+          "p90": 212.066
         },
         {
           "timestamp_utc": "2026-09-08T08:00:00Z",
-          "predicted_price_eur_mwh": 166.063,
-          "negative_probability": 0.00292,
-          "p10": 128.528,
-          "p90": 226.222
+          "predicted_price_eur_mwh": 143.484,
+          "negative_probability": 0.00917,
+          "p10": 113.84,
+          "p90": 187.53
         },
         {
           "timestamp_utc": "2026-09-08T09:00:00Z",
-          "predicted_price_eur_mwh": 155.294,
-          "negative_probability": 0.00645,
-          "p10": 121.115,
-          "p90": 205.359
+          "predicted_price_eur_mwh": 131.513,
+          "negative_probability": 0.01819,
+          "p10": 104.799,
+          "p90": 166.373
         },
         {
           "timestamp_utc": "2026-09-08T10:00:00Z",
-          "predicted_price_eur_mwh": 148.613,
-          "negative_probability": 0.00825,
-          "p10": 115.518,
-          "p90": 194.241
+          "predicted_price_eur_mwh": 123.353,
+          "negative_probability": 0.02654,
+          "p10": 97.028,
+          "p90": 153.748
         },
         {
           "timestamp_utc": "2026-09-08T11:00:00Z",
-          "predicted_price_eur_mwh": 143.897,
-          "negative_probability": 0.01029,
-          "p10": 111.218,
-          "p90": 184.836
+          "predicted_price_eur_mwh": 118.318,
+          "negative_probability": 0.03376,
+          "p10": 91.029,
+          "p90": 145.701
         },
         {
           "timestamp_utc": "2026-09-08T12:00:00Z",
-          "predicted_price_eur_mwh": 141.698,
-          "negative_probability": 0.00965,
-          "p10": 109.901,
-          "p90": 178.755
+          "predicted_price_eur_mwh": 119.195,
+          "negative_probability": 0.0367,
+          "p10": 89.695,
+          "p90": 142.891
         },
         {
           "timestamp_utc": "2026-09-08T13:00:00Z",
-          "predicted_price_eur_mwh": 144.166,
-          "negative_probability": 0.00465,
-          "p10": 112.515,
-          "p90": 185.912
+          "predicted_price_eur_mwh": 122.649,
+          "negative_probability": 0.02156,
+          "p10": 94.736,
+          "p90": 148.508
         },
         {
           "timestamp_utc": "2026-09-08T14:00:00Z",
-          "predicted_price_eur_mwh": 152.583,
-          "negative_probability": 0.00225,
-          "p10": 118.503,
-          "p90": 200.075
+          "predicted_price_eur_mwh": 126.402,
+          "negative_probability": 0.0151,
+          "p10": 100.374,
+          "p90": 154.816
         },
         {
           "timestamp_utc": "2026-09-08T15:00:00Z",
-          "predicted_price_eur_mwh": 170.051,
-          "negative_probability": 0.00051,
-          "p10": 130.883,
-          "p90": 235.131
+          "predicted_price_eur_mwh": 135.572,
+          "negative_probability": 0.0048,
+          "p10": 108.451,
+          "p90": 172.876
         },
         {
           "timestamp_utc": "2026-09-08T16:00:00Z",
-          "predicted_price_eur_mwh": 196.695,
-          "negative_probability": 8e-05,
-          "p10": 149.295,
-          "p90": 287.433
+          "predicted_price_eur_mwh": 156.448,
+          "negative_probability": 0.00113,
+          "p10": 122.161,
+          "p90": 213.399
         },
         {
           "timestamp_utc": "2026-09-08T17:00:00Z",
-          "predicted_price_eur_mwh": 219.391,
-          "negative_probability": 3e-05,
-          "p10": 164.943,
-          "p90": 328.5
+          "predicted_price_eur_mwh": 184.415,
+          "negative_probability": 0.00022,
+          "p10": 142.592,
+          "p90": 265.347
         },
         {
           "timestamp_utc": "2026-09-08T18:00:00Z",
-          "predicted_price_eur_mwh": 227.606,
-          "negative_probability": 2e-05,
-          "p10": 170.291,
-          "p90": 341.742
+          "predicted_price_eur_mwh": 199.537,
+          "negative_probability": 7e-05,
+          "p10": 151.664,
+          "p90": 292.458
         },
         {
           "timestamp_utc": "2026-09-08T19:00:00Z",
-          "predicted_price_eur_mwh": 204.263,
-          "negative_probability": 0.0001,
-          "p10": 154.001,
-          "p90": 298.821
+          "predicted_price_eur_mwh": 180.757,
+          "negative_probability": 0.0003,
+          "p10": 139.383,
+          "p90": 258.183
         },
         {
           "timestamp_utc": "2026-09-08T20:00:00Z",
-          "predicted_price_eur_mwh": 182.211,
-          "negative_probability": 0.0002,
-          "p10": 137.441,
-          "p90": 256.838
+          "predicted_price_eur_mwh": 160.654,
+          "negative_probability": 0.00078,
+          "p10": 125.338,
+          "p90": 215.65
         },
         {
           "timestamp_utc": "2026-09-08T21:00:00Z",
-          "predicted_price_eur_mwh": 156.633,
-          "negative_probability": 0.00063,
-          "p10": 121.032,
-          "p90": 211.109
+          "predicted_price_eur_mwh": 138.839,
+          "negative_probability": 0.00126,
+          "p10": 110.406,
+          "p90": 177.454
         },
         {
           "timestamp_utc": "2026-09-08T22:00:00Z",
-          "predicted_price_eur_mwh": 134.346,
-          "negative_probability": 0.00335,
-          "p10": 109.385,
-          "p90": 170.271
+          "predicted_price_eur_mwh": 122.933,
+          "negative_probability": 0.00541,
+          "p10": 102.278,
+          "p90": 150.295
         },
         {
           "timestamp_utc": "2026-09-08T23:00:00Z",
-          "predicted_price_eur_mwh": 123.077,
-          "negative_probability": 0.00877,
-          "p10": 101.688,
-          "p90": 150.676
+          "predicted_price_eur_mwh": 115.679,
+          "negative_probability": 0.0101,
+          "p10": 96.443,
+          "p90": 137.233
         },
         {
           "timestamp_utc": "2026-09-09T00:00:00Z",
-          "predicted_price_eur_mwh": 117.993,
-          "negative_probability": 0.01598,
-          "p10": 96.496,
-          "p90": 141.189
+          "predicted_price_eur_mwh": 112.209,
+          "negative_probability": 0.01539,
+          "p10": 93.11,
+          "p90": 131.297
+        },
+        {
+          "timestamp_utc": "2026-09-09T01:00:00Z",
+          "predicted_price_eur_mwh": 110.382,
+          "negative_probability": 0.01212,
+          "p10": 88.453,
+          "p90": 129.215
+        },
+        {
+          "timestamp_utc": "2026-09-09T02:00:00Z",
+          "predicted_price_eur_mwh": 109.119,
+          "negative_probability": 0.02325,
+          "p10": 87.832,
+          "p90": 127.519
+        },
+        {
+          "timestamp_utc": "2026-09-09T03:00:00Z",
+          "predicted_price_eur_mwh": 108.484,
+          "negative_probability": 0.02661,
+          "p10": 88.938,
+          "p90": 127.638
+        },
+        {
+          "timestamp_utc": "2026-09-09T04:00:00Z",
+          "predicted_price_eur_mwh": 118.401,
+          "negative_probability": 0.01917,
+          "p10": 97.843,
+          "p90": 143.186
+        },
+        {
+          "timestamp_utc": "2026-09-09T05:00:00Z",
+          "predicted_price_eur_mwh": 135.302,
+          "negative_probability": 0.00839,
+          "p10": 109.528,
+          "p90": 171.405
+        },
+        {
+          "timestamp_utc": "2026-09-09T06:00:00Z",
+          "predicted_price_eur_mwh": 142.636,
+          "negative_probability": 0.007,
+          "p10": 113.626,
+          "p90": 182.854
+        },
+        {
+          "timestamp_utc": "2026-09-09T07:00:00Z",
+          "predicted_price_eur_mwh": 135.599,
+          "negative_probability": 0.01232,
+          "p10": 107.923,
+          "p90": 171.18
+        },
+        {
+          "timestamp_utc": "2026-09-09T08:00:00Z",
+          "predicted_price_eur_mwh": 124.084,
+          "negative_probability": 0.02069,
+          "p10": 98.589,
+          "p90": 152.494
+        },
+        {
+          "timestamp_utc": "2026-09-09T09:00:00Z",
+          "predicted_price_eur_mwh": 109.955,
+          "negative_probability": 0.06139,
+          "p10": 79.992,
+          "p90": 135.315
+        },
+        {
+          "timestamp_utc": "2026-09-09T10:00:00Z",
+          "predicted_price_eur_mwh": 107.35,
+          "negative_probability": 0.08683,
+          "p10": 71.787,
+          "p90": 133.091
+        },
+        {
+          "timestamp_utc": "2026-09-09T11:00:00Z",
+          "predicted_price_eur_mwh": 99.747,
+          "negative_probability": 0.11608,
+          "p10": 61.97,
+          "p90": 127.86
+        },
+        {
+          "timestamp_utc": "2026-09-09T12:00:00Z",
+          "predicted_price_eur_mwh": 94.05,
+          "negative_probability": 0.13129,
+          "p10": 55.57,
+          "p90": 123.137
+        },
+        {
+          "timestamp_utc": "2026-09-09T13:00:00Z",
+          "predicted_price_eur_mwh": 102.285,
+          "negative_probability": 0.08887,
+          "p10": 66.945,
+          "p90": 126.655
+        },
+        {
+          "timestamp_utc": "2026-09-09T14:00:00Z",
+          "predicted_price_eur_mwh": 109.433,
+          "negative_probability": 0.04968,
+          "p10": 80.45,
+          "p90": 131.217
+        },
+        {
+          "timestamp_utc": "2026-09-09T15:00:00Z",
+          "predicted_price_eur_mwh": 118.269,
+          "negative_probability": 0.01388,
+          "p10": 95.583,
+          "p90": 144.752
+        },
+        {
+          "timestamp_utc": "2026-09-09T16:00:00Z",
+          "predicted_price_eur_mwh": 136.564,
+          "negative_probability": 0.00366,
+          "p10": 110.064,
+          "p90": 177.156
+        },
+        {
+          "timestamp_utc": "2026-09-09T17:00:00Z",
+          "predicted_price_eur_mwh": 165.693,
+          "negative_probability": 0.00067,
+          "p10": 129.125,
+          "p90": 229.409
+        },
+        {
+          "timestamp_utc": "2026-09-09T18:00:00Z",
+          "predicted_price_eur_mwh": 177.695,
+          "negative_probability": 0.00033,
+          "p10": 137.574,
+          "p90": 251.979
+        },
+        {
+          "timestamp_utc": "2026-09-09T19:00:00Z",
+          "predicted_price_eur_mwh": 166.995,
+          "negative_probability": 0.00035,
+          "p10": 131.571,
+          "p90": 229.09
+        },
+        {
+          "timestamp_utc": "2026-09-09T20:00:00Z",
+          "predicted_price_eur_mwh": 139.556,
+          "negative_probability": 0.00194,
+          "p10": 113.403,
+          "p90": 179.939
+        },
+        {
+          "timestamp_utc": "2026-09-09T21:00:00Z",
+          "predicted_price_eur_mwh": 119.13,
+          "negative_probability": 0.00717,
+          "p10": 98.807,
+          "p90": 143.244
+        },
+        {
+          "timestamp_utc": "2026-09-09T22:00:00Z",
+          "predicted_price_eur_mwh": 110.785,
+          "negative_probability": 0.01364,
+          "p10": 91.745,
+          "p90": 130.222
+        },
+        {
+          "timestamp_utc": "2026-09-09T23:00:00Z",
+          "predicted_price_eur_mwh": 109.974,
+          "negative_probability": 0.0165,
+          "p10": 90.571,
+          "p90": 127.699
+        },
+        {
+          "timestamp_utc": "2026-09-10T00:00:00Z",
+          "predicted_price_eur_mwh": 106.31,
+          "negative_probability": 0.02753,
+          "p10": 87.24,
+          "p90": 123.714
+        },
+        {
+          "timestamp_utc": "2026-09-10T01:00:00Z",
+          "predicted_price_eur_mwh": 104.23,
+          "negative_probability": 0.03128,
+          "p10": 84.736,
+          "p90": 122.375
+        },
+        {
+          "timestamp_utc": "2026-09-10T02:00:00Z",
+          "predicted_price_eur_mwh": 104.315,
+          "negative_probability": 0.03184,
+          "p10": 84.673,
+          "p90": 122.309
+        },
+        {
+          "timestamp_utc": "2026-09-10T03:00:00Z",
+          "predicted_price_eur_mwh": 106.7,
+          "negative_probability": 0.02944,
+          "p10": 86.875,
+          "p90": 125.009
+        },
+        {
+          "timestamp_utc": "2026-09-10T04:00:00Z",
+          "predicted_price_eur_mwh": 114.106,
+          "negative_probability": 0.02476,
+          "p10": 93.284,
+          "p90": 135.505
+        },
+        {
+          "timestamp_utc": "2026-09-10T05:00:00Z",
+          "predicted_price_eur_mwh": 125.76,
+          "negative_probability": 0.01697,
+          "p10": 102.557,
+          "p90": 154.229
+        },
+        {
+          "timestamp_utc": "2026-09-10T06:00:00Z",
+          "predicted_price_eur_mwh": 133.227,
+          "negative_probability": 0.01279,
+          "p10": 107.974,
+          "p90": 166.351
+        },
+        {
+          "timestamp_utc": "2026-09-10T07:00:00Z",
+          "predicted_price_eur_mwh": 132.674,
+          "negative_probability": 0.01461,
+          "p10": 106.421,
+          "p90": 164.982
+        },
+        {
+          "timestamp_utc": "2026-09-10T08:00:00Z",
+          "predicted_price_eur_mwh": 125.333,
+          "negative_probability": 0.02364,
+          "p10": 100.233,
+          "p90": 153.845
+        },
+        {
+          "timestamp_utc": "2026-09-10T09:00:00Z",
+          "predicted_price_eur_mwh": 117.263,
+          "negative_probability": 0.04273,
+          "p10": 91.576,
+          "p90": 142.708
+        },
+        {
+          "timestamp_utc": "2026-09-10T10:00:00Z",
+          "predicted_price_eur_mwh": 110.916,
+          "negative_probability": 0.07165,
+          "p10": 83.393,
+          "p90": 136.12
+        },
+        {
+          "timestamp_utc": "2026-09-10T11:00:00Z",
+          "predicted_price_eur_mwh": 107.842,
+          "negative_probability": 0.09188,
+          "p10": 77.477,
+          "p90": 133.447
+        },
+        {
+          "timestamp_utc": "2026-09-10T12:00:00Z",
+          "predicted_price_eur_mwh": 108.891,
+          "negative_probability": 0.08503,
+          "p10": 76.53,
+          "p90": 133.957
+        },
+        {
+          "timestamp_utc": "2026-09-10T13:00:00Z",
+          "predicted_price_eur_mwh": 116.016,
+          "negative_probability": 0.04895,
+          "p10": 85.989,
+          "p90": 140.084
+        },
+        {
+          "timestamp_utc": "2026-09-10T14:00:00Z",
+          "predicted_price_eur_mwh": 122.237,
+          "negative_probability": 0.022,
+          "p10": 96.352,
+          "p90": 149.407
+        },
+        {
+          "timestamp_utc": "2026-09-10T15:00:00Z",
+          "predicted_price_eur_mwh": 136.506,
+          "negative_probability": 0.00607,
+          "p10": 108.465,
+          "p90": 174.118
+        },
+        {
+          "timestamp_utc": "2026-09-10T16:00:00Z",
+          "predicted_price_eur_mwh": 161.848,
+          "negative_probability": 0.00126,
+          "p10": 126.11,
+          "p90": 219.442
+        },
+        {
+          "timestamp_utc": "2026-09-10T17:00:00Z",
+          "predicted_price_eur_mwh": 184.144,
+          "negative_probability": 0.00037,
+          "p10": 141.371,
+          "p90": 258.604
+        },
+        {
+          "timestamp_utc": "2026-09-10T18:00:00Z",
+          "predicted_price_eur_mwh": 186.802,
+          "negative_probability": 0.00027,
+          "p10": 142.872,
+          "p90": 263.697
+        },
+        {
+          "timestamp_utc": "2026-09-10T19:00:00Z",
+          "predicted_price_eur_mwh": 168.011,
+          "negative_probability": 0.00063,
+          "p10": 129.528,
+          "p90": 228.16
+        },
+        {
+          "timestamp_utc": "2026-09-10T20:00:00Z",
+          "predicted_price_eur_mwh": 144.135,
+          "negative_probability": 0.0029,
+          "p10": 114.007,
+          "p90": 186.173
+        },
+        {
+          "timestamp_utc": "2026-09-10T21:00:00Z",
+          "predicted_price_eur_mwh": 128.243,
+          "negative_probability": 0.00791,
+          "p10": 102.265,
+          "p90": 156.538
         }
       ]
     }
